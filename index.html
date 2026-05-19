@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Style Guide — brain.tdvm.net</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Source+Serif+4:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Source Serif 4', 'Roboto Slab', serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #1a1025;
+      color: #dcdcdc;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #ff71ce;
+      text-shadow: 0 0 20px rgba(255, 113, 206, 0.4);
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin: 2rem 0 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid #3d2b5a;
+      color: #01cdfe;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin: 1.5rem 0 0.5rem;
+      color: #b96dff;
+    }
+    h4 { font-size: 1rem; margin: 1.2rem 0 0.4rem; color: #dcdcdc; }
+    h5 { font-size: 0.9rem; margin: 1rem 0 0.3rem; color: #b96dff; text-transform: uppercase; letter-spacing: 0.05em; }
+    h6 { font-size: 0.85rem; margin: 1rem 0 0.3rem; color: #b4b4b4; text-transform: uppercase; letter-spacing: 0.05em; }
+    p { margin: 0.5rem 0; }
+    .subtitle { color: #dcdcdc; margin-bottom: 1.5rem; font-size: 0.95rem; }
+    a { color: #01cdfe; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      font-family: 'Source Code Pro', 'Roboto Mono', monospace;
+      background: #2d1b4e;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.9em;
+      color: #01cdfe;
+    }
+    pre {
+      background: #0f0a1a;
+      color: #e0e0e0;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin: 0.5rem 0;
+      border: 1px solid #2d1b4e;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 3px solid #ff71ce;
+      background: #2d1b4e;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 5px;
+      color: #dcdcdc;
+      font-style: italic;
+    }
+    ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+    li { margin: 0.25rem 0; }
+    hr { border: none; border-top: 1px solid #3d2b5a; margin: 1.5rem 0; }
+    table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
+    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #2d1b4e; }
+    th { color: #b4b4b4; font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600; }
+    .badge-app { background: rgba(255, 113, 206, 0.15); color: #ff71ce; }
+    .badge-ai { background: rgba(1, 205, 254, 0.15); color: #01cdfe; }
+    .badge-infra { background: rgba(185, 109, 255, 0.15); color: #b96dff; }
+    .badge-success { background: rgba(80, 200, 120, 0.15); color: #50c878; }
+    .badge-warn { background: rgba(255, 190, 50, 0.15); color: #ffbe32; }
+    .badge-error { background: rgba(255, 80, 80, 0.15); color: #ff5050; }
+    .instructions {
+      background: #2d1b4e;
+      padding: 1rem;
+      border-radius: 5px;
+      margin: 0.5rem 0;
+      border-left: 3px solid #ff71ce;
+    }
+    .instructions-info { border-left-color: #01cdfe; }
+    .instructions-success { border-left-color: #50c878; }
+    .instructions-warn { border-left-color: #ffbe32; }
+    .instructions-error { border-left-color: #ff5050; }
+    .swatch {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-right: 8px;
+      border: 1px solid #2d1b4e;
+    }
+    .color-row { display: flex; align-items: center; margin: 0.4rem 0; }
+    .color-label { font-family: monospace; font-size: 0.85rem; min-width: 120px; }
+    .color-name { color: #dcdcdc; font-size: 0.85rem; }
+    .tool {
+      margin: 0.5rem 0;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #2d1b4e;
+    }
+    .tool-name { font-weight: bold; font-family: monospace; color: #ff71ce; }
+    .tool-desc { color: #dcdcdc; font-size: 0.9rem; }
+    .config-section { margin: 1.5rem 0; }
+    .config-path { font-size: 0.85rem; color: #999; font-family: monospace; margin-bottom: 0.3rem; }
+    .url {
+      font-family: monospace;
+      background: #2d1b4e;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      color: #01cdfe;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: rgba(255, 113, 206, 0.15); color: #ff71ce; border-color: #ff71ce; }
+    .btn-primary:hover { background: rgba(255, 113, 206, 0.3); }
+    .btn-secondary { background: rgba(1, 205, 254, 0.15); color: #01cdfe; border-color: #01cdfe; }
+    .btn-secondary:hover { background: rgba(1, 205, 254, 0.3); }
+    .btn-subtle { background: transparent; color: #b4b4b4; border-color: #3d2b5a; }
+    .btn-subtle:hover { color: #dcdcdc; border-color: #b4b4b4; }
+    .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
+    .btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
+    .muted { color: #b4b4b4; }
+    .dim { color: #999; }
+    .text-pink { color: #ff71ce; }
+    .text-cyan { color: #01cdfe; }
+    .text-purple { color: #b96dff; }
+    .text-success { color: #50c878; }
+    .text-warn { color: #ffbe32; }
+    .text-error { color: #ff5050; }
+    .grid { display: grid; gap: 1rem; }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card {
+      background: #2d1b4e;
+      padding: 1rem;
+      border-radius: 5px;
+      border: 1px solid #3d2b5a;
+    }
+    .card-header { font-weight: 600; margin-bottom: 0.5rem; }
+    .card-body { font-size: 0.9rem; color: #dcdcdc; }
+    .flex { display: flex; gap: 0.5rem; align-items: center; }
+    .flex-wrap { flex-wrap: wrap; }
+    .text-sm { font-size: 0.85rem; }
+    .text-xs { font-size: 0.75rem; }
+    .font-mono { font-family: 'Source Code Pro', 'Roboto Mono', monospace; }
+    .font-bold { font-weight: 700; }
+    .uppercase { text-transform: uppercase; letter-spacing: 0.05em; }
+    .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    input[type="text"], input[type="password"], textarea, select {
+      background: #0f0a1a;
+      border: 1px solid #2d1b4e;
+      color: #dcdcdc;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      width: 100%;
+      max-width: 400px;
+    }
+    input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #ff71ce;
+    }
+    textarea { min-height: 80px; resize: vertical; }
+    label { display: block; margin: 0.5rem 0 0.25rem; color: #b4b4b4; font-size: 0.85rem; }
+    .tooltip { position: relative; border-bottom: 1px dotted #01cdfe; cursor: help; }
+    .tooltip:hover::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0f0a1a;
+      color: #dcdcdc;
+      padding: 0.4rem 0.6rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      border: 1px solid #2d1b4e;
+      z-index: 1;
+    }
+    .kbd {
+      display: inline-block;
+      background: #2d1b4e;
+      border: 1px solid #3d2b5a;
+      border-radius: 3px;
+      padding: 0.1rem 0.4rem;
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: #dcdcdc;
+    }
+    .progress {
+      background: #2d1b4e;
+      border-radius: 4px;
+      height: 8px;
+      overflow: hidden;
+      margin: 0.5rem 0;
+    }
+    .progress-bar {
+      height: 100%;
+      border-radius: 4px;
+    }
+    .progress-pink { background: #ff71ce; }
+    .progress-cyan { background: #01cdfe; }
+    .progress-purple { background: #b96dff; }
+    .progress-success { background: #50c878; }
+    .avatar {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #3d2b5a;
+      vertical-align: middle;
+    }
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      background: #2d1b4e;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      color: #b4b4b4;
+      margin: 0.1rem;
+    }
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 0.4rem;
+    }
+    .status-online { background: #50c878; }
+    .status-offline { background: #ff5050; }
+    .status-warn { background: #ffbe32; }
+  </style>
+</head>
+<body>
+  <h1>Style Guide</h1>
+  <p class="subtitle">Shared design system for all brain.tdvm.net services</p>
+
+  <h2>Colors</h2>
+
+  <div class="color-row"><span class="swatch" style="background: #1a1025"></span><span class="color-label">#1a1025</span><span class="color-name">Background</span></div>
+  <div class="color-row"><span class="swatch" style="background: #2d1b4e"></span><span class="color-label">#2d1b4e</span><span class="color-name">Surface / Cards</span></div>
+  <div class="color-row"><span class="swatch" style="background: #0f0a1a"></span><span class="color-label">#0f0a1a</span><span class="color-name">Code blocks / Inputs</span></div>
+  <div class="color-row"><span class="swatch" style="background: #3d2b5a"></span><span class="color-label">#3d2b5a</span><span class="color-name">Borders / Dividers</span></div>
+  <div class="color-row"><span class="swatch" style="background: #ff71ce"></span><span class="color-label">#ff71ce</span><span class="color-name">Primary (pink)</span></div>
+  <div class="color-row"><span class="swatch" style="background: #01cdfe"></span><span class="color-label">#01cdfe</span><span class="color-name">Secondary (cyan)</span></div>
+  <div class="color-row"><span class="swatch" style="background: #b96dff"></span><span class="color-label">#b96dff</span><span class="color-name">Tertiary (purple)</span></div>
+  <div class="color-row"><span class="swatch" style="background: #dcdcdc"></span><span class="color-label">#dcdcdc</span><span class="color-name">Body text</span></div>
+  <div class="color-row"><span class="swatch" style="background: #b4b4b4"></span><span class="color-label">#b4b4b4</span><span class="color-name">Muted text</span></div>
+  <div class="color-row"><span class="swatch" style="background: #999"></span><span class="color-label">#999</span><span class="color-name">Dim text</span></div>
+  <div class="color-row"><span class="swatch" style="background: #50c878"></span><span class="color-label">#50c878</span><span class="color-name">Success</span></div>
+  <div class="color-row"><span class="swatch" style="background: #ffbe32"></span><span class="color-label">#ffbe32</span><span class="color-name">Warning</span></div>
+  <div class="color-row"><span class="swatch" style="background: #ff5050"></span><span class="color-label">#ff5050</span><span class="color-name">Error</span></div>
+
+  <h2>Typography</h2>
+
+  <div class="instructions instructions-info">
+    <strong>Fonts:</strong> <code>Source Serif 4</code> (body, primary) / <code>Roboto Slab</code> (body, fallback). <code>Source Code Pro</code> (monospace, primary) / <code>Roboto Mono</code> (monospace, fallback). All loaded from Google Fonts CDN, self-hostable.
+  </div>
+
+  <h1>Heading 1 — Primary pink</h1>
+  <p class="muted">Used for page titles. Includes glow text-shadow.</p>
+
+  <h2>Heading 2 — Cyan with underline</h2>
+  <p class="muted">Used for section headers. Bottom border divider.</p>
+
+  <h3>Heading 3 — Purple</h3>
+  <p class="muted">Used for subsections.</p>
+
+  <h4>Heading 4 — Body color</h4>
+  <p class="muted">Minor section headers.</p>
+
+  <h5>Heading 5 — Purple uppercase</h5>
+  <p class="muted">Small labels, uppercase with letter-spacing.</p>
+
+  <h6>Heading 6 — Muted uppercase</h6>
+  <p class="muted">Smallest labels.</p>
+
+  <p>This is a standard paragraph. Body font: <code>Source Serif 4</code> with <code>Roboto Slab</code> fallback. Monospace: <code>Source Code Pro, Roboto Mono</code>.</p>
+
+  <p class="muted">This is muted text using the <code>.muted</code> class.</p>
+  <p class="dim">This is dim text using the <code>.dim</code> class — color <code>#999</code>.</p>
+
+  <p>
+    <span class="text-pink">Colored text: pink</span><br>
+    <span class="text-cyan">Colored text: cyan</span><br>
+    <span class="text-purple">Colored text: purple</span><br>
+    <span class="text-success">Colored text: success</span><br>
+    <span class="text-warn">Colored text: warning</span><br>
+    <span class="text-error">Colored text: error</span>
+  </p>
+
+  <p>
+    <span class="text-sm">Small text (0.85rem)</span><br>
+    <span class="text-xs">Extra small text (0.75rem)</span>
+  </p>
+
+  <p>
+    <span class="font-bold">Bold text</span><br>
+    <span class="uppercase">Uppercase with letter-spacing</span><br>
+    <span class="font-mono">Monospace text</span>
+  </p>
+
+  <p>
+    This paragraph contains <a href="#">inline links</a>, <code>inline code</code>, <span class="url">URL-style code</span>, <span class="tooltip" data-tip="This is a tooltip">tooltips</span>, and <span class="kbd">keyboard shortcuts</span>.
+  </p>
+
+  <h2>Links</h2>
+
+  <p>
+    Standard link: <a href="#">Default cyan link</a><br>
+    Hover state: <a href="#">Links get underline on hover</a>
+  </p>
+
+  <h2>Inline Elements</h2>
+
+  <p>
+    <code>Inline code</code> — dark purple background, cyan text.<br>
+    <span class="url">URL-style code</span> — monospace with tighter padding.<br>
+    <span class="kbd">Ctrl</span> + <span class="kbd">C</span> — keyboard keys.<br>
+    <span class="tooltip" data-tip="Hover for tooltip">Tooltip text</span> — dotted underline, hover for tooltip.<br>
+    <span class="truncate" style="display: inline-block; max-width: 200px; border-bottom: 1px solid #2d1b4e;">This is truncated text that gets ellipsis</span> — text truncation.
+  </p>
+
+  <h2>Badges</h2>
+
+  <div class="flex flex-wrap">
+    <span class="badge badge-app">App</span>
+    <span class="badge badge-ai">AI</span>
+    <span class="badge badge-infra">Infrastructure</span>
+    <span class="badge badge-success">Success</span>
+    <span class="badge badge-warn">Warning</span>
+    <span class="badge badge-error">Error</span>
+  </div>
+
+  <h2>Tags</h2>
+
+  <div class="flex flex-wrap">
+    <span class="tag">v1.0.0</span>
+    <span class="tag">production</span>
+    <span class="tag">docker</span>
+    <span class="tag">traefik</span>
+    <span class="tag">nginx</span>
+    <span class="tag">internal</span>
+  </div>
+
+  <h2>Status Indicators</h2>
+
+  <div class="flex flex-wrap">
+    <span><span class="status-dot status-online"></span>Online</span><br>
+    <span><span class="status-dot status-offline"></span>Offline</span><br>
+    <span><span class="status-dot status-warn"></span>Degraded</span>
+  </div>
+
+  <h2>Buttons</h2>
+
+  <div class="flex flex-wrap">
+    <a href="#" class="btn btn-primary">Primary</a>
+    <a href="#" class="btn btn-secondary">Secondary</a>
+    <a href="#" class="btn btn-subtle">Subtle</a>
+  </div>
+
+  <div class="flex flex-wrap" style="margin-top: 0.5rem;">
+    <a href="#" class="btn btn-primary btn-sm">Small</a>
+    <a href="#" class="btn btn-primary">Normal</a>
+    <a href="#" class="btn btn-primary btn-lg">Large</a>
+  </div>
+
+  <h2>Alert Boxes</h2>
+
+  <div class="instructions">
+    <strong>Default (pink border)</strong> — General instructions or important notes.
+  </div>
+
+  <div class="instructions instructions-info">
+    <strong>Info (cyan border)</strong> — Informational messages.
+  </div>
+
+  <div class="instructions instructions-success">
+    <strong>Success (green border)</strong> — Confirmation or positive feedback.
+  </div>
+
+  <div class="instructions instructions-warn">
+    <strong>Warning (amber border)</strong> — Cautionary messages.
+  </div>
+
+  <div class="instructions instructions-error">
+    <strong>Error (red border)</strong> — Errors or critical issues.
+  </div>
+
+  <h2>Blockquote</h2>
+
+  <blockquote>
+    This is a blockquote. It has a pink left border and dark background, similar to the instructions box but with italic text.
+  </blockquote>
+
+  <h2>Code Blocks</h2>
+
+  <pre><code>{
+  "mcpServers": {
+    "wikipedia": {
+      "url": "https://wikipedia.brain.tdvm.net/mcp"
+    }
+  }
+}</code></pre>
+
+  <pre><code>#!/usr/bin/env bash
+set -euo pipefail
+echo "Hello, world!"</code></pre>
+
+  <h2>Lists</h2>
+
+  <h3>Unordered</h3>
+  <ul>
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item with <code>inline code</code> and <a href="#">a link</a></li>
+    <li>Nested list:
+      <ul>
+        <li>Nested A</li>
+        <li>Nested B</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Ordered</h3>
+  <ol>
+    <li>Step one</li>
+    <li>Step two</li>
+    <li>Step three</li>
+  </ol>
+
+  <h2>Tables</h2>
+
+  <table>
+    <tr>
+      <th>Subdomain</th>
+      <th>Service</th>
+      <th>Description</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td><a href="#">example</a></td>
+      <td>Example Service</td>
+      <td>A demonstration of table rows</td>
+      <td><span><span class="status-dot status-online"></span>Running</span></td>
+    </tr>
+    <tr>
+      <td><a href="#">another</a></td>
+      <td>Another Service</td>
+      <td>With <code>inline code</code> and <span class="badge badge-ai">badges</span></td>
+      <td><span><span class="status-dot status-warn"></span>Degraded</span></td>
+    </tr>
+  </table>
+
+  <h2>Cards</h2>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card-header">Card Title</div>
+      <div class="card-body">Card body text goes here. Cards have a surface background with a border.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">Another Card</div>
+      <div class="card-body">Cards can contain <a href="#">links</a>, <code>code</code>, <span class="badge badge-success">badges</span>, and other elements.</div>
+    </div>
+  </div>
+
+  <h2>Progress Bars</h2>
+
+  <div class="progress"><div class="progress-bar progress-pink" style="width: 25%"></div></div>
+  <div class="progress"><div class="progress-bar progress-cyan" style="width: 50%"></div></div>
+  <div class="progress"><div class="progress-bar progress-purple" style="width: 75%"></div></div>
+  <div class="progress"><div class="progress-bar progress-success" style="width: 100%"></div></div>
+
+  <h2>Forms</h2>
+
+  <label for="demo-text">Text input</label>
+  <input type="text" id="demo-text" placeholder="Enter text...">
+
+  <label for="demo-pass">Password input</label>
+  <input type="password" id="demo-pass" placeholder="Enter password...">
+
+  <label for="demo-select">Select</label>
+  <select id="demo-select">
+    <option>Option one</option>
+    <option>Option two</option>
+    <option>Option three</option>
+  </select>
+
+  <label for="demo-textarea">Textarea</label>
+  <textarea id="demo-textarea" placeholder="Enter multiline text..."></textarea>
+
+  <h2>Tool Cards</h2>
+
+  <div class="tool">
+    <span class="tool-name">search_articles</span>
+    <span class="tool-desc">— Search Wikipedia articles by keyword. Returns a list of matching article titles with relevance scores.</span>
+  </div>
+
+  <div class="tool">
+    <span class="tool-name">get_article</span>
+    <span class="tool-desc">— Get the full text of a Wikipedia article by its exact title.</span>
+  </div>
+
+  <h2>Config Sections</h2>
+
+  <div class="config-section">
+    <h3>Example Config</h3>
+    <p class="config-path">~/.config/example/config.json</p>
+    <pre><code>{
+  "key": "value",
+  "nested": {
+    "enabled": true
+  }
+}</code></pre>
+  </div>
+
+  <h2>Horizontal Rule</h2>
+
+  <hr>
+
+  <p class="dim" style="margin-top: 1rem;">End of style guide.</p>
+</body>
+</html>
