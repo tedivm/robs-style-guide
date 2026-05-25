@@ -8,42 +8,26 @@
   import Progress from './Progress.svelte';
 
   let dark = $state(false);
-  let colors = $state([]);
 
-  function resolveHex(variable) {
-    const el = document.createElement('div');
-    el.style.color = `var(${variable})`;
-    document.body.appendChild(el);
-    const computed = getComputedStyle(el).color;
-    document.body.removeChild(el);
-    const m = computed.match(/rgba?\(([^)]+)\)/);
-    if (!m) return computed;
-    const parts = m[1].split(',').map(s => s.trim());
-    return '#' + parts.slice(0, 3).map(v => parseInt(v).toString(16).padStart(2, '0')).join('');
-  }
-
-  function refreshColors() {
-    colors = [
-      { variable: '--background', name: 'Background' },
-      { variable: '--card', name: 'Surface / Cards' },
-      { variable: '--input', name: 'Code blocks / Inputs' },
-      { variable: '--border', name: 'Borders / Dividers' },
-      { variable: '--primary', name: 'Primary (pink)' },
-      { variable: '--secondary', name: 'Secondary (purple)' },
-      { variable: '--accent', name: 'Tertiary (cyan)' },
-      { variable: '--foreground', name: 'Body text' },
-      { variable: '--muted-foreground', name: 'Muted text' },
-      { variable: '--muted', name: 'Muted background' },
-      { variable: '--success', name: 'Success' },
-      { variable: '--warning', name: 'Warning' },
-      { variable: '--destructive', name: 'Error' },
-    ].map(c => ({ ...c, hex: resolveHex(c.variable) }));
-  }
+  const colors = [
+    { name: 'Background', dark: '#150d1e', light: '#f5f1fc' },
+    { name: 'Surface / Cards', dark: '#2d1b4e', light: '#e9e0f7' },
+    { name: 'Code blocks / Inputs', dark: '#0f0a1a', light: '#eee5f9' },
+    { name: 'Borders / Dividers', dark: '#3d2b5a', light: '#d4c2ec' },
+    { name: 'Primary (pink)', dark: '#e042b0', light: '#bc0081' },
+    { name: 'Secondary (purple)', dark: '#b96dff', light: '#6f26c9' },
+    { name: 'Tertiary (cyan)', dark: '#01cdfe', light: '#005cb5' },
+    { name: 'Body text', dark: '#dcdcdc', light: '#1d152a' },
+    { name: 'Muted text', dark: '#b4b4b4', light: '#5e546d' },
+    { name: 'Muted background', dark: '#3d2b5a', light: '#eee5f9' },
+    { name: 'Success', dark: '#50c878', light: '#156d33' },
+    { name: 'Warning', dark: '#ffbe32', light: '#875200' },
+    { name: 'Error', dark: '#ee343b', light: '#b9000b' },
+  ];
 
   function toggle() {
     dark = !dark;
     document.documentElement.classList.toggle('dark', dark);
-    setTimeout(refreshColors, 50);
   }
 
   onMount(() => {
@@ -51,7 +35,6 @@
       dark = true;
       document.documentElement.classList.add('dark');
     }
-    setTimeout(refreshColors, 50);
   });
 </script>
 
@@ -67,13 +50,24 @@
   </div>
 
   <h2>Colors</h2>
-  {#each colors as c}
-    <div class="color-row">
-      <div class="swatch" style="background: {c.hex}"></div>
-      <span class="color-label">{c.hex}</span>
-      <span class="color-name">{c.name}</span>
-    </div>
-  {/each}
+  <table class="color-table">
+    <thead>
+      <tr>
+        <th>Color</th>
+        <th>Dark Mode</th>
+        <th>Light Mode</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each colors as c}
+        <tr>
+          <td>{c.name}</td>
+          <td><span class="color-cell"><span class="swatch" style="background: {c.dark}"></span><span class="color-hex">{c.dark}</span></span></td>
+          <td><span class="color-cell"><span class="swatch" style="background: {c.light}"></span><span class="color-hex">{c.light}</span></span></td>
+        </tr>
+      {/each}
+    </tbody>
+  </table>
 
   <h2>Buttons</h2>
   <div class="flex-wrap">
@@ -216,29 +210,43 @@
 
   .swatch {
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
     border-radius: 4px;
     vertical-align: middle;
-    margin-right: 8px;
+    margin-right: 6px;
     border: 1px solid var(--border);
   }
 
-  .color-row {
+  .color-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0;
+  }
+
+  .color-table th,
+  .color-table td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--muted);
+  }
+
+  .color-table th {
+    color: var(--muted-foreground);
+    font-weight: 600;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .color-cell {
     display: flex;
     align-items: center;
-    margin: 0.4rem 0;
+    gap: 6px;
   }
 
-  .color-label {
+  .color-hex {
     font-family: 'Source Code Pro', monospace;
-    font-size: 0.85rem;
-    min-width: 120px;
-    color: var(--foreground);
-  }
-
-  .color-name {
-    color: var(--foreground);
     font-size: 0.85rem;
   }
 
