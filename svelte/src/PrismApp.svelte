@@ -227,8 +227,19 @@ echo "Done."</code></pre>` },
 
     Prism.highlightAll();
 
+    // Prism injects inline styles on <pre> elements that override our CSS.
+    // Strip them so our CSS variables take effect.
+    for (const pre of document.querySelectorAll('pre')) {
+      pre.removeAttribute('style');
+    }
+
     const btn = document.getElementById('theme-toggle');
-    if (btn) btn.addEventListener('click', () => Prism.highlightAll());
+    if (btn) btn.addEventListener('click', () => {
+      Prism.highlightAll();
+      for (const pre of document.querySelectorAll('pre')) {
+        pre.removeAttribute('style');
+      }
+    });
   });
 </script>
 
@@ -428,8 +439,8 @@ echo "Done."</code></pre>` },
   }
 
   :global(pre) {
-    background: var(--code);
-    color: var(--code-fg);
+    background: var(--code) !important;
+    color: var(--code-fg) !important;
     padding: 1rem;
     border-radius: 5px;
     border: 1px solid var(--border);
@@ -441,6 +452,8 @@ echo "Done."</code></pre>` },
 
   :global(code) {
     font-family: 'Source Code Pro', 'Roboto Mono', monospace;
+    background: var(--code) !important;
+    color: var(--code-fg) !important;
   }
 
   :global(.token.comment),

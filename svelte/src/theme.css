@@ -24,6 +24,9 @@
   --border: #d4c2ec;
   --input: #eee5f9;
   --ring: #bc0081;
+
+  --code: #eee5f9;
+  --code-fg: #4c1161;
 }
 
 .dark {
@@ -50,6 +53,9 @@
   --border: #3d2b5a;
   --input: #0f0a1a;
   --ring: #e042b0;
+
+  --code: #0f0a1a;
+  --code-fg: #e0e0e0;
 }
 
 * {
