@@ -166,44 +166,9 @@
       color: var(--primary) !important;
     }
 
-    /* Strings: cyan (accent) */
-    .token.string,
-    .token.char {
-      color: var(--accent) !important;
-    }
-
-    /* Comments: muted */
-    .token.comment,
-    .token.cdata {
-      color: var(--muted) !important;
-    }
-
-    /* Prolog / doctype: error (structural declarations) */
-    .token.prolog,
-    .token.doctype {
-      color: var(--error) !important;
-    }
-
-    /* Numbers / booleans: purple (secondary) */
-    .token.number,
-    .token.boolean {
-      color: var(--secondary) !important;
-    }
-
-    /* Functions: pink (primary) */
-    .token.function,
-    .token.function-name,
-    .token.function-variable {
-      color: var(--primary) !important;
-    }
-
-    /* Punctuation: body fg */
-    .token.punctuation {
-      color: var(--fg) !important;
-    }
-
-    /* Operators: cyan (accent) */
+    /* Operators, punctuation, URL: cyan (accent) */
     .token.operator,
+    .token.punctuation,
     .token.url {
       color: var(--accent) !important;
     }
@@ -220,12 +185,9 @@
       color: var(--primary) !important;
     }
 
-    /* Attributes: secondary (name) + accent (value) */
+    /* Attributes: secondary (name) */
     .token.attr-name {
       color: var(--secondary) !important;
-    }
-    .token.attr-value {
-      color: var(--accent) !important;
     }
 
     /* Built-in constants: success (green) */
@@ -331,11 +293,11 @@
       </tr>
       <tr>
         <td><span class="swatch" style="background: #6020c0"></span></td>
-        <td class="token-list">number, boolean, property, variable, symbol, attr-name, namespace</td>
+        <td class="token-list">property, variable, symbol, attr-name, namespace</td>
       </tr>
       <tr>
         <td><span class="swatch" style="background: #005cb5"></span></td>
-        <td class="token-list">string, char, operator, url, attr-value</td>
+        <td class="token-list">operator, punctuation, url</td>
       </tr>
       <tr>
         <td><span class="swatch" style="background: #50c878"></span></td>
@@ -347,15 +309,11 @@
       </tr>
       <tr>
         <td><span class="swatch" style="background: #ee343b"></span></td>
-        <td class="token-list">prolog, doctype, deleted</td>
+        <td class="token-list">prolog, doctype, string, char, attr-value, number, boolean, deleted</td>
       </tr>
       <tr>
         <td><span class="swatch" style="background: #b4b4b4"></span></td>
         <td class="token-list">comment, cdata</td>
-      </tr>
-      <tr>
-        <td><span class="swatch" style="background: #dcdcdc"></span></td>
-        <td class="token-list">punctuation</td>
       </tr>
     </tbody>
   </table>
@@ -579,6 +537,68 @@ docker run --rm \
 
 echo "Done."</code></pre>
 
+  <h2>HTML</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Style Guide&lt;/title&gt;
+    &lt;link rel="stylesheet" href="theme.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header class="site-header"&gt;
+      &lt;h1&gt;Rob's Style Guide&lt;/h1&gt;
+      &lt;nav&gt;
+        &lt;a href="#colors"&gt;Colors&lt;/a&gt;
+        &lt;a href="#typography"&gt;Typography&lt;/a&gt;
+        &lt;a href="#components"&gt;Components&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main id="content"&gt;
+      &lt;p&gt;Welcome to the style guide.&lt;/p&gt;
+    &lt;/main&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+  <h2>XML</h2>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;theme name="dark-purple"&gt;
+    &lt;color name="primary" value="#bc0081" /&gt;
+    &lt;color name="secondary" value="#6020c0" /&gt;
+    &lt;color name="accent" value="#005cb5" /&gt;
+    &lt;color name="success" value="#50c878" /&gt;
+    &lt;color name="warning" value="#ffbe32" /&gt;
+    &lt;color name="error" value="#ee343b" /&gt;
+    &lt;typography&gt;
+      &lt;body&gt;Source Serif 4, Roboto Slab, serif&lt;/body&gt;
+      &lt;monospace&gt;Source Code Pro, Roboto Mono, monospace&lt;/monospace&gt;
+    &lt;/typography&gt;
+  &lt;/theme&gt;
+&lt;/configuration&gt;</code></pre>
+
+  <h2>Diff</h2>
+<pre><code class="language-diff">--- a/docs/index.html
++++ b/docs/index.html
+@@ -15,7 +15,7 @@
+   :root {
+     --bg: #0f0a1a;
+     --fg: #e0e0e0;
+-    --surface: #2d1b4e;
++    --surface: #1a1130;
+     --code: #0f0a1a;
+     --code-fg: #e0e0e0;
+     --primary: #bc0081;
+@@ -25,6 +25,8 @@
+     --success: #50c878;
+     --warning: #ffbe32;
+     --error: #ee343b;
++    --border: #2d1b4e;
++    --radius: 6px;
+    }
+  </style></code></pre>
+
   <p class="dim" style="margin-top: 1rem;">Powered by <a href="https://prismjs.com">Prism.js</a></p>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
@@ -590,6 +610,8 @@ echo "Done."</code></pre>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-hcl.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-diff.min.js"></script>
   <script>
     var toggle = document.getElementById('theme-toggle');
     var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
