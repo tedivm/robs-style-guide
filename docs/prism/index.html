@@ -159,10 +159,31 @@
     }
     pre code { background: none; padding: 0; color: inherit; }
 
-    /* Keywords: pink (primary) */
+    /* Comments: muted */
+    .token.comment,
+    .token.prolog,
+    .token.cdata {
+      color: var(--muted) !important;
+    }
+
+    /* Strings, numbers, booleans: error (red) */
+    .token.doctype,
+    .token.string,
+    .token.char,
+    .token.attr-value,
+    .token.number,
+    .token.boolean,
+    .token.deleted {
+      color: var(--error) !important;
+    }
+
+    /* Keywords, functions: pink (primary) */
     .token.keyword,
     .token.module,
-    .token.control {
+    .token.control,
+    .token.function,
+    .token.function-name,
+    .token.function-variable {
       color: var(--primary) !important;
     }
 
