@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Style Guide — Code Highlighting (Prism)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- No Prism theme loaded — using custom inline theme below -->
+  <style>
+    :root {
+      --bg: #150d1e;
+      --fg: #dcdcdc;
+      --surface: #1a1130;
+      --surface-fg: #dcdcdc;
+      --code: #0f0a1a;
+      --code-fg: #e0e0e0;
+      --border: #3d2b5a;
+      --primary: #bc0081;
+      --secondary: #6020c0;
+      --accent: #005cb5;
+      --muted: #b4b4b4;
+      --dim: #999;
+      --success: #50c878;
+      --warning: #ffbe32;
+      --error: #ee343b;
+    }
+    .light {
+      --bg: #f5f1fc;
+      --fg: #1d152a;
+      --surface: #e9e0f7;
+      --surface-fg: #221733;
+      --code: #eee5f9;
+      --code-fg: #4c1161;
+      --border: #d4c2ec;
+      --primary: #bc0081;
+      --secondary: #6020c0;
+      --accent: #005cb5;
+      --muted: #5e546d;
+      --dim: #756a87;
+      --success: #50c878;
+      --warning: #ffbe32;
+      --error: #ee343b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Source Serif 4', 'Roboto Slab', serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      transition: background 0.2s, color 0.2s;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin: 2rem 0 0.75rem;
+      color: var(--primary);
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin: 2rem 0 0.75rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid;
+      border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
+      color: var(--secondary);
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      filter: blur(6px);
+      opacity: 0.7;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin: 1.5rem 0 0.5rem;
+      color: var(--accent);
+    }
+    p { margin: 0.5rem 0; }
+    .subtitle { color: var(--fg); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    a { color: var(--secondary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      font-family: 'Source Code Pro', 'Roboto Mono', monospace;
+      background: var(--code);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.9em;
+      color: var(--secondary);
+    }
+    pre {
+      background: var(--code);
+      color: var(--code-fg);
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin: 0.5rem 0;
+      border: 1px solid var(--surface);
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .back-link {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-family: 'Source Serif 4', 'Roboto Slab', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: rgba(188, 0, 129, 0.15); color: var(--primary); border-color: var(--primary); }
+    .btn-primary:hover { background: rgba(188, 0, 129, 0.3); }
+
+    /* Prism theme — complete custom mapping, no base theme loaded */
+    code[class*="language-"],
+    pre[class*="language-"] {
+      color: var(--code-fg);
+      background: var(--code) !important;
+      font-family: 'Source Code Pro', 'Roboto Mono', monospace;
+      font-size: 0.85rem;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      word-wrap: normal;
+      line-height: 1.5;
+      tab-size: 4;
+      hyphens: none;
+    }
+    pre[class*="language-"] {
+      border: 1px solid var(--surface);
+      border-radius: 5px;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      overflow-x: auto;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+
+    /* Keywords: pink (primary) */
+    .token.keyword,
+    .token.module,
+    .token.control {
+      color: var(--primary) !important;
+    }
+
+    /* Strings: cyan (accent) */
+    .token.string,
+    .token.char {
+      color: var(--accent) !important;
+    }
+
+    /* Comments: muted */
+    .token.comment,
+    .token.cdata {
+      color: var(--muted) !important;
+    }
+
+    /* Prolog / doctype: error (structural declarations) */
+    .token.prolog,
+    .token.doctype {
+      color: var(--error) !important;
+    }
+
+    /* Numbers / booleans: purple (secondary) */
+    .token.number,
+    .token.boolean {
+      color: var(--secondary) !important;
+    }
+
+    /* Functions: pink (primary) */
+    .token.function,
+    .token.function-name,
+    .token.function-variable {
+      color: var(--primary) !important;
+    }
+
+    /* Punctuation: body fg */
+    .token.punctuation {
+      color: var(--fg) !important;
+    }
+
+    /* Operators: cyan (accent) */
+    .token.operator,
+    .token.url {
+      color: var(--accent) !important;
+    }
+
+    /* Properties / variables: secondary */
+    .token.property,
+    .token.variable,
+    .token.symbol {
+      color: var(--secondary) !important;
+    }
+
+    /* Tags: primary */
+    .token.tag {
+      color: var(--primary) !important;
+    }
+
+    /* Attributes: secondary (name) + accent (value) */
+    .token.attr-name {
+      color: var(--secondary) !important;
+    }
+    .token.attr-value {
+      color: var(--accent) !important;
+    }
+
+    /* Built-in constants: success (green) */
+    .token.constant,
+    .token.class-name,
+    .token.builtin {
+      color: var(--success) !important;
+    }
+
+    /* Selectors / at-rules: primary */
+    .token.selector,
+    .token.atrule {
+      color: var(--primary) !important;
+    }
+
+    /* Namespace: secondary */
+    .token.namespace {
+      color: var(--secondary) !important;
+    }
+
+    /* Entity: warning (amber) */
+    .token.entity {
+      color: var(--warning) !important;
+    }
+
+    /* Regex: warning (amber) */
+    .token.regex {
+      color: var(--warning) !important;
+    }
+
+    /* Importance: warning */
+    .token.important {
+      color: var(--warning) !important;
+    }
+
+    /* Diff */
+    .token.deleted { color: var(--error) !important; }
+    .token.inserted { color: var(--success) !important; }
+
+    .muted { color: var(--muted); }
+    hr { border: none; height: 1px; margin: 1.5rem 0; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); filter: drop-shadow(0 0 6px rgba(188, 0, 129, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
+
+    /* Token table */
+    .token-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.5rem 0 1.5rem;
+      font-size: 0.85rem;
+    }
+    .token-table th,
+    .token-table td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
+    }
+    .token-table th {
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .token-table td {
+      vertical-align: middle;
+    }
+    .token-table .swatch {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      border-radius: 3px;
+    }
+    .token-table .token-list {
+      font-family: 'Source Code Pro', 'Roboto Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Code Highlighting — Prism</h1>
+  <p class="subtitle">Prism.js syntax highlighting with Rob's color palette</p>
+
+  <div class="toolbar">
+    <button class="btn btn-primary" id="theme-toggle">Toggle Light Mode</button>
+    <a href="../" class="back-link">← Back to style guide</a>
+  </div>
+
+  <h2>Token Mappings</h2>
+
+  <table class="token-table">
+    <thead>
+      <tr>
+        <th>Color</th>
+        <th>Token Types</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="swatch" style="background: #bc0081"></span></td>
+        <td class="token-list">keyword, module, control, function, function-name, function-variable, tag, selector, atrule</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="background: #6020c0"></span></td>
+        <td class="token-list">number, boolean, property, variable, symbol, attr-name, namespace</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="background: #005cb5"></span></td>
+        <td class="token-list">string, char, operator, url, attr-value</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="background: #50c878"></span></td>
+        <td class="token-list">constant, class-name, builtin, inserted</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="background: #ffbe32"></span></td>
+        <td class="token-list">regex, entity, important</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="background: #ee343b"></span></td>
+        <td class="token-list">prolog, doctype, deleted</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="background: #b4b4b4"></span></td>
+        <td class="token-list">comment, cdata</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="background: #dcdcdc"></span></td>
+        <td class="token-list">punctuation</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>JSON</h2>
+<pre><code class="language-json">{
+  "name": "robs-style-guide",
+  "version": "1.0.0",
+  "description": "Shared design system",
+  "dependencies": {
+    "highlighting": "prismjs"
+  },
+  "config": {
+    "theme": "dark",
+    "accent": "#bc0081",
+    "enabled": true
+  }
+}</code></pre>
+
+  <h2>YAML</h2>
+<pre><code class="language-yaml">services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_HOST=example.com
+      - NGINX_CERT=/etc/ssl/cert.pem
+    volumes:
+      - ./docs:/usr/share/nginx/html:ro
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - web</code></pre>
+
+  <h2>JSONC (Comments)</h2>
+<pre><code class="language-json5">// VS Code settings for the project
+{
+  "editor.fontFamily": "'Source Code Pro', 'Roboto Mono', monospace",
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+  // Theme configuration
+  "workbench.colorTheme": "Dark Purple",
+  "editor.renderWhitespace": "selection",
+  /* Multi-line comment:
+     these settings override workspace defaults */
+  "files.trimTrailingWhitespace": true
+}</code></pre>
+
+  <h2>JavaScript</h2>
+<pre><code class="language-javascript">import { mount } from 'svelte';
+import App from './App.svelte';
+
+const app = mount(App, {
+  target: document.getElementById('app')
+});
+
+// Detect system theme preference
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+if (prefersDark.matches) {
+  document.documentElement.classList.add('dark');
+}
+
+prefersDark.addEventListener('change', (e) => {
+  document.documentElement.classList.toggle('dark', e.matches);
+});
+
+export default app;</code></pre>
+
+  <h2>Python</h2>
+<pre><code class="language-python">import os
+import json
+from pathlib import Path
+from dataclasses import dataclass, asdict
+
+@dataclass
+class Config:
+    host: str = "0.0.0.0"
+    port: int = 8080
+    debug: bool = False
+    # Theme settings
+    colors: dict = None
+
+    def __post_init__(self):
+        if self.colors is None:
+            self.colors = {
+                "primary": "#bc0081",
+                "secondary": "#6020c0",
+                "accent": "#005cb5"
+            }
+
+    def to_json(self) -> str:
+        return json.dumps(asdict(self), indent=2)
+
+config = Config(port=9500, debug=True)
+print(config.to_json())</code></pre>
+
+  <h2>Go</h2>
+<pre><code class="language-go">package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"log"
+	"net/http"
+)
+
+// Config holds application configuration
+type Config struct {
+	Host    string            `json:"host"`
+	Port    int               `json:"port"`
+	Debug   bool              `json:"debug"`
+	Colors  map[string]string `json:"colors"`
+}
+
+func main() {
+	cfg := Config{
+		Host:  "0.0.0.0",
+		Port:  8080,
+		Debug: false,
+		Colors: map[string]string{
+			"primary":   "#bc0081",
+			"secondary": "#6020c0",
+			"accent":    "#005cb5",
+		},
+	}
+
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
+	})
+
+	addr := fmt.Sprintf("%s:%d", cfg.Host, cfg.Port)
+	log.Printf("Starting server on %s", addr)
+	log.Fatal(http.ListenAndServe(addr, nil))
+}</code></pre>
+
+  <h2>Terraform (HCL)</h2>
+<pre><code class="language-hcl">terraform {
+  required_version = ">= 1.8"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.aws_region
+}
+
+variable "aws_region" {
+  type    = string
+  default = "us-east-1"
+}
+
+variable "environment" {
+  type    = string
+  default = "production"
+}
+
+resource "aws_s3_bucket" "site" {
+  bucket = "${var.environment}-style-guide"
+
+  tags = {
+    Environment = var.environment
+    ManagedBy   = "terraform"
+  }
+}
+
+resource "aws_cloudfront_distribution" "site" {
+  origin {
+    domain_name = aws_s3_bucket.site.bucket_regional_domain_name
+    origin_id   = "s3-origin"
+  }
+
+  enabled             = true
+  is_ipv6_enabled     = true
+  default_root_object = "index.html"
+
+  default_cache_behavior {
+    allowed_methods = ["GET", "HEAD", "OPTIONS"]
+    cached_methods  = ["GET", "HEAD"]
+    target_origin_id = "s3-origin"
+
+    viewer_protocol_policy = "redirect-to-https"
+    min_ttl                = 0
+    default_ttl            = 3600
+    max_ttl                = 86400
+  }
+
+  price_class = "PriceClass_100"
+}</code></pre>
+
+  <h2>Bash</h2>
+<pre><code class="language-bash">#!/usr/bin/env bash
+set -euo pipefail
+
+# Build and serve the style guide
+BUILD_DIR="docs"
+SVELTE_DIR="svelte"
+PORT="${1:-9500}"
+
+echo "Building Svelte components..."
+cd "$SVELTE_DIR"
+npm ci
+npm run build
+cd ..
+
+echo "Starting local server on port $PORT..."
+docker run --rm \
+  -p "$PORT:80" \
+  -v "$(pwd)/$BUILD_DIR:/usr/share/nginx/html:ro" \
+  -v "$(pwd)/nginx.conf:/etc/nginx/conf.d/default.conf:ro" \
+  nginx:alpine
+
+echo "Done."</code></pre>
+
+  <p class="dim" style="margin-top: 1rem;">Powered by <a href="https://prismjs.com">Prism.js</a></p>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-hcl.min.js"></script>
+  <script>
+    var toggle = document.getElementById('theme-toggle');
+    var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (isLight) {
+      document.documentElement.classList.add('light');
+      toggle.textContent = 'Toggle Dark Mode';
+    }
+    toggle.addEventListener('click', function() {
+      isLight = !isLight;
+      document.documentElement.classList.toggle('light', isLight);
+      toggle.textContent = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+    });
+
+    // Re-highlight on theme toggle since CSS variables change
+    if (typeof Prism !== 'undefined') {
+      Prism.highlightAll();
+      toggle.addEventListener('click', function() {
+        setTimeout(Prism.highlightAll, 50);
+      });
+    }
+  </script>
+</body>
+</html>
