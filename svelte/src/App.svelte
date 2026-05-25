@@ -417,10 +417,22 @@ echo "Hello, world!"</code></pre>
   h2 {
     font-size: 1.3rem;
     margin: 2rem 0 0.75rem;
-    padding-bottom: 0.4rem;
+    padding-bottom: 0.6rem;
     border-bottom: 1px solid;
     border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
     color: var(--secondary);
+    position: relative;
+  }
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    filter: blur(6px);
+    opacity: 0.7;
   }
 
   .subtitle {
@@ -604,9 +616,11 @@ echo "Hello, world!"</code></pre>
     height: 1px;
     margin: 1.5rem 0;
     background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    filter: drop-shadow(0 0 6px rgba(188, 0, 129, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4));
   }
   hr.reverse {
     background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
+    filter: drop-shadow(0 0 6px rgba(0, 92, 181, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4));
   }
 
   h3 {

@@ -61,10 +61,22 @@
     h2 {
       font-size: 1.3rem;
       margin: 2rem 0 0.75rem;
-      padding-bottom: 0.4rem;
+      padding-bottom: 0.6rem;
       border-bottom: 1px solid;
       border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
       color: var(--secondary);
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      filter: blur(6px);
+      opacity: 0.7;
     }
     h3 {
       font-size: 1.1rem;
@@ -109,8 +121,8 @@
     }
     ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
     li { margin: 0.25rem 0; }
-    hr { border: none; height: 1px; margin: 1.5rem 0; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); }
-    hr.reverse { background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)); }
+    hr { border: none; height: 1px; margin: 1.5rem 0; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); filter: drop-shadow(0 0 6px rgba(188, 0, 129, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
+    hr.reverse { background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)); filter: drop-shadow(0 0 6px rgba(0, 92, 181, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
     table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
     th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid color-mix(in srgb, var(--border) 40%, transparent); }
     th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
