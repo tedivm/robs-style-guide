@@ -3,9 +3,9 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [svelte()],
-   base: '/svelte-built/',
-   build: {
-    outDir: '../svelte-built',
+  base: '/svelte/',
+  build: {
+    outDir: '../docs/svelte',
     emptyOutDir: true
   }
 });
