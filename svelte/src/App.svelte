@@ -6,6 +6,7 @@
   import Badge from './Badge.svelte';
   import Alert from './Alert.svelte';
   import Progress from './Progress.svelte';
+  import GradientProgress from './GradientProgress.svelte';
 
   let dark = $state(false);
 
@@ -183,6 +184,7 @@
     <Badge variant="destructive">Destructive</Badge>
     <Badge variant="success">Success</Badge>
     <Badge variant="warning">Warning</Badge>
+    <Badge variant="gradient">Gradient</Badge>
   </div>
 
   <h2>Tags</h2>
@@ -213,6 +215,7 @@
     <Button variant="outline">Outline</Button>
     <Button variant="ghost">Ghost</Button>
     <Button variant="link">Link</Button>
+    <Button variant="gradient">Gradient</Button>
   </div>
 
   <div class="flex-wrap" style="margin-top: 0.5rem">
@@ -330,6 +333,22 @@ echo "Hello, world!"</code></pre>
     <Progress value={100} color="success" />
   </div>
 
+  <h2>Gradient Progress Bars</h2>
+  <div class="space-y">
+    <GradientProgress value={25} />
+    <GradientProgress value={50} />
+    <GradientProgress value={75} />
+    <GradientProgress value={100} />
+  </div>
+
+  <h2>Reverse Gradient Progress Bars</h2>
+  <div class="space-y">
+    <GradientProgress value={25} reverse={true} />
+    <GradientProgress value={50} reverse={true} />
+    <GradientProgress value={75} reverse={true} />
+    <GradientProgress value={100} reverse={true} />
+  </div>
+
   <h2>Forms</h2>
 
   <label for="demo-text">Text input</label>
@@ -377,6 +396,10 @@ echo "Hello, world!"</code></pre>
 
   <hr>
 
+  <h2>Reverse Horizontal Rule</h2>
+
+  <hr class="reverse">
+
   <p class="dim" style="margin-top: 1rem;">End of Svelte theme demo.</p>
 </div>
 
@@ -395,7 +418,8 @@ echo "Hello, world!"</code></pre>
     font-size: 1.3rem;
     margin: 2rem 0 0.75rem;
     padding-bottom: 0.4rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid;
+    border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
     color: var(--secondary);
   }
 
@@ -577,8 +601,12 @@ echo "Hello, world!"</code></pre>
 
   hr {
     border: none;
-    border-top: 1px solid var(--border);
+    height: 1px;
     margin: 1.5rem 0;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  }
+  hr.reverse {
+    background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
   }
 
   h3 {

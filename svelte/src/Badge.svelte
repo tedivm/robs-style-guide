@@ -48,4 +48,12 @@
     background: rgba(255, 190, 50, 0.15);
     color: var(--warning);
   }
+
+  .badge-gradient {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) padding-box,
+      linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box;
+    color: #ffffff;
+  }
 </style>

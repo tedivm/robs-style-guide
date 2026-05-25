@@ -76,6 +76,19 @@
     opacity: 0.85;
   }
 
+  .btn-gradient {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) padding-box,
+      linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box;
+    color: #ffffff;
+  }
+  .btn-gradient:hover {
+    background:
+      linear-gradient(90deg, rgba(188, 0, 129, 0.3), rgba(96, 32, 192, 0.3), rgba(0, 92, 181, 0.3)) padding-box,
+      linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box;
+  }
+
   .btn-sm {
     padding: 0.25rem 0.6rem;
     font-size: 0.75rem;

@@ -55,15 +55,15 @@
     }
     h1 {
       font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      margin: 2rem 0 0.75rem;
       color: var(--primary);
-      text-shadow: 0 0 20px rgba(255, 113, 206, 0.4);
     }
     h2 {
       font-size: 1.3rem;
       margin: 2rem 0 0.75rem;
       padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid;
+      border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
       color: var(--secondary);
     }
     h3 {
@@ -109,7 +109,8 @@
     }
     ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
     li { margin: 0.25rem 0; }
-    hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+    hr { border: none; height: 1px; margin: 1.5rem 0; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); }
+    hr.reverse { background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)); }
     table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
     th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid color-mix(in srgb, var(--border) 40%, transparent); }
     th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -120,6 +121,7 @@
     .badge-success { background: rgba(80, 200, 120, 0.15); color: var(--success); }
     .badge-warn { background: rgba(255, 190, 50, 0.15); color: var(--warning); }
     .badge-error { background: rgba(238, 52, 59, 0.15); color: var(--error); }
+    .badge-gradient { border: 1px solid transparent; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) padding-box, linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box; color: #ffffff; }
     .instructions {
       background: var(--surface);
       padding: 1rem;
@@ -201,6 +203,8 @@
     .btn-ghost:hover { background: var(--surface); }
     .btn-link { background: transparent; color: var(--primary); border: none; }
     .btn-link:hover { opacity: 0.85; }
+    .btn-gradient { border: 1px solid transparent; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) padding-box, linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box; color: #ffffff; }
+    .btn-gradient:hover { background: linear-gradient(90deg, rgba(188, 0, 129, 0.3), rgba(96, 32, 192, 0.3), rgba(0, 92, 181, 0.3)) padding-box, linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box; }
     .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
     .btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
     .muted { color: var(--muted); }
@@ -288,6 +292,8 @@
     .progress-cyan { background: var(--accent); }
     .progress-purple { background: var(--secondary); }
     .progress-success { background: var(--success); }
+    .progress-bar.gradient { background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); }
+    .progress-bar.gradient-reverse { background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)); }
 
     .avatar {
       display: inline-block;
@@ -449,7 +455,7 @@
   </div>
 
   <h1>Heading 1 — Primary pink</h1>
-  <p class="muted">Used for page titles. Includes glow text-shadow.</p>
+   <p class="muted">Used for page titles. Primary pink color.</p>
 
   <h2>Heading 2 — Purple with underline</h2>
   <p class="muted">Used for section headers. Bottom border divider.</p>
@@ -521,6 +527,7 @@
     <span class="badge badge-success">Success</span>
     <span class="badge badge-warn">Warning</span>
     <span class="badge badge-error">Error</span>
+    <span class="badge badge-gradient">Gradient</span>
   </div>
 
   <h2>Tags</h2>
@@ -551,6 +558,7 @@
     <a href="#" class="btn btn-outline">Outline</a>
     <a href="#" class="btn btn-ghost">Ghost</a>
     <a href="#" class="btn btn-link">Link</a>
+    <a href="#" class="btn btn-gradient">Gradient</a>
     <a href="#" class="btn btn-subtle">Subtle</a>
   </div>
 
@@ -665,7 +673,21 @@ echo "Hello, world!"</code></pre>
   <div class="progress"><div class="progress-bar progress-pink" style="width: 25%"></div></div>
   <div class="progress"><div class="progress-bar progress-cyan" style="width: 50%"></div></div>
   <div class="progress"><div class="progress-bar progress-purple" style="width: 75%"></div></div>
-  <div class="progress"><div class="progress-bar progress-success" style="width: 100%"></div></div>
+    <div class="progress"><div class="progress-bar progress-success" style="width: 100%"></div></div>
+
+  <h2>Gradient Progress Bars</h2>
+
+    <div class="progress"><div class="progress-bar gradient" style="width: 25%"></div></div>
+    <div class="progress"><div class="progress-bar gradient" style="width: 50%"></div></div>
+    <div class="progress"><div class="progress-bar gradient" style="width: 75%"></div></div>
+    <div class="progress"><div class="progress-bar gradient" style="width: 100%"></div></div>
+
+  <h2>Reverse Gradient Progress Bars</h2>
+
+    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 25%"></div></div>
+    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 50%"></div></div>
+    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 75%"></div></div>
+    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 100%"></div></div>
 
   <h2>Forms</h2>
 
@@ -713,6 +735,10 @@ echo "Hello, world!"</code></pre>
   <h2>Horizontal Rule</h2>
 
   <hr>
+
+  <h2>Reverse Horizontal Rule</h2>
+
+  <hr class="reverse">
 
   <p class="dim" style="margin-top: 1rem;">End of style guide.</p>
 
