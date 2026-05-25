@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [svelte()],
   base: '/svelte/',
   build: {
-    outDir: '../public/svelte',
+    outDir: '../docs/svelte',
     emptyOutDir: true
   }
 });
