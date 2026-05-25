@@ -3,6 +3,7 @@
 
   function getStyles() {
     const c = variant === 'default' ? 'var(--primary)'
+      : variant === 'secondary' ? 'var(--secondary)'
       : variant === 'destructive' ? 'var(--destructive)'
       : variant === 'success' ? 'var(--success)'
       : variant === 'warning' ? 'var(--warning)'

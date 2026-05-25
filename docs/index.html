@@ -6,19 +6,19 @@
   <title>Rob's Style Guide</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Source+Serif+4:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #150d1e;
       --fg: #dcdcdc;
-      --surface: #2d1b4e;
+      --surface: #1a1130;
       --surface-fg: #dcdcdc;
       --code: #0f0a1a;
       --code-fg: #e0e0e0;
       --border: #3d2b5a;
-      --primary: #e042b0;
-      --secondary: #b96dff;
-      --accent: #01cdfe;
+      --primary: #bc0081;
+      --secondary: #6020c0;
+      --accent: #005cb5;
       --muted: #b4b4b4;
       --dim: #999;
       --success: #50c878;
@@ -34,13 +34,13 @@
       --code-fg: #4c1161;
       --border: #d4c2ec;
       --primary: #bc0081;
-      --secondary: #6f26c9;
+      --secondary: #6020c0;
       --accent: #005cb5;
       --muted: #5e546d;
       --dim: #756a87;
-      --success: #156d33;
-      --warning: #875200;
-      --error: #b9000b;
+      --success: #50c878;
+      --warning: #ffbe32;
+      --error: #ee343b;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -80,7 +80,7 @@
     a:hover { text-decoration: underline; }
     code {
       font-family: 'Source Code Pro', 'Roboto Mono', monospace;
-      background: var(--surface);
+      background: var(--code);
       padding: 2px 6px;
       border-radius: 3px;
       font-size: 0.9em;
@@ -111,21 +111,15 @@
     li { margin: 0.25rem 0; }
     hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
     table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
-    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--surface); }
+    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid color-mix(in srgb, var(--border) 40%, transparent); }
     th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
     .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600; }
-    .badge-app { background: rgba(255, 113, 206, 0.15); color: var(--primary); }
-    .badge-ai { background: rgba(185, 109, 255, 0.15); color: var(--secondary); }
-    .badge-infra { background: rgba(1, 205, 254, 0.15); color: var(--accent); }
+    .badge-app { background: rgba(188, 0, 129, 0.15); color: var(--primary); }
+    .badge-ai { background: rgba(96, 32, 192, 0.15); color: var(--secondary); }
+    .badge-infra { background: rgba(0, 92, 181, 0.15); color: var(--accent); }
     .badge-success { background: rgba(80, 200, 120, 0.15); color: var(--success); }
     .badge-warn { background: rgba(255, 190, 50, 0.15); color: var(--warning); }
-    .badge-error { background: rgba(255, 80, 80, 0.15); color: var(--error); }
-    .light .badge-app { background: rgba(188, 0, 129, 0.15); }
-    .light .badge-ai { background: rgba(111, 38, 201, 0.15); }
-    .light .badge-infra { background: rgba(0, 92, 181, 0.15); }
-    .light .badge-success { background: rgba(21, 109, 51, 0.15); }
-    .light .badge-warn { background: rgba(135, 82, 0, 0.15); }
-    .light .badge-error { background: rgba(185, 0, 11, 0.15); }
+    .badge-error { background: rgba(238, 52, 59, 0.15); color: var(--error); }
     .instructions {
       background: var(--surface);
       padding: 1rem;
@@ -144,10 +138,16 @@
       border-radius: 4px;
       vertical-align: middle;
       margin-right: 6px;
-      border: 1px solid var(--surface);
+      border: 1px solid var(--border);
     }
     .color-cell { display: flex; align-items: center; gap: 6px; }
-    .color-hex { font-family: monospace; font-size: 0.85rem; }
+    .color-hex { font-family: 'Source Code Pro', monospace; font-size: 0.85rem; }
+    .font-specimen {
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      margin: 0.25rem 0;
+      color: var(--fg);
+    }
     .toolbar {
       display: flex;
       align-items: center;
@@ -180,18 +180,27 @@
       display: inline-block;
       padding: 0.5rem 1rem;
       border-radius: 4px;
+      font-family: 'Source Serif 4', 'Roboto Slab', serif;
       font-size: 0.85rem;
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
       border: 1px solid transparent;
     }
-    .btn-primary { background: rgba(255, 113, 206, 0.15); color: var(--primary); border-color: var(--primary); }
-    .btn-primary:hover { background: rgba(255, 113, 206, 0.3); }
-    .btn-secondary { background: rgba(1, 205, 254, 0.15); color: var(--secondary); border-color: var(--secondary); }
-    .btn-secondary:hover { background: rgba(1, 205, 254, 0.3); }
+    .btn-primary { background: rgba(188, 0, 129, 0.15); color: var(--primary); border-color: var(--primary); }
+    .btn-primary:hover { background: rgba(188, 0, 129, 0.3); }
+    .btn-secondary { background: rgba(96, 32, 192, 0.15); color: var(--secondary); border-color: var(--secondary); }
+    .btn-secondary:hover { background: rgba(96, 32, 192, 0.3); }
     .btn-subtle { background: transparent; color: var(--muted); border-color: var(--border); }
     .btn-subtle:hover { color: var(--fg); border-color: var(--muted); }
+    .btn-destructive { background: rgba(238, 52, 59, 0.15); color: var(--error); border-color: var(--error); }
+    .btn-destructive:hover { background: rgba(238, 52, 59, 0.3); }
+    .btn-outline { background: transparent; color: var(--fg); border-color: var(--border); }
+    .btn-outline:hover { color: var(--primary); border-color: var(--primary); }
+    .btn-ghost { background: transparent; color: var(--fg); border: none; }
+    .btn-ghost:hover { background: var(--surface); }
+    .btn-link { background: transparent; color: var(--primary); border: none; }
+    .btn-link:hover { opacity: 0.85; }
     .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
     .btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
     .muted { color: var(--muted); }
@@ -337,7 +346,7 @@
       </tr>
       <tr>
         <td>Surface / Cards</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #2d1b4e"></span><span class="color-hex">#2d1b4e</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #1a1130"></span><span class="color-hex">#1a1130</span></span></td>
         <td><span class="color-cell"><span class="swatch" style="background: #e9e0f7"></span><span class="color-hex">#e9e0f7</span></span></td>
       </tr>
       <tr>
@@ -352,17 +361,17 @@
       </tr>
       <tr>
         <td>Primary (pink)</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #e042b0"></span><span class="color-hex">#e042b0</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #bc0081"></span><span class="color-hex">#bc0081</span></span></td>
         <td><span class="color-cell"><span class="swatch" style="background: #bc0081"></span><span class="color-hex">#bc0081</span></span></td>
       </tr>
       <tr>
         <td>Secondary (purple)</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #b96dff"></span><span class="color-hex">#b96dff</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #6f26c9"></span><span class="color-hex">#6f26c9</span></span></td>
         <td><span class="color-cell"><span class="swatch" style="background: #6f26c9"></span><span class="color-hex">#6f26c9</span></span></td>
       </tr>
       <tr>
         <td>Tertiary (cyan)</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #01cdfe"></span><span class="color-hex">#01cdfe</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #005cb5"></span><span class="color-hex">#005cb5</span></span></td>
         <td><span class="color-cell"><span class="swatch" style="background: #005cb5"></span><span class="color-hex">#005cb5</span></span></td>
       </tr>
       <tr>
@@ -383,17 +392,17 @@
       <tr>
         <td>Success</td>
         <td><span class="color-cell"><span class="swatch" style="background: #50c878"></span><span class="color-hex">#50c878</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #156d33"></span><span class="color-hex">#156d33</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #50c878"></span><span class="color-hex">#50c878</span></span></td>
       </tr>
       <tr>
         <td>Warning</td>
         <td><span class="color-cell"><span class="swatch" style="background: #ffbe32"></span><span class="color-hex">#ffbe32</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #875200"></span><span class="color-hex">#875200</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #ffbe32"></span><span class="color-hex">#ffbe32</span></span></td>
       </tr>
       <tr>
         <td>Error</td>
         <td><span class="color-cell"><span class="swatch" style="background: #ee343b"></span><span class="color-hex">#ee343b</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #b9000b"></span><span class="color-hex">#b9000b</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #ee343b"></span><span class="color-hex">#ee343b</span></span></td>
       </tr>
     </tbody>
   </table>
@@ -402,6 +411,41 @@
 
   <div class="instructions instructions-info">
     <strong>Fonts:</strong> <code>Source Serif 4</code> (body, primary) / <code>Roboto Slab</code> (body, fallback). <code>Source Code Pro</code> (monospace, primary) / <code>Roboto Mono</code> (monospace, fallback). All loaded from Google Fonts CDN, self-hostable.
+  </div>
+
+  <div class="grid grid-2" style="margin: 1rem 0;">
+    <div class="card font-card">
+      <div class="card-header">Source Serif 4</div>
+      <div class="card-body">
+        <div class="font-specimen">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+        <div class="font-specimen">abcdefghijklmnopqrstuvwxyz</div>
+        <div class="font-specimen">0123456789</div>
+      </div>
+    </div>
+    <div class="card font-card">
+      <div class="card-header">Roboto Slab</div>
+      <div class="card-body">
+        <div class="font-specimen" style="font-family: 'Roboto Slab', serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+        <div class="font-specimen" style="font-family: 'Roboto Slab', serif;">abcdefghijklmnopqrstuvwxyz</div>
+        <div class="font-specimen" style="font-family: 'Roboto Slab', serif;">0123456789</div>
+      </div>
+    </div>
+    <div class="card font-card">
+      <div class="card-header">Source Code Pro</div>
+      <div class="card-body">
+        <div class="font-specimen" style="font-family: 'Source Code Pro', monospace;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+        <div class="font-specimen" style="font-family: 'Source Code Pro', monospace;">abcdefghijklmnopqrstuvwxyz</div>
+        <div class="font-specimen" style="font-family: 'Source Code Pro', monospace;">0123456789</div>
+      </div>
+    </div>
+    <div class="card font-card">
+      <div class="card-header">Roboto Mono</div>
+      <div class="card-body">
+        <div class="font-specimen" style="font-family: 'Roboto Mono', monospace;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+        <div class="font-specimen" style="font-family: 'Roboto Mono', monospace;">abcdefghijklmnopqrstuvwxyz</div>
+        <div class="font-specimen" style="font-family: 'Roboto Mono', monospace;">0123456789</div>
+      </div>
+    </div>
   </div>
 
   <h1>Heading 1 — Primary pink</h1>
@@ -503,6 +547,10 @@
   <div class="flex flex-wrap">
     <a href="#" class="btn btn-primary">Primary</a>
     <a href="#" class="btn btn-secondary">Secondary</a>
+    <a href="#" class="btn btn-destructive">Destructive</a>
+    <a href="#" class="btn btn-outline">Outline</a>
+    <a href="#" class="btn btn-ghost">Ghost</a>
+    <a href="#" class="btn btn-link">Link</a>
     <a href="#" class="btn btn-subtle">Subtle</a>
   </div>
 

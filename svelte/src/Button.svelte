@@ -24,21 +24,21 @@
   }
 
   .btn-primary {
-    background: rgba(255, 113, 206, 0.15);
+    background: rgba(188, 0, 129, 0.15);
     color: var(--primary);
     border-color: var(--primary);
   }
   .btn-primary:hover {
-    background: rgba(255, 113, 206, 0.3);
+    background: rgba(188, 0, 129, 0.3);
   }
 
   .btn-secondary {
-    background: rgba(1, 205, 254, 0.15);
+    background: rgba(96, 32, 192, 0.15);
     color: var(--secondary);
     border-color: var(--secondary);
   }
   .btn-secondary:hover {
-    background: rgba(1, 205, 254, 0.3);
+    background: rgba(96, 32, 192, 0.3);
   }
 
   .btn-destructive {
