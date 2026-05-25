@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:prism": "vite build --config vite.prism.config.js",
+    "build:all": "vite build && vite build --config vite.prism.config.js",
     "preview": "vite preview"
   },
   "devDependencies": {
