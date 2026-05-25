@@ -8,94 +8,135 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Source+Serif+4:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #150d1e;
+      --fg: #dcdcdc;
+      --surface: #2d1b4e;
+      --surface-fg: #dcdcdc;
+      --code: #0f0a1a;
+      --code-fg: #e0e0e0;
+      --border: #3d2b5a;
+      --primary: #e042b0;
+      --secondary: #b96dff;
+      --accent: #01cdfe;
+      --muted: #b4b4b4;
+      --dim: #999;
+      --success: #50c878;
+      --warning: #ffbe32;
+      --error: #ee343b;
+    }
+    .light {
+      --bg: #f5f1fc;
+      --fg: #1d152a;
+      --surface: #e9e0f7;
+      --surface-fg: #221733;
+      --code: #eee5f9;
+      --code-fg: #4c1161;
+      --border: #d4c2ec;
+      --primary: #bc0081;
+      --secondary: #6f26c9;
+      --accent: #005cb5;
+      --muted: #5e546d;
+      --dim: #756a87;
+      --success: #156d33;
+      --warning: #875200;
+      --error: #b9000b;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Source Serif 4', 'Roboto Slab', serif;
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem;
-      background: #1a1025;
-      color: #dcdcdc;
+      background: var(--bg);
+      color: var(--fg);
       line-height: 1.6;
+      transition: background 0.2s, color 0.2s;
     }
     h1 {
       font-size: 1.8rem;
       margin-bottom: 0.5rem;
-      color: #ff71ce;
+      color: var(--primary);
       text-shadow: 0 0 20px rgba(255, 113, 206, 0.4);
     }
     h2 {
       font-size: 1.3rem;
       margin: 2rem 0 0.75rem;
       padding-bottom: 0.4rem;
-      border-bottom: 1px solid #3d2b5a;
-      color: #01cdfe;
+      border-bottom: 1px solid var(--border);
+      color: var(--secondary);
     }
     h3 {
       font-size: 1.1rem;
       margin: 1.5rem 0 0.5rem;
-      color: #b96dff;
+      color: var(--accent);
     }
-    h4 { font-size: 1rem; margin: 1.2rem 0 0.4rem; color: #dcdcdc; }
-    h5 { font-size: 0.9rem; margin: 1rem 0 0.3rem; color: #b96dff; text-transform: uppercase; letter-spacing: 0.05em; }
-    h6 { font-size: 0.85rem; margin: 1rem 0 0.3rem; color: #b4b4b4; text-transform: uppercase; letter-spacing: 0.05em; }
+    h4 { font-size: 1rem; margin: 1.2rem 0 0.4rem; color: var(--fg); }
+    h5 { font-size: 0.9rem; margin: 1rem 0 0.3rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
+    h6 { font-size: 0.85rem; margin: 1rem 0 0.3rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
     p { margin: 0.5rem 0; }
-    .subtitle { color: #dcdcdc; margin-bottom: 1.5rem; font-size: 0.95rem; }
-    a { color: #01cdfe; text-decoration: none; }
+    .subtitle { color: var(--fg); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    a { color: var(--secondary); text-decoration: none; }
     a:hover { text-decoration: underline; }
     code {
       font-family: 'Source Code Pro', 'Roboto Mono', monospace;
-      background: #2d1b4e;
+      background: var(--surface);
       padding: 2px 6px;
       border-radius: 3px;
       font-size: 0.9em;
-      color: #01cdfe;
+      color: var(--secondary);
     }
     pre {
-      background: #0f0a1a;
-      color: #e0e0e0;
+      background: var(--code);
+      color: var(--code-fg);
       padding: 1rem;
       border-radius: 5px;
       overflow-x: auto;
       font-size: 0.85rem;
       line-height: 1.5;
       margin: 0.5rem 0;
-      border: 1px solid #2d1b4e;
+      border: 1px solid var(--surface);
     }
     pre code { background: none; padding: 0; color: inherit; }
     blockquote {
-      border-left: 3px solid #ff71ce;
-      background: #2d1b4e;
+      border-left: 3px solid var(--primary);
+      background: var(--surface);
       padding: 1rem;
       margin: 0.5rem 0;
       border-radius: 5px;
-      color: #dcdcdc;
+      color: var(--surface-fg);
       font-style: italic;
     }
     ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
     li { margin: 0.25rem 0; }
-    hr { border: none; border-top: 1px solid #3d2b5a; margin: 1.5rem 0; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
     table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
-    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #2d1b4e; }
-    th { color: #b4b4b4; font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--surface); }
+    th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
     .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600; }
-    .badge-app { background: rgba(255, 113, 206, 0.15); color: #ff71ce; }
-    .badge-ai { background: rgba(1, 205, 254, 0.15); color: #01cdfe; }
-    .badge-infra { background: rgba(185, 109, 255, 0.15); color: #b96dff; }
-    .badge-success { background: rgba(80, 200, 120, 0.15); color: #50c878; }
-    .badge-warn { background: rgba(255, 190, 50, 0.15); color: #ffbe32; }
-    .badge-error { background: rgba(255, 80, 80, 0.15); color: #ff5050; }
+    .badge-app { background: rgba(255, 113, 206, 0.15); color: var(--primary); }
+    .badge-ai { background: rgba(185, 109, 255, 0.15); color: var(--secondary); }
+    .badge-infra { background: rgba(1, 205, 254, 0.15); color: var(--accent); }
+    .badge-success { background: rgba(80, 200, 120, 0.15); color: var(--success); }
+    .badge-warn { background: rgba(255, 190, 50, 0.15); color: var(--warning); }
+    .badge-error { background: rgba(255, 80, 80, 0.15); color: var(--error); }
+    .light .badge-app { background: rgba(188, 0, 129, 0.15); }
+    .light .badge-ai { background: rgba(111, 38, 201, 0.15); }
+    .light .badge-infra { background: rgba(0, 92, 181, 0.15); }
+    .light .badge-success { background: rgba(21, 109, 51, 0.15); }
+    .light .badge-warn { background: rgba(135, 82, 0, 0.15); }
+    .light .badge-error { background: rgba(185, 0, 11, 0.15); }
     .instructions {
-      background: #2d1b4e;
+      background: var(--surface);
       padding: 1rem;
       border-radius: 5px;
       margin: 0.5rem 0;
-      border-left: 3px solid #ff71ce;
+      border-left: 3px solid var(--primary);
     }
-    .instructions-info { border-left-color: #01cdfe; }
-    .instructions-success { border-left-color: #50c878; }
-    .instructions-warn { border-left-color: #ffbe32; }
-    .instructions-error { border-left-color: #ff5050; }
+    .instructions-info { border-left-color: var(--secondary); }
+    .instructions-success { border-left-color: var(--success); }
+    .instructions-warn { border-left-color: var(--warning); }
+    .instructions-error { border-left-color: var(--error); }
     .swatch {
       display: inline-block;
       width: 40px;
@@ -103,26 +144,38 @@
       border-radius: 4px;
       vertical-align: middle;
       margin-right: 8px;
-      border: 1px solid #2d1b4e;
+      border: 1px solid var(--surface);
     }
     .color-row { display: flex; align-items: center; margin: 0.4rem 0; }
     .color-label { font-family: monospace; font-size: 0.85rem; min-width: 120px; }
-    .color-name { color: #dcdcdc; font-size: 0.85rem; }
+    .color-name { color: var(--fg); font-size: 0.85rem; }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .back-link {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
     .tool {
       margin: 0.5rem 0;
       padding: 0.5rem 0;
-      border-bottom: 1px solid #2d1b4e;
+      border-bottom: 1px solid var(--surface);
     }
-    .tool-name { font-weight: bold; font-family: monospace; color: #ff71ce; }
-    .tool-desc { color: #dcdcdc; font-size: 0.9rem; }
+    .tool-name { font-weight: bold; font-family: monospace; color: var(--primary); }
+    .tool-desc { color: var(--fg); font-size: 0.9rem; }
     .config-section { margin: 1.5rem 0; }
-    .config-path { font-size: 0.85rem; color: #999; font-family: monospace; margin-bottom: 0.3rem; }
+    .config-path { font-size: 0.85rem; color: var(--dim); font-family: monospace; margin-bottom: 0.3rem; }
     .url {
       font-family: monospace;
-      background: #2d1b4e;
+      background: var(--surface);
       padding: 0.2rem 0.5rem;
       border-radius: 3px;
-      color: #01cdfe;
+      color: var(--secondary);
     }
     .btn {
       display: inline-block;
@@ -134,33 +187,33 @@
       cursor: pointer;
       border: 1px solid transparent;
     }
-    .btn-primary { background: rgba(255, 113, 206, 0.15); color: #ff71ce; border-color: #ff71ce; }
+    .btn-primary { background: rgba(255, 113, 206, 0.15); color: var(--primary); border-color: var(--primary); }
     .btn-primary:hover { background: rgba(255, 113, 206, 0.3); }
-    .btn-secondary { background: rgba(1, 205, 254, 0.15); color: #01cdfe; border-color: #01cdfe; }
+    .btn-secondary { background: rgba(1, 205, 254, 0.15); color: var(--secondary); border-color: var(--secondary); }
     .btn-secondary:hover { background: rgba(1, 205, 254, 0.3); }
-    .btn-subtle { background: transparent; color: #b4b4b4; border-color: #3d2b5a; }
-    .btn-subtle:hover { color: #dcdcdc; border-color: #b4b4b4; }
+    .btn-subtle { background: transparent; color: var(--muted); border-color: var(--border); }
+    .btn-subtle:hover { color: var(--fg); border-color: var(--muted); }
     .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
     .btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
-    .muted { color: #b4b4b4; }
-    .dim { color: #999; }
-    .text-pink { color: #ff71ce; }
-    .text-cyan { color: #01cdfe; }
-    .text-purple { color: #b96dff; }
-    .text-success { color: #50c878; }
-    .text-warn { color: #ffbe32; }
-    .text-error { color: #ff5050; }
+    .muted { color: var(--muted); }
+    .dim { color: var(--dim); }
+    .text-pink { color: var(--primary); }
+    .text-cyan { color: var(--accent); }
+    .text-purple { color: var(--secondary); }
+    .text-success { color: var(--success); }
+    .text-warn { color: var(--warning); }
+    .text-error { color: var(--error); }
     .grid { display: grid; gap: 1rem; }
     .grid-2 { grid-template-columns: 1fr 1fr; }
     .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
     .card {
-      background: #2d1b4e;
+      background: var(--surface);
       padding: 1rem;
       border-radius: 5px;
-      border: 1px solid #3d2b5a;
+      border: 1px solid var(--border);
     }
     .card-header { font-weight: 600; margin-bottom: 0.5rem; }
-    .card-body { font-size: 0.9rem; color: #dcdcdc; }
+    .card-body { font-size: 0.9rem; color: var(--surface-fg); }
     .flex { display: flex; gap: 0.5rem; align-items: center; }
     .flex-wrap { flex-wrap: wrap; }
     .text-sm { font-size: 0.85rem; }
@@ -170,9 +223,9 @@
     .uppercase { text-transform: uppercase; letter-spacing: 0.05em; }
     .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     input[type="text"], input[type="password"], textarea, select {
-      background: #0f0a1a;
-      border: 1px solid #2d1b4e;
-      color: #dcdcdc;
+      background: var(--code);
+      border: 1px solid var(--surface);
+      color: var(--fg);
       padding: 0.5rem 0.75rem;
       border-radius: 4px;
       font-family: inherit;
@@ -182,38 +235,38 @@
     }
     input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
       outline: none;
-      border-color: #ff71ce;
+      border-color: var(--primary);
     }
     textarea { min-height: 80px; resize: vertical; }
-    label { display: block; margin: 0.5rem 0 0.25rem; color: #b4b4b4; font-size: 0.85rem; }
-    .tooltip { position: relative; border-bottom: 1px dotted #01cdfe; cursor: help; }
+    label { display: block; margin: 0.5rem 0 0.25rem; color: var(--muted); font-size: 0.85rem; }
+    .tooltip { position: relative; border-bottom: 1px dotted var(--secondary); cursor: help; }
     .tooltip:hover::after {
       content: attr(data-tip);
       position: absolute;
       bottom: 100%;
       left: 50%;
       transform: translateX(-50%);
-      background: #0f0a1a;
-      color: #dcdcdc;
+      background: var(--code);
+      color: var(--fg);
       padding: 0.4rem 0.6rem;
       border-radius: 3px;
       font-size: 0.75rem;
       white-space: nowrap;
-      border: 1px solid #2d1b4e;
+      border: 1px solid var(--surface);
       z-index: 1;
     }
     .kbd {
       display: inline-block;
-      background: #2d1b4e;
-      border: 1px solid #3d2b5a;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 3px;
       padding: 0.1rem 0.4rem;
       font-family: monospace;
       font-size: 0.75rem;
-      color: #dcdcdc;
+      color: var(--fg);
     }
     .progress {
-      background: #2d1b4e;
+      background: var(--surface);
       border-radius: 4px;
       height: 8px;
       overflow: hidden;
@@ -223,25 +276,26 @@
       height: 100%;
       border-radius: 4px;
     }
-    .progress-pink { background: #ff71ce; }
-    .progress-cyan { background: #01cdfe; }
-    .progress-purple { background: #b96dff; }
-    .progress-success { background: #50c878; }
+    .progress-pink { background: var(--primary); }
+    .progress-cyan { background: var(--accent); }
+    .progress-purple { background: var(--secondary); }
+    .progress-success { background: var(--success); }
+
     .avatar {
       display: inline-block;
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: #3d2b5a;
+      background: var(--border);
       vertical-align: middle;
     }
     .tag {
       display: inline-block;
       padding: 0.15rem 0.5rem;
-      background: #2d1b4e;
+      background: var(--surface);
       border-radius: 3px;
       font-size: 0.75rem;
-      color: #b4b4b4;
+      color: var(--muted);
       margin: 0.1rem;
     }
     .status-dot {
@@ -251,30 +305,36 @@
       border-radius: 50%;
       margin-right: 0.4rem;
     }
-    .status-online { background: #50c878; }
-    .status-offline { background: #ff5050; }
-    .status-warn { background: #ffbe32; }
+    .status-online { background: var(--success); }
+    .status-offline { background: var(--error); }
+    .status-warn { background: var(--warning); }
+
   </style>
 </head>
 <body>
   <h1>Style Guide</h1>
   <p class="subtitle">Shared design system for Rob's services</p>
 
+  <div class="toolbar">
+    <button class="btn btn-primary" id="theme-toggle">Toggle Light Mode</button>
+    <a href="./svelte/" class="back-link">Svelte (shadcn) demo →</a>
+  </div>
+
   <h2>Colors</h2>
 
-  <div class="color-row"><span class="swatch" style="background: #1a1025"></span><span class="color-label">#1a1025</span><span class="color-name">Background</span></div>
-  <div class="color-row"><span class="swatch" style="background: #2d1b4e"></span><span class="color-label">#2d1b4e</span><span class="color-name">Surface / Cards</span></div>
-  <div class="color-row"><span class="swatch" style="background: #0f0a1a"></span><span class="color-label">#0f0a1a</span><span class="color-name">Code blocks / Inputs</span></div>
-  <div class="color-row"><span class="swatch" style="background: #3d2b5a"></span><span class="color-label">#3d2b5a</span><span class="color-name">Borders / Dividers</span></div>
-  <div class="color-row"><span class="swatch" style="background: #ff71ce"></span><span class="color-label">#ff71ce</span><span class="color-name">Primary (pink)</span></div>
-  <div class="color-row"><span class="swatch" style="background: #01cdfe"></span><span class="color-label">#01cdfe</span><span class="color-name">Secondary (cyan)</span></div>
-  <div class="color-row"><span class="swatch" style="background: #b96dff"></span><span class="color-label">#b96dff</span><span class="color-name">Tertiary (purple)</span></div>
-  <div class="color-row"><span class="swatch" style="background: #dcdcdc"></span><span class="color-label">#dcdcdc</span><span class="color-name">Body text</span></div>
-  <div class="color-row"><span class="swatch" style="background: #b4b4b4"></span><span class="color-label">#b4b4b4</span><span class="color-name">Muted text</span></div>
-  <div class="color-row"><span class="swatch" style="background: #999"></span><span class="color-label">#999</span><span class="color-name">Dim text</span></div>
-  <div class="color-row"><span class="swatch" style="background: #50c878"></span><span class="color-label">#50c878</span><span class="color-name">Success</span></div>
-  <div class="color-row"><span class="swatch" style="background: #ffbe32"></span><span class="color-label">#ffbe32</span><span class="color-name">Warning</span></div>
-  <div class="color-row"><span class="swatch" style="background: #ff5050"></span><span class="color-label">#ff5050</span><span class="color-name">Error</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--bg)"></span><span class="color-label" data-dark="#150d1e" data-light="#f5f1fc">#150d1e</span><span class="color-name">Background</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--surface)"></span><span class="color-label" data-dark="#2d1b4e" data-light="#e9e0f7">#2d1b4e</span><span class="color-name">Surface / Cards</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--code)"></span><span class="color-label" data-dark="#0f0a1a" data-light="#eee5f9">#0f0a1a</span><span class="color-name">Code blocks / Inputs</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--border)"></span><span class="color-label" data-dark="#3d2b5a" data-light="#d4c2ec">#3d2b5a</span><span class="color-name">Borders / Dividers</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--primary)"></span><span class="color-label" data-dark="#e042b0" data-light="#bc0081">#e042b0</span><span class="color-name">Primary (pink)</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--secondary)"></span><span class="color-label" data-dark="#b96dff" data-light="#6f26c9">#b96dff</span><span class="color-name">Secondary (purple)</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--accent)"></span><span class="color-label" data-dark="#01cdfe" data-light="#005cb5">#01cdfe</span><span class="color-name">Tertiary (cyan)</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--fg)"></span><span class="color-label" data-dark="#dcdcdc" data-light="#1d152a">#dcdcdc</span><span class="color-name">Body text</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--muted)"></span><span class="color-label" data-dark="#b4b4b4" data-light="#5e546d">#b4b4b4</span><span class="color-name">Muted text</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--dim)"></span><span class="color-label" data-dark="#999" data-light="#756a87">#999</span><span class="color-name">Dim text</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--success)"></span><span class="color-label" data-dark="#50c878" data-light="#156d33">#50c878</span><span class="color-name">Success</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--warning)"></span><span class="color-label" data-dark="#ffbe32" data-light="#875200">#ffbe32</span><span class="color-name">Warning</span></div>
+  <div class="color-row"><span class="swatch" style="background: var(--error)"></span><span class="color-label" data-dark="#ee343b" data-light="#b9000b">#ee343b</span><span class="color-name">Error</span></div>
 
   <h2>Typography</h2>
 
@@ -285,16 +345,16 @@
   <h1>Heading 1 — Primary pink</h1>
   <p class="muted">Used for page titles. Includes glow text-shadow.</p>
 
-  <h2>Heading 2 — Cyan with underline</h2>
+  <h2>Heading 2 — Purple with underline</h2>
   <p class="muted">Used for section headers. Bottom border divider.</p>
 
-  <h3>Heading 3 — Purple</h3>
+  <h3>Heading 3 — Cyan</h3>
   <p class="muted">Used for subsections.</p>
 
   <h4>Heading 4 — Body color</h4>
   <p class="muted">Minor section headers.</p>
 
-  <h5>Heading 5 — Purple uppercase</h5>
+  <h5>Heading 5 — Cyan uppercase</h5>
   <p class="muted">Small labels, uppercase with letter-spacing.</p>
 
   <h6>Heading 6 — Muted uppercase</h6>
@@ -307,8 +367,8 @@
 
   <p>
     <span class="text-pink">Colored text: pink</span><br>
-    <span class="text-cyan">Colored text: cyan</span><br>
     <span class="text-purple">Colored text: purple</span><br>
+    <span class="text-cyan">Colored text: cyan</span><br>
     <span class="text-success">Colored text: success</span><br>
     <span class="text-warn">Colored text: warning</span><br>
     <span class="text-error">Colored text: error</span>
@@ -332,18 +392,18 @@
   <h2>Links</h2>
 
   <p>
-    Standard link: <a href="#">Default cyan link</a><br>
+    Standard link: <a href="#">Default purple link</a><br>
     Hover state: <a href="#">Links get underline on hover</a>
   </p>
 
   <h2>Inline Elements</h2>
 
   <p>
-    <code>Inline code</code> — dark purple background, cyan text.<br>
+    <code>Inline code</code> — dark purple background, purple text.<br>
     <span class="url">URL-style code</span> — monospace with tighter padding.<br>
     <span class="kbd">Ctrl</span> + <span class="kbd">C</span> — keyboard keys.<br>
     <span class="tooltip" data-tip="Hover for tooltip">Tooltip text</span> — dotted underline, hover for tooltip.<br>
-    <span class="truncate" style="display: inline-block; max-width: 200px; border-bottom: 1px solid #2d1b4e;">This is truncated text that gets ellipsis</span> — text truncation.
+    <span class="truncate" style="display: inline-block; max-width: 200px; border-bottom: 1px solid var(--surface);">This is truncated text that gets ellipsis</span> — text truncation.
   </p>
 
   <h2>Badges</h2>
@@ -397,7 +457,7 @@
   </div>
 
   <div class="instructions instructions-info">
-    <strong>Info (cyan border)</strong> — Informational messages.
+    <strong>Info (purple border)</strong> — Informational messages.
   </div>
 
   <div class="instructions instructions-success">
@@ -545,5 +605,27 @@ echo "Hello, world!"</code></pre>
   <hr>
 
   <p class="dim" style="margin-top: 1rem;">End of style guide.</p>
+
+  <script>
+    var toggle = document.getElementById('theme-toggle');
+    var labels = document.querySelectorAll('.color-label[data-dark]');
+    var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    function updateLabels() {
+      labels.forEach(function(l) {
+        l.textContent = isLight ? l.getAttribute('data-light') : l.getAttribute('data-dark');
+      });
+    }
+    if (isLight) {
+      document.documentElement.classList.add('light');
+      toggle.textContent = 'Toggle Dark Mode';
+    }
+    updateLabels();
+    toggle.addEventListener('click', function() {
+      isLight = !isLight;
+      document.documentElement.classList.toggle('light', isLight);
+      toggle.textContent = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+      updateLabels();
+    });
+  </script>
 </body>
 </html>
