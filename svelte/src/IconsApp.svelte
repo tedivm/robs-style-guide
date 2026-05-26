@@ -17,6 +17,8 @@
   import IconAlertTriangle from '@tabler/icons-svelte-runes/icons/alert-triangle';
   import IconBell from '@tabler/icons-svelte-runes/icons/bell';
   import IconSettings from '@tabler/icons-svelte-runes/icons/settings';
+  import IconSun from '@tabler/icons-svelte-runes/icons/sun';
+  import IconMoon from '@tabler/icons-svelte-runes/icons/moon';
 
   let dark = $state(false);
 
@@ -66,8 +68,12 @@
   <p class="subtitle">Open source icon library (MIT license) — <a href="https://tabler.io/icons">tabler.io/icons</a></p>
 
   <div class="toolbar">
-    <button class="btn btn-primary" onclick={toggle}>
-      {dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}
+    <button class="btn btn-primary btn-icon" onclick={toggle} title={dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}>
+      {#if dark}
+        <IconSun size={18} />
+      {:else}
+        <IconMoon size={18} />
+      {/if}
     </button>
     <a href="../style/" class="back-link">← Back to style guide</a>
     <a href="../prism/" class="back-link">Code highlighting (Prism) →</a>
@@ -367,6 +373,13 @@
     cursor: pointer;
     padding: 0.5rem 1rem;
     font-family: 'Source Serif 4', 'Roboto Slab', serif;
+  }
+  .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem;
+    line-height: 0;
   }
 
   .btn-primary {

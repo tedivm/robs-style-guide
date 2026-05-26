@@ -7,6 +7,8 @@
   import Alert from './Alert.svelte';
   import Progress from './Progress.svelte';
   import GradientProgress from './GradientProgress.svelte';
+  import IconSun from '@tabler/icons-svelte-runes/icons/sun';
+  import IconMoon from '@tabler/icons-svelte-runes/icons/moon';
 
   let dark = $state(false);
 
@@ -72,8 +74,12 @@
   <p class="subtitle">CSS variable theme based on Rob's core design system</p>
 
   <div class="toolbar">
-    <Button onclick={toggle}>
-      {dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}
+    <Button icon variant="primary" onclick={toggle} title={dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}>
+      {#if dark}
+        <IconSun size={18} />
+      {:else}
+        <IconMoon size={18} />
+      {/if}
     </Button>
     <a href="../../" class="back-link">← Home</a>
     <a href="../prism/" class="back-link">Code highlighting →</a>

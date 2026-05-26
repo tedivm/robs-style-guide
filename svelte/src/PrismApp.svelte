@@ -1,6 +1,8 @@
 <script>
   import './theme.css';
   import { onMount, tick } from 'svelte';
+  import IconSun from '@tabler/icons-svelte-runes/icons/sun';
+  import IconMoon from '@tabler/icons-svelte-runes/icons/moon';
 
   let dark = $state(false);
 
@@ -248,8 +250,12 @@ echo "Done."</code></pre>` },
   <p class="subtitle">Syntax highlighting via Prism.js with our design system palette</p>
 
   <div class="toolbar">
-    <button id="theme-toggle" class="btn btn-primary" onclick={toggle}>
-      {dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}
+    <button id="theme-toggle" class="btn btn-primary btn-icon" onclick={toggle} title={dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}>
+      {#if dark}
+        <IconSun size={18} />
+      {:else}
+        <IconMoon size={18} />
+      {/if}
     </button>
     <a href="../style/" class="back-link">← Back to style guide</a>
     <a href="../icons/" class="back-link">Icons →</a>
@@ -409,6 +415,13 @@ echo "Done."</code></pre>` },
     cursor: pointer;
     padding: 0.5rem 1rem;
     font-family: 'Source Serif 4', 'Roboto Slab', serif;
+  }
+  .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem;
+    line-height: 0;
   }
 
   .btn-primary {

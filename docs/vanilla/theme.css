@@ -323,6 +323,7 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: up
 .btn-gradient:hover { background: linear-gradient(90deg, rgba(188, 0, 129, 0.3), rgba(111, 38, 201, 0.3), rgba(0, 92, 181, 0.3)) padding-box, var(--gradient-reverse) border-box; }
 .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
 .btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
+.btn-icon { display: inline-flex; align-items: center; justify-content: center; padding: 0.45rem; line-height: 0; }
 
 /* --- Grid --- */
 
