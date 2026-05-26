@@ -13,7 +13,7 @@ Rob's Style Guide is a dark purple design system with pink/purple/cyan accents, 
 
 ### Quick Start
 
-The fastest way to adopt the theme is to copy the complete [vanilla `theme.css`](https://github.com/tedivm/robs-style-guide/blob/main/docs/vanilla/theme.css) into your project and reference it from your HTML. It contains all variables, typography, components, and layout utilities in a single file. Use the rest of this skill for customization, framework adaptation, or deeper understanding.
+The fastest way to adopt the theme is to copy the complete [vanilla `theme.css`](https://tedivm.github.io/robs-style-guide/vanilla/theme.css) into your project and reference it from your HTML. It contains all variables, typography, components, and layout utilities in a single file. Use the rest of this skill for customization, framework adaptation, or deeper understanding.
 
 ---
 
