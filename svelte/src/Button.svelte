@@ -1,10 +1,11 @@
 <script>
-  let { variant = 'primary', size = 'default', onclick } = $props();
+  let { variant = 'primary', size = 'default', onclick, icon = false } = $props();
 
   function getClasses() {
     let v = 'btn-' + variant;
     let s = size !== 'default' ? 'btn-' + size : '';
-    return (v + ' ' + s).trim();
+    let i = icon ? 'btn-icon' : '';
+    return [v, s, i].filter(Boolean).join(' ');
   }
 </script>
 
@@ -98,5 +99,12 @@
   .btn:not(.btn-sm):not(.btn-lg) {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
+  }
+  .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem;
+    line-height: 0;
   }
 </style>
