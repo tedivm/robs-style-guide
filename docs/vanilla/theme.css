@@ -21,6 +21,9 @@
   --success: #50c878;
   --warning: #ffbe32;
   --error: #ee343b;
+  --gradient: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  --gradient-reverse: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
+  --gradient-vertical: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
 }
 
 .light {
@@ -69,7 +72,7 @@ h2 {
   margin: 2rem 0 0.75rem;
   padding-bottom: 0.6rem;
   border-bottom: 1px solid;
-  border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
+  border-image: var(--gradient) 1;
   color: var(--secondary);
   position: relative;
 }
@@ -81,7 +84,7 @@ h2::after {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  background: var(--gradient);
   filter: blur(6px);
   opacity: 0.7;
 }
@@ -159,13 +162,24 @@ pre code { background: none; padding: 0; color: inherit; }
 /* --- Blockquote --- */
 
 blockquote {
-  border-left: 3px solid var(--primary);
+  position: relative;
+  border-left: 3px solid transparent;
   background: var(--surface);
   padding: 1rem;
   margin: 0.5rem 0;
   border-radius: 5px;
   color: var(--surface-fg);
   font-style: italic;
+}
+
+blockquote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--gradient-vertical);
 }
 
 /* --- Lists --- */
@@ -175,8 +189,8 @@ li { margin: 0.25rem 0; }
 
 /* --- Horizontal Rule --- */
 
-hr { border: none; height: 1px; margin: 1.5rem 0; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); filter: drop-shadow(0 0 6px rgba(188, 0, 129, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
-hr.reverse { background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)); filter: drop-shadow(0 0 6px rgba(0, 92, 181, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
+hr { border: none; height: 1px; margin: 1.5rem 0; background: var(--gradient); filter: drop-shadow(0 0 6px rgba(188, 0, 129, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
+hr.reverse { background: var(--gradient-reverse); filter: drop-shadow(0 0 6px rgba(0, 92, 181, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
 
 /* --- Table --- */
 
@@ -193,7 +207,7 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: up
 .badge-success { background: rgba(80, 200, 120, 0.15); color: var(--success); }
 .badge-warn { background: rgba(255, 190, 50, 0.15); color: var(--warning); }
 .badge-error { background: rgba(238, 52, 59, 0.15); color: var(--error); }
-.badge-gradient { border: 1px solid transparent; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) padding-box, linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box; color: #ffffff; }
+.badge-gradient { border: 1px solid transparent; background: var(--gradient) padding-box, var(--gradient-reverse) border-box; color: #ffffff; }
 
 /* --- Tags --- */
 
@@ -305,8 +319,8 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: up
 .btn-ghost:hover { background: var(--surface); }
 .btn-link { background: transparent; color: var(--primary); border: none; }
 .btn-link:hover { opacity: 0.85; }
-.btn-gradient { border: 1px solid transparent; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) padding-box, linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box; color: #ffffff; }
-.btn-gradient:hover { background: linear-gradient(90deg, rgba(188, 0, 129, 0.3), rgba(111, 38, 201, 0.3), rgba(0, 92, 181, 0.3)) padding-box, linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box; }
+.btn-gradient { border: 1px solid transparent; background: var(--gradient) padding-box, var(--gradient-reverse) border-box; color: #ffffff; }
+.btn-gradient:hover { background: linear-gradient(90deg, rgba(188, 0, 129, 0.3), rgba(111, 38, 201, 0.3), rgba(0, 92, 181, 0.3)) padding-box, var(--gradient-reverse) border-box; }
 .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
 .btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
 
@@ -412,8 +426,8 @@ label { display: block; margin: 0.5rem 0 0.25rem; color: var(--muted); font-size
 .progress-cyan { background: var(--accent); }
 .progress-purple { background: var(--secondary); }
 .progress-success { background: var(--success); }
-.progress-bar.gradient { background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); }
-.progress-bar.gradient-reverse { background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)); }
+.progress-bar.gradient { background: var(--gradient); }
+.progress-bar.gradient-reverse { background: var(--gradient-reverse); }
 
 /* --- Avatar --- */
 

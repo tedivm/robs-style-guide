@@ -320,7 +320,7 @@ echo "Done."</code></pre>` },
     margin: 2rem 0 0.75rem;
     padding-bottom: 0.6rem;
     border-bottom: 1px solid;
-    border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
+    border-image: var(--gradient) 1;
     color: var(--secondary);
     position: relative;
   }
@@ -331,7 +331,7 @@ echo "Done."</code></pre>` },
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    background: var(--gradient);
     filter: blur(6px);
     opacity: 0.7;
   }

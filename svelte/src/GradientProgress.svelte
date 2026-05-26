@@ -19,9 +19,9 @@
     height: 100%;
     border-radius: 4px;
     transition: width 0.3s;
-    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    background: var(--gradient);
   }
   .bar-reverse {
-    background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
+    background: var(--gradient-reverse);
   }
 </style>

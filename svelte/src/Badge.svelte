@@ -51,9 +51,7 @@
 
   .badge-gradient {
     border: 1px solid transparent;
-    background:
-      linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) padding-box,
-      linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box;
+    background: var(--gradient) padding-box, var(--gradient-reverse) border-box;
     color: #ffffff;
   }
 </style>

@@ -27,6 +27,10 @@
 
   --code: #eee5f9;
   --code-fg: #4c1161;
+
+  --gradient: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  --gradient-reverse: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
+  --gradient-vertical: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
 }
 
 .dark {

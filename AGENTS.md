@@ -84,6 +84,7 @@ Both implementations share the same palette. Vanilla HTML (`docs/index.html`) is
 - Svelte implementation is independent — use Svelte 5 best practices (runes, async components)
 - Dual-mode (dark/light) support across all pages
 - Self-host fonts; avoid Google Fonts CDN
+- **When the theme changes, update the skill too** — any change to theme colors, CSS variables, components, typography, or styling in `docs/vanilla/theme.css` or `svelte/src/theme.css` must be reflected in `.agents/skills/robs-theme-implementation/` (both `SKILL.md` and `assets/*.css`). The skill is the authoritative reference for implementing this theme in other projects and will drift out of sync if not updated alongside theme changes
 
 ## Deployment
 

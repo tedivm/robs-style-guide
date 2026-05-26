@@ -1,0 +1,43 @@
+/* ============================================================
+   Variables — color tokens and gradients
+   Source: docs/vanilla/theme.css
+   ============================================================ */
+
+:root {
+  --bg: #150d1e;
+  --fg: #dcdcdc;
+  --surface: #1a1130;
+  --surface-fg: #dcdcdc;
+  --code: #0f0a1a;
+  --code-fg: #e0e0e0;
+  --border: #3d2b5a;
+  --primary: #bc0081;
+  --secondary: #6f26c9;
+  --accent: #005cb5;
+  --muted: #b4b4b4;
+  --dim: #999;
+  --success: #50c878;
+  --warning: #ffbe32;
+  --error: #ee343b;
+  --gradient: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  --gradient-reverse: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
+  --gradient-vertical: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
+}
+
+.light {
+  --bg: #f5f1fc;
+  --fg: #1d152a;
+  --surface: #e9e0f7;
+  --surface-fg: #221733;
+  --code: #eee5f9;
+  --code-fg: #4c1161;
+  --border: #d4c2ec;
+  --primary: #bc0081;
+  --secondary: #6f26c9;
+  --accent: #005cb5;
+  --muted: #5e546d;
+  --dim: #756a87;
+  --success: #50c878;
+  --warning: #ffbe32;
+  --error: #ee343b;
+}

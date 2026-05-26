@@ -1,0 +1,194 @@
+/* ============================================================
+   Components — buttons, badges, cards, alerts, progress, forms, etc.
+   Source: docs/vanilla/theme.css
+   ============================================================ */
+
+/* --- Badges --- */
+
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600; }
+.badge-app { background: rgba(188, 0, 129, 0.15); color: var(--primary); }
+.badge-ai { background: rgba(111, 38, 201, 0.15); color: var(--secondary); }
+.badge-infra { background: rgba(0, 92, 181, 0.15); color: var(--accent); }
+.badge-success { background: rgba(80, 200, 120, 0.15); color: var(--success); }
+.badge-warn { background: rgba(255, 190, 50, 0.15); color: var(--warning); }
+.badge-error { background: rgba(238, 52, 59, 0.15); color: var(--error); }
+.badge-gradient { border: 1px solid transparent; background: var(--gradient) padding-box, var(--gradient-reverse) border-box; color: #ffffff; }
+
+/* --- Tags --- */
+
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--surface);
+  border-radius: 3px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0.1rem;
+}
+
+/* --- Status Indicators --- */
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+}
+
+.status-online { background: var(--success); }
+.status-offline { background: var(--error); }
+.status-warn { background: var(--warning); }
+
+/* --- Instructions / Alert Boxes --- */
+
+.instructions {
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  border-left: 3px solid var(--primary);
+}
+
+.instructions-info { border-left-color: var(--secondary); }
+.instructions-success { border-left-color: var(--success); }
+.instructions-warn { border-left-color: var(--warning); }
+.instructions-error { border-left-color: var(--error); }
+
+/* --- Buttons --- */
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: 'Source Serif 4', 'Roboto Slab', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-primary { background: rgba(188, 0, 129, 0.15); color: var(--primary); border-color: var(--primary); }
+.btn-primary:hover { background: rgba(188, 0, 129, 0.3); }
+.btn-secondary { background: rgba(111, 38, 201, 0.15); color: var(--secondary); border-color: var(--secondary); }
+.btn-secondary:hover { background: rgba(111, 38, 201, 0.3); }
+.btn-subtle { background: transparent; color: var(--muted); border-color: var(--border); }
+.btn-subtle:hover { color: var(--fg); border-color: var(--muted); }
+.btn-destructive { background: rgba(238, 52, 59, 0.15); color: var(--error); border-color: var(--error); }
+.btn-destructive:hover { background: rgba(238, 52, 59, 0.3); }
+.btn-outline { background: transparent; color: var(--fg); border-color: var(--border); }
+.btn-outline:hover { color: var(--primary); border-color: var(--primary); }
+.btn-ghost { background: transparent; color: var(--fg); border: none; }
+.btn-ghost:hover { background: var(--surface); }
+.btn-link { background: transparent; color: var(--primary); border: none; }
+.btn-link:hover { opacity: 0.85; }
+.btn-gradient { border: 1px solid transparent; background: var(--gradient) padding-box, var(--gradient-reverse) border-box; color: #ffffff; }
+.btn-gradient:hover { background: linear-gradient(90deg, rgba(188, 0, 129, 0.3), rgba(111, 38, 201, 0.3), rgba(0, 92, 181, 0.3)) padding-box, var(--gradient-reverse) border-box; }
+.btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
+.btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
+
+/* --- Card --- */
+
+.card {
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+
+.card:hover { border-color: var(--primary); }
+.card a.card-link { text-decoration: none; }
+.card a.card-link:hover { text-decoration: none; }
+.card-header { font-weight: 600; margin-bottom: 0.5rem; color: var(--primary); font-size: 1.1rem; }
+.card-body { font-size: 0.9rem; color: var(--surface-fg); }
+.card-meta { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; font-family: 'Source Code Pro', monospace; }
+
+/* --- Forms --- */
+
+input[type="text"], input[type="password"], textarea, select {
+  background: var(--code);
+  border: 1px solid var(--surface);
+  color: var(--fg);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+textarea { min-height: 80px; resize: vertical; }
+label { display: block; margin: 0.5rem 0 0.25rem; color: var(--muted); font-size: 0.85rem; }
+
+/* --- Table --- */
+
+table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid color-mix(in srgb, var(--border) 40%, transparent); }
+th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* --- Horizontal Rule --- */
+
+hr { border: none; height: 1px; margin: 1.5rem 0; background: var(--gradient); filter: drop-shadow(0 0 6px rgba(188, 0, 129, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
+hr.reverse { background: var(--gradient-reverse); filter: drop-shadow(0 0 6px rgba(0, 92, 181, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
+
+/* --- Tooltip --- */
+
+.tooltip { position: relative; border-bottom: 1px dotted var(--secondary); cursor: help; }
+
+.tooltip:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--code);
+  color: var(--fg);
+  padding: 0.4rem 0.6rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  border: 1px solid var(--surface);
+  z-index: 1;
+}
+
+/* --- Keyboard --- */
+
+.kbd {
+  display: inline-block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.1rem 0.4rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--fg);
+}
+
+/* --- Progress --- */
+
+.progress {
+  background: var(--surface);
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.progress-pink { background: var(--primary); }
+.progress-cyan { background: var(--accent); }
+.progress-purple { background: var(--secondary); }
+.progress-success { background: var(--success); }
+.progress-bar.gradient { background: var(--gradient); }
+.progress-bar.gradient-reverse { background: var(--gradient-reverse); }

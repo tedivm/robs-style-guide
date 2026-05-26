@@ -78,15 +78,13 @@
 
   .btn-gradient {
     border: 1px solid transparent;
-    background:
-      linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) padding-box,
-      linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box;
+    background: var(--gradient) padding-box, var(--gradient-reverse) border-box;
     color: #ffffff;
   }
   .btn-gradient:hover {
     background:
       linear-gradient(90deg, rgba(188, 0, 129, 0.3), rgba(96, 32, 192, 0.3), rgba(0, 92, 181, 0.3)) padding-box,
-      linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box;
+      var(--gradient-reverse) border-box;
   }
 
   .btn-sm {

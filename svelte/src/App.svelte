@@ -736,13 +736,24 @@ echo "Hello, world!"</code></pre>
   .status-warn { background: var(--warning); }
 
   blockquote {
-    border-left: 3px solid var(--primary);
+    position: relative;
+    border-left: 3px solid transparent;
     background: var(--card);
     padding: 1rem;
     margin: 0.5rem 0;
     border-radius: 5px;
     color: var(--card-foreground);
     font-style: italic;
+  }
+
+  blockquote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
   }
 
   pre {
