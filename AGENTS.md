@@ -47,12 +47,28 @@ cd svelte && npm run build:all    # Both
 
 ## Design Tokens
 
-- **Primary:** `#bc0081` (pink)
-- **Secondary:** `#6020c0` (purple)
-- **Accent:** `#005cb5` (cyan)
-- **Success:** `#50c878` (green)
-- **Warning:** `#ffbe32` (amber)
-- **Error:** `#ee343b` (red)
+Global (same for dark and light):
+
+| Color | Value |
+| --- | --- |
+| Primary (pink) | `#bc0081` |
+| Secondary (purple) | `#6f26c9` |
+| Tertiary (cyan) | `#005cb5` |
+| Success | `#50c878` |
+| Warning | `#ffbe32` |
+| Error | `#ee343b` |
+
+Mode-dependent:
+
+| Color | Dark Mode | Light Mode |
+| --- | --- | --- |
+| Background | `#150d1e` | `#f5f1fc` |
+| Surface / Cards | `#1a1130` | `#e9e0f7` |
+| Code blocks / Inputs | `#0f0a1a` | `#eee5f9` |
+| Borders / Dividers | `#3d2b5a` | `#d4c2ec` |
+| Body text | `#dcdcdc` | `#1d152a` |
+| Muted text | `#b4b4b4` | `#5e546d` |
+| Dim text | `#999` | `#756a87` |
 
 Both implementations share the same palette. Vanilla HTML (`docs/index.html`) is the canonical reference for styling.
 
@@ -62,12 +78,11 @@ Both implementations share the same palette. Vanilla HTML (`docs/index.html`) is
 - Svelte implementation is independent — use Svelte 5 best practices (runes, async components)
 - Dual-mode (dark/light) support across all pages
 - Self-host fonts; avoid Google Fonts CDN
-- Use `snip` prefix for all shell commands to compress output
-- Prefer existing tools and libraries over custom implementations
 
 ## Deployment
 
 Push to `main` triggers `.github/workflows/deploy.yml`:
+
 1. Checks out code, sets up Node 24
 2. Runs `npm ci` + `npx vite build` in `svelte/`
 3. Uploads entire `docs/` directory as Pages artifact
