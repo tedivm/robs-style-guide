@@ -47,7 +47,9 @@
     <Button onclick={toggle}>
       {dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}
     </Button>
-    <a href="../" class="back-link">← Back to style guide</a>
+    <a href="../../" class="back-link">← Home</a>
+    <a href="../prism/" class="back-link">Code highlighting →</a>
+    <a href="../icons/" class="back-link">Icons →</a>
   </div>
 
   <h2>Colors</h2>

@@ -7,12 +7,16 @@
     "dev": "vite",
     "build": "vite build",
     "build:prism": "vite build --config vite.prism.config.js",
-    "build:all": "vite build && vite build --config vite.prism.config.js",
+    "build:icons": "vite build --config vite.icons.config.js",
+    "build:all": "vite build && vite build --config vite.prism.config.js && vite build --config vite.icons.config.js",
     "preview": "vite preview"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "svelte": "^5.46.4",
     "vite": "^8.0.0"
+  },
+  "dependencies": {
+    "@tabler/icons-svelte-runes": "^3.44.0"
   }
 }

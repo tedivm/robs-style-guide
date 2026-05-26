@@ -7,133 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./theme.css">
   <!-- No Prism theme loaded — using custom inline theme below -->
   <style>
-    :root {
-      --bg: #150d1e;
-      --fg: #dcdcdc;
-      --surface: #1a1130;
-      --surface-fg: #dcdcdc;
-      --code: #0f0a1a;
-      --code-fg: #e0e0e0;
-      --border: #3d2b5a;
-      --primary: #bc0081;
-      --secondary: #6020c0;
-      --accent: #005cb5;
-      --muted: #b4b4b4;
-      --dim: #999;
-      --success: #50c878;
-      --warning: #ffbe32;
-      --error: #ee343b;
-    }
-    .light {
-      --bg: #f5f1fc;
-      --fg: #1d152a;
-      --surface: #e9e0f7;
-      --surface-fg: #221733;
-      --code: #eee5f9;
-      --code-fg: #4c1161;
-      --border: #d4c2ec;
-      --primary: #bc0081;
-      --secondary: #6020c0;
-      --accent: #005cb5;
-      --muted: #5e546d;
-      --dim: #756a87;
-      --success: #50c878;
-      --warning: #ffbe32;
-      --error: #ee343b;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Source Serif 4', 'Roboto Slab', serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-      transition: background 0.2s, color 0.2s;
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin: 2rem 0 0.75rem;
-      color: var(--primary);
-    }
-    h2 {
-      font-size: 1.3rem;
-      margin: 2rem 0 0.75rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid;
-      border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
-      color: var(--secondary);
-      position: relative;
-    }
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-      filter: blur(6px);
-      opacity: 0.7;
-    }
-    h3 {
-      font-size: 1.1rem;
-      margin: 1.5rem 0 0.5rem;
-      color: var(--accent);
-    }
-    p { margin: 0.5rem 0; }
-    .subtitle { color: var(--fg); margin-bottom: 1.5rem; font-size: 0.95rem; }
-    a { color: var(--secondary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    code {
-      font-family: 'Source Code Pro', 'Roboto Mono', monospace;
-      background: var(--code);
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 0.9em;
-      color: var(--secondary);
-    }
-    pre {
-      background: var(--code);
-      color: var(--code-fg);
-      padding: 1rem;
-      border-radius: 5px;
-      overflow-x: auto;
-      font-size: 0.85rem;
-      line-height: 1.5;
-      margin: 0.5rem 0;
-      border: 1px solid var(--surface);
-    }
-    pre code { background: none; padding: 0; color: inherit; }
-    .toolbar {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .back-link {
-      font-size: 0.85rem;
-      color: var(--muted);
-      text-decoration: none;
-    }
-    .back-link:hover { text-decoration: underline; }
-    .btn {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      font-family: 'Source Serif 4', 'Roboto Slab', serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      border: 1px solid transparent;
-    }
-    .btn-primary { background: rgba(188, 0, 129, 0.15); color: var(--primary); border-color: var(--primary); }
-    .btn-primary:hover { background: rgba(188, 0, 129, 0.3); }
-
     /* Prism theme — complete custom mapping, no base theme loaded */
     code[class*="language-"],
     pre[class*="language-"] {
@@ -248,9 +124,6 @@
     .token.deleted { color: var(--error) !important; }
     .token.inserted { color: var(--success) !important; }
 
-    .muted { color: var(--muted); }
-    hr { border: none; height: 1px; margin: 1.5rem 0; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); filter: drop-shadow(0 0 6px rgba(188, 0, 129, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
-
     /* Token table */
     .token-table {
       width: 100%;
@@ -286,7 +159,6 @@
       color: var(--muted);
       line-height: 1.6;
     }
-
   </style>
 </head>
 <body>
@@ -295,7 +167,8 @@
 
   <div class="toolbar">
     <button class="btn btn-primary" id="theme-toggle">Toggle Light Mode</button>
-    <a href="../" class="back-link">← Back to style guide</a>
+    <a href="./index.html" class="back-link">← Back to style guide</a>
+    <a href="./icons.html" class="back-link">Icons →</a>
   </div>
 
   <h2>Token Mappings</h2>
@@ -313,7 +186,7 @@
         <td class="token-list">keyword, module, control, function, function-name, function-variable, tag, selector, atrule</td>
       </tr>
       <tr>
-        <td><span class="swatch" style="background: #6020c0"></span></td>
+        <td><span class="swatch" style="background: #6f26c9"></span></td>
         <td class="token-list">property, variable, symbol, attr-name, namespace</td>
       </tr>
       <tr>
@@ -426,7 +299,7 @@ class Config:
         if self.colors is None:
             self.colors = {
                 "primary": "#bc0081",
-                "secondary": "#6020c0",
+                "secondary": "#6f26c9",
                 "accent": "#005cb5"
             }
 
@@ -461,7 +334,7 @@ func main() {
 		Debug: false,
 		Colors: map[string]string{
 			"primary":   "#bc0081",
-			"secondary": "#6020c0",
+			"secondary": "#6f26c9",
 			"accent":    "#005cb5",
 		},
 	}
@@ -587,7 +460,7 @@ echo "Done."</code></pre>
 &lt;configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
   &lt;theme name="dark-purple"&gt;
     &lt;color name="primary" value="#bc0081" /&gt;
-    &lt;color name="secondary" value="#6020c0" /&gt;
+    &lt;color name="secondary" value="#6f26c9" /&gt;
     &lt;color name="accent" value="#005cb5" /&gt;
     &lt;color name="success" value="#50c878" /&gt;
     &lt;color name="warning" value="#ffbe32" /&gt;
@@ -603,21 +476,21 @@ echo "Done."</code></pre>
 <pre><code class="language-diff">--- a/docs/index.html
 +++ b/docs/index.html
 @@ -15,7 +15,7 @@
-   :root {
-     --bg: #0f0a1a;
-     --fg: #e0e0e0;
--    --surface: #2d1b4e;
-+    --surface: #1a1130;
-     --code: #0f0a1a;
-     --code-fg: #e0e0e0;
-     --primary: #bc0081;
+  :root {
+    --bg: #0f0a1a;
+    --fg: #e0e0e0;
+-   --surface: #2d1b4e;
++   --surface: #1a1130;
+    --code: #0f0a1a;
+    --code-fg: #e0e0e0;
+    --primary: #bc0081;
 @@ -25,6 +25,8 @@
-     --success: #50c878;
-     --warning: #ffbe32;
-     --error: #ee343b;
-+    --border: #2d1b4e;
-+    --radius: 6px;
-    }
+    --success: #50c878;
+    --warning: #ffbe32;
+    --error: #ee343b;
++   --border: #2d1b4e;
++   --radius: 6px;
+  }
   </style></code></pre>
 
   <p class="dim" style="margin-top: 1rem;">Powered by <a href="https://prismjs.com">Prism.js</a></p>

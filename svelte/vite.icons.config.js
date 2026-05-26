@@ -7,27 +7,27 @@ export default defineConfig({
   plugins: [
     svelte(),
     {
-      name: 'rename-prism-output',
+      name: 'rename-icons-output',
       closeBundle() {
-        const outDir = path.resolve(__dirname, '../docs/svelte/prism');
-        const oldPath = path.join(outDir, 'prism.index.html');
+        const outDir = path.resolve(__dirname, '../docs/svelte/icons');
+        const oldPath = path.join(outDir, 'icons.index.html');
         const newPath = path.join(outDir, 'index.html');
         try {
           if (fs.existsSync(oldPath)) {
             fs.renameSync(oldPath, newPath);
           }
         } catch (e) {
-          console.error('Failed to rename prism output:', e.message);
+          console.error('Failed to rename icons output:', e.message);
         }
       }
     }
   ],
-  base: '/svelte/prism/',
+  base: '/svelte/icons/',
   build: {
-    outDir: '../docs/svelte/prism',
+    outDir: '../docs/svelte/icons',
     emptyOutDir: true,
     rollupOptions: {
-      input: './prism.index.html'
+      input: './icons.index.html'
     }
   }
 });

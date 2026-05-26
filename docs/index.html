@@ -1,759 +1,102 @@
 <!DOCTYPE html>
 <html lang=en>
+
 <head>
   <meta charset=UTF-8>
   <meta name=viewport content=width=device-width, initial-scale=1.0>
   <title>Rob's Style Guide</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #150d1e;
-      --fg: #dcdcdc;
-      --surface: #1a1130;
-      --surface-fg: #dcdcdc;
-      --code: #0f0a1a;
-      --code-fg: #e0e0e0;
-      --border: #3d2b5a;
-      --primary: #bc0081;
-      --secondary: #6020c0;
-      --accent: #005cb5;
-      --muted: #b4b4b4;
-      --dim: #999;
-      --success: #50c878;
-      --warning: #ffbe32;
-      --error: #ee343b;
-    }
-    .light {
-      --bg: #f5f1fc;
-      --fg: #1d152a;
-      --surface: #e9e0f7;
-      --surface-fg: #221733;
-      --code: #eee5f9;
-      --code-fg: #4c1161;
-      --border: #d4c2ec;
-      --primary: #bc0081;
-      --secondary: #6020c0;
-      --accent: #005cb5;
-      --muted: #5e546d;
-      --dim: #756a87;
-      --success: #50c878;
-      --warning: #ffbe32;
-      --error: #ee343b;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Source Serif 4', 'Roboto Slab', serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-      transition: background 0.2s, color 0.2s;
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin: 2rem 0 0.75rem;
-      color: var(--primary);
-    }
-    h2 {
-      font-size: 1.3rem;
-      margin: 2rem 0 0.75rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid;
-      border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
-      color: var(--secondary);
-      position: relative;
-    }
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-      filter: blur(6px);
-      opacity: 0.7;
-    }
-    h3 {
-      font-size: 1.1rem;
-      margin: 1.5rem 0 0.5rem;
-      color: var(--accent);
-    }
-    h4 { font-size: 1rem; margin: 1.2rem 0 0.4rem; color: var(--fg); }
-    h5 { font-size: 0.9rem; margin: 1rem 0 0.3rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
-    h6 { font-size: 0.85rem; margin: 1rem 0 0.3rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-    p { margin: 0.5rem 0; }
-    .subtitle { color: var(--fg); margin-bottom: 1.5rem; font-size: 0.95rem; }
-    a { color: var(--secondary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    code {
-      font-family: 'Source Code Pro', 'Roboto Mono', monospace;
-      background: var(--code);
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 0.9em;
-      color: var(--secondary);
-    }
-    pre {
-      background: var(--code);
-      color: var(--code-fg);
-      padding: 1rem;
-      border-radius: 5px;
-      overflow-x: auto;
-      font-size: 0.85rem;
-      line-height: 1.5;
-      margin: 0.5rem 0;
-      border: 1px solid var(--surface);
-    }
-    pre code { background: none; padding: 0; color: inherit; }
-    blockquote {
-      border-left: 3px solid var(--primary);
-      background: var(--surface);
-      padding: 1rem;
-      margin: 0.5rem 0;
-      border-radius: 5px;
-      color: var(--surface-fg);
-      font-style: italic;
-    }
-    ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
-    li { margin: 0.25rem 0; }
-    hr { border: none; height: 1px; margin: 1.5rem 0; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); filter: drop-shadow(0 0 6px rgba(188, 0, 129, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
-    hr.reverse { background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)); filter: drop-shadow(0 0 6px rgba(0, 92, 181, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
-    table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
-    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid color-mix(in srgb, var(--border) 40%, transparent); }
-    th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
-    .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600; }
-    .badge-app { background: rgba(188, 0, 129, 0.15); color: var(--primary); }
-    .badge-ai { background: rgba(96, 32, 192, 0.15); color: var(--secondary); }
-    .badge-infra { background: rgba(0, 92, 181, 0.15); color: var(--accent); }
-    .badge-success { background: rgba(80, 200, 120, 0.15); color: var(--success); }
-    .badge-warn { background: rgba(255, 190, 50, 0.15); color: var(--warning); }
-    .badge-error { background: rgba(238, 52, 59, 0.15); color: var(--error); }
-    .badge-gradient { border: 1px solid transparent; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) padding-box, linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box; color: #ffffff; }
-    .instructions {
-      background: var(--surface);
-      padding: 1rem;
-      border-radius: 5px;
-      margin: 0.5rem 0;
-      border-left: 3px solid var(--primary);
-    }
-    .instructions-info { border-left-color: var(--secondary); }
-    .instructions-success { border-left-color: var(--success); }
-    .instructions-warn { border-left-color: var(--warning); }
-    .instructions-error { border-left-color: var(--error); }
-    .swatch {
-      display: inline-block;
-      width: 28px;
-      height: 28px;
-      border-radius: 4px;
-      vertical-align: middle;
-      margin-right: 6px;
-      border: 1px solid var(--border);
-    }
-    .color-cell { display: flex; align-items: center; gap: 6px; }
-    .color-hex { font-family: 'Source Code Pro', monospace; font-size: 0.85rem; }
-    .font-specimen {
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
-      margin: 0.25rem 0;
-      color: var(--fg);
-    }
-    .toolbar {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .back-link {
-      font-size: 0.85rem;
-      color: var(--muted);
-      text-decoration: none;
-    }
-    .back-link:hover { text-decoration: underline; }
-    .tool {
-      margin: 0.5rem 0;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--surface);
-    }
-    .tool-name { font-weight: bold; font-family: monospace; color: var(--primary); }
-    .tool-desc { color: var(--fg); font-size: 0.9rem; }
-    .config-section { margin: 1.5rem 0; }
-    .config-path { font-size: 0.85rem; color: var(--dim); font-family: monospace; margin-bottom: 0.3rem; }
-    .url {
-      font-family: monospace;
-      background: var(--surface);
-      padding: 0.2rem 0.5rem;
-      border-radius: 3px;
-      color: var(--secondary);
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      font-family: 'Source Serif 4', 'Roboto Slab', serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      border: 1px solid transparent;
-    }
-    .btn-primary { background: rgba(188, 0, 129, 0.15); color: var(--primary); border-color: var(--primary); }
-    .btn-primary:hover { background: rgba(188, 0, 129, 0.3); }
-    .btn-secondary { background: rgba(96, 32, 192, 0.15); color: var(--secondary); border-color: var(--secondary); }
-    .btn-secondary:hover { background: rgba(96, 32, 192, 0.3); }
-    .btn-subtle { background: transparent; color: var(--muted); border-color: var(--border); }
-    .btn-subtle:hover { color: var(--fg); border-color: var(--muted); }
-    .btn-destructive { background: rgba(238, 52, 59, 0.15); color: var(--error); border-color: var(--error); }
-    .btn-destructive:hover { background: rgba(238, 52, 59, 0.3); }
-    .btn-outline { background: transparent; color: var(--fg); border-color: var(--border); }
-    .btn-outline:hover { color: var(--primary); border-color: var(--primary); }
-    .btn-ghost { background: transparent; color: var(--fg); border: none; }
-    .btn-ghost:hover { background: var(--surface); }
-    .btn-link { background: transparent; color: var(--primary); border: none; }
-    .btn-link:hover { opacity: 0.85; }
-    .btn-gradient { border: 1px solid transparent; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) padding-box, linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box; color: #ffffff; }
-    .btn-gradient:hover { background: linear-gradient(90deg, rgba(188, 0, 129, 0.3), rgba(96, 32, 192, 0.3), rgba(0, 92, 181, 0.3)) padding-box, linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)) border-box; }
-    .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
-    .btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
-    .muted { color: var(--muted); }
-    .dim { color: var(--dim); }
-    .text-pink { color: var(--primary); }
-    .text-cyan { color: var(--accent); }
-    .text-purple { color: var(--secondary); }
-    .text-success { color: var(--success); }
-    .text-warn { color: var(--warning); }
-    .text-error { color: var(--error); }
-    .grid { display: grid; gap: 1rem; }
-    .grid-2 { grid-template-columns: 1fr 1fr; }
-    .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
-    .card {
-      background: var(--surface);
-      padding: 1rem;
-      border-radius: 5px;
-      border: 1px solid var(--border);
-    }
-    .card-header { font-weight: 600; margin-bottom: 0.5rem; }
-    .card-body { font-size: 0.9rem; color: var(--surface-fg); }
-    .flex { display: flex; gap: 0.5rem; align-items: center; }
-    .flex-wrap { flex-wrap: wrap; }
-    .text-sm { font-size: 0.85rem; }
-    .text-xs { font-size: 0.75rem; }
-    .font-mono { font-family: 'Source Code Pro', 'Roboto Mono', monospace; }
-    .font-bold { font-weight: 700; }
-    .uppercase { text-transform: uppercase; letter-spacing: 0.05em; }
-    .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    input[type="text"], input[type="password"], textarea, select {
-      background: var(--code);
-      border: 1px solid var(--surface);
-      color: var(--fg);
-      padding: 0.5rem 0.75rem;
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: 0.85rem;
-      width: 100%;
-      max-width: 400px;
-    }
-    input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-    textarea { min-height: 80px; resize: vertical; }
-    label { display: block; margin: 0.5rem 0 0.25rem; color: var(--muted); font-size: 0.85rem; }
-    .tooltip { position: relative; border-bottom: 1px dotted var(--secondary); cursor: help; }
-    .tooltip:hover::after {
-      content: attr(data-tip);
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--code);
-      color: var(--fg);
-      padding: 0.4rem 0.6rem;
-      border-radius: 3px;
-      font-size: 0.75rem;
-      white-space: nowrap;
-      border: 1px solid var(--surface);
-      z-index: 1;
-    }
-    .kbd {
-      display: inline-block;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 0.1rem 0.4rem;
-      font-family: monospace;
-      font-size: 0.75rem;
-      color: var(--fg);
-    }
-    .progress {
-      background: var(--surface);
-      border-radius: 4px;
-      height: 8px;
-      overflow: hidden;
-      margin: 0.5rem 0;
-    }
-    .progress-bar {
-      height: 100%;
-      border-radius: 4px;
-    }
-    .progress-pink { background: var(--primary); }
-    .progress-cyan { background: var(--accent); }
-    .progress-purple { background: var(--secondary); }
-    .progress-success { background: var(--success); }
-    .progress-bar.gradient { background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); }
-    .progress-bar.gradient-reverse { background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary)); }
-
-    .avatar {
-      display: inline-block;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--border);
-      vertical-align: middle;
-    }
-    .tag {
-      display: inline-block;
-      padding: 0.15rem 0.5rem;
-      background: var(--surface);
-      border-radius: 3px;
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin: 0.1rem;
-    }
-    .status-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      margin-right: 0.4rem;
-    }
-    .status-online { background: var(--success); }
-    .status-offline { background: var(--error); }
-    .status-warn { background: var(--warning); }
-
-  </style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Source+Serif+4:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./vanilla/theme.css">
 </head>
+
 <body>
-  <h1>Style Guide</h1>
-  <p class="subtitle">Shared design system for Rob's services</p>
+  <h1>Rob's Style Guide</h1>
+  <p class="subtitle">Shared design system across implementation frameworks</p>
 
   <div class="toolbar">
     <button class="btn btn-primary" id="theme-toggle">Toggle Light Mode</button>
-    <a href="./svelte/" class="back-link">Svelte (shadcn) demo →</a>
-    <a href="./prism/" class="back-link">Code highlighting (Prism) →</a>
   </div>
 
-  <h2>Colors</h2>
-
-  <table class="color-table">
-    <thead>
-      <tr>
-        <th>Color</th>
-        <th>Dark Mode</th>
-        <th>Light Mode</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Background</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #150d1e"></span><span class="color-hex">#150d1e</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #f5f1fc"></span><span class="color-hex">#f5f1fc</span></span></td>
-      </tr>
-      <tr>
-        <td>Surface / Cards</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #1a1130"></span><span class="color-hex">#1a1130</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #e9e0f7"></span><span class="color-hex">#e9e0f7</span></span></td>
-      </tr>
-      <tr>
-        <td>Code blocks / Inputs</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #0f0a1a"></span><span class="color-hex">#0f0a1a</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #eee5f9"></span><span class="color-hex">#eee5f9</span></span></td>
-      </tr>
-      <tr>
-        <td>Borders / Dividers</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #3d2b5a"></span><span class="color-hex">#3d2b5a</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #d4c2ec"></span><span class="color-hex">#d4c2ec</span></span></td>
-      </tr>
-      <tr>
-        <td>Primary (pink)</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #bc0081"></span><span class="color-hex">#bc0081</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #bc0081"></span><span class="color-hex">#bc0081</span></span></td>
-      </tr>
-      <tr>
-        <td>Secondary (purple)</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #6f26c9"></span><span class="color-hex">#6f26c9</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #6f26c9"></span><span class="color-hex">#6f26c9</span></span></td>
-      </tr>
-      <tr>
-        <td>Tertiary (cyan)</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #005cb5"></span><span class="color-hex">#005cb5</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #005cb5"></span><span class="color-hex">#005cb5</span></span></td>
-      </tr>
-      <tr>
-        <td>Body text</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #dcdcdc"></span><span class="color-hex">#dcdcdc</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #1d152a"></span><span class="color-hex">#1d152a</span></span></td>
-      </tr>
-      <tr>
-        <td>Muted text</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #b4b4b4"></span><span class="color-hex">#b4b4b4</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #5e546d"></span><span class="color-hex">#5e546d</span></span></td>
-      </tr>
-      <tr>
-        <td>Dim text</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #999"></span><span class="color-hex">#999</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #756a87"></span><span class="color-hex">#756a87</span></span></td>
-      </tr>
-      <tr>
-        <td>Success</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #50c878"></span><span class="color-hex">#50c878</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #50c878"></span><span class="color-hex">#50c878</span></span></td>
-      </tr>
-      <tr>
-        <td>Warning</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #ffbe32"></span><span class="color-hex">#ffbe32</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #ffbe32"></span><span class="color-hex">#ffbe32</span></span></td>
-      </tr>
-      <tr>
-        <td>Error</td>
-        <td><span class="color-cell"><span class="swatch" style="background: #ee343b"></span><span class="color-hex">#ee343b</span></span></td>
-        <td><span class="color-cell"><span class="swatch" style="background: #ee343b"></span><span class="color-hex">#ee343b</span></span></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2>Typography</h2>
-
-  <div class="instructions instructions-info">
-    <strong>Fonts:</strong> <code>Source Serif 4</code> (body, primary) / <code>Roboto Slab</code> (body, fallback). <code>Source Code Pro</code> (monospace, primary) / <code>Roboto Mono</code> (monospace, fallback). All loaded from Google Fonts CDN, self-hostable.
-  </div>
-
-  <div class="grid grid-2" style="margin: 1rem 0;">
-    <div class="card font-card">
-      <div class="card-header">Source Serif 4</div>
-      <div class="card-body">
-        <div class="font-specimen">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
-        <div class="font-specimen">abcdefghijklmnopqrstuvwxyz</div>
-        <div class="font-specimen">0123456789</div>
-      </div>
-    </div>
-    <div class="card font-card">
-      <div class="card-header">Roboto Slab</div>
-      <div class="card-body">
-        <div class="font-specimen" style="font-family: 'Roboto Slab', serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
-        <div class="font-specimen" style="font-family: 'Roboto Slab', serif;">abcdefghijklmnopqrstuvwxyz</div>
-        <div class="font-specimen" style="font-family: 'Roboto Slab', serif;">0123456789</div>
-      </div>
-    </div>
-    <div class="card font-card">
-      <div class="card-header">Source Code Pro</div>
-      <div class="card-body">
-        <div class="font-specimen" style="font-family: 'Source Code Pro', monospace;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
-        <div class="font-specimen" style="font-family: 'Source Code Pro', monospace;">abcdefghijklmnopqrstuvwxyz</div>
-        <div class="font-specimen" style="font-family: 'Source Code Pro', monospace;">0123456789</div>
-      </div>
-    </div>
-    <div class="card font-card">
-      <div class="card-header">Roboto Mono</div>
-      <div class="card-body">
-        <div class="font-specimen" style="font-family: 'Roboto Mono', monospace;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
-        <div class="font-specimen" style="font-family: 'Roboto Mono', monospace;">abcdefghijklmnopqrstuvwxyz</div>
-        <div class="font-specimen" style="font-family: 'Roboto Mono', monospace;">0123456789</div>
-      </div>
-    </div>
-  </div>
-
-  <h1>Heading 1 — Primary pink</h1>
-   <p class="muted">Used for page titles. Primary pink color.</p>
-
-  <h2>Heading 2 — Purple with underline</h2>
-  <p class="muted">Used for section headers. Bottom border divider.</p>
-
-  <h3>Heading 3 — Cyan</h3>
-  <p class="muted">Used for subsections.</p>
-
-  <h4>Heading 4 — Body color</h4>
-  <p class="muted">Minor section headers.</p>
-
-  <h5>Heading 5 — Cyan uppercase</h5>
-  <p class="muted">Small labels, uppercase with letter-spacing.</p>
-
-  <h6>Heading 6 — Muted uppercase</h6>
-  <p class="muted">Smallest labels.</p>
-
-  <p>This is a standard paragraph. Body font: <code>Source Serif 4</code> with <code>Roboto Slab</code> fallback. Monospace: <code>Source Code Pro, Roboto Mono</code>.</p>
-
-  <p class="muted">This is muted text using the <code>.muted</code> class.</p>
-  <p class="dim">This is dim text using the <code>.dim</code> class — color <code>#999</code>.</p>
-
-  <p>
-    <span class="text-pink">Colored text: pink</span><br>
-    <span class="text-purple">Colored text: purple</span><br>
-    <span class="text-cyan">Colored text: cyan</span><br>
-    <span class="text-success">Colored text: success</span><br>
-    <span class="text-warn">Colored text: warning</span><br>
-    <span class="text-error">Colored text: error</span>
-  </p>
-
-  <p>
-    <span class="text-sm">Small text (0.85rem)</span><br>
-    <span class="text-xs">Extra small text (0.75rem)</span>
-  </p>
-
-  <p>
-    <span class="font-bold">Bold text</span><br>
-    <span class="uppercase">Uppercase with letter-spacing</span><br>
-    <span class="font-mono">Monospace text</span>
-  </p>
-
-  <p>
-    This paragraph contains <a href="#">inline links</a>, <code>inline code</code>, <span class="url">URL-style code</span>, <span class="tooltip" data-tip="This is a tooltip">tooltips</span>, and <span class="kbd">keyboard shortcuts</span>.
-  </p>
-
-  <h2>Links</h2>
-
-  <p>
-    Standard link: <a href="#">Default purple link</a><br>
-    Hover state: <a href="#">Links get underline on hover</a>
-  </p>
-
-  <h2>Inline Elements</h2>
-
-  <p>
-    <code>Inline code</code> — dark purple background, purple text.<br>
-    <span class="url">URL-style code</span> — monospace with tighter padding.<br>
-    <span class="kbd">Ctrl</span> + <span class="kbd">C</span> — keyboard keys.<br>
-    <span class="tooltip" data-tip="Hover for tooltip">Tooltip text</span> — dotted underline, hover for tooltip.<br>
-    <span class="truncate" style="display: inline-block; max-width: 200px; border-bottom: 1px solid var(--surface);">This is truncated text that gets ellipsis</span> — text truncation.
-  </p>
-
-  <h2>Badges</h2>
-
-  <div class="flex flex-wrap">
-    <span class="badge badge-app">App</span>
-    <span class="badge badge-ai">AI</span>
-    <span class="badge badge-infra">Infrastructure</span>
-    <span class="badge badge-success">Success</span>
-    <span class="badge badge-warn">Warning</span>
-    <span class="badge badge-error">Error</span>
-    <span class="badge badge-gradient">Gradient</span>
-  </div>
-
-  <h2>Tags</h2>
-
-  <div class="flex flex-wrap">
-    <span class="tag">v1.0.0</span>
-    <span class="tag">production</span>
-    <span class="tag">docker</span>
-    <span class="tag">traefik</span>
-    <span class="tag">nginx</span>
-    <span class="tag">internal</span>
-  </div>
-
-  <h2>Status Indicators</h2>
-
-  <div class="flex flex-wrap">
-    <span><span class="status-dot status-online"></span>Online</span><br>
-    <span><span class="status-dot status-offline"></span>Offline</span><br>
-    <span><span class="status-dot status-warn"></span>Degraded</span>
-  </div>
-
-  <h2>Buttons</h2>
-
-  <div class="flex flex-wrap">
-    <a href="#" class="btn btn-primary">Primary</a>
-    <a href="#" class="btn btn-secondary">Secondary</a>
-    <a href="#" class="btn btn-destructive">Destructive</a>
-    <a href="#" class="btn btn-outline">Outline</a>
-    <a href="#" class="btn btn-ghost">Ghost</a>
-    <a href="#" class="btn btn-link">Link</a>
-    <a href="#" class="btn btn-gradient">Gradient</a>
-    <a href="#" class="btn btn-subtle">Subtle</a>
-  </div>
-
-  <div class="flex flex-wrap" style="margin-top: 0.5rem;">
-    <a href="#" class="btn btn-primary btn-sm">Small</a>
-    <a href="#" class="btn btn-primary">Normal</a>
-    <a href="#" class="btn btn-primary btn-lg">Large</a>
-  </div>
-
-  <h2>Alert Boxes</h2>
-
-  <div class="instructions">
-    <strong>Default (pink border)</strong> — General instructions or important notes.
-  </div>
-
-  <div class="instructions instructions-info">
-    <strong>Info (purple border)</strong> — Informational messages.
-  </div>
-
-  <div class="instructions instructions-success">
-    <strong>Success (green border)</strong> — Confirmation or positive feedback.
-  </div>
-
-  <div class="instructions instructions-warn">
-    <strong>Warning (amber border)</strong> — Cautionary messages.
-  </div>
-
-  <div class="instructions instructions-error">
-    <strong>Error (red border)</strong> — Errors or critical issues.
-  </div>
-
-  <h2>Blockquote</h2>
-
-  <blockquote>
-    This is a blockquote. It has a pink left border and dark background, similar to the instructions box but with italic text.
-  </blockquote>
-
-  <h2>Code Blocks</h2>
-
-  <pre><code>{
-  "mcpServers": {
-    "wikipedia": {
-      "url": "https://example.com/mcp"
-    }
-  }
-}</code></pre>
-
-  <pre><code>#!/usr/bin/env bash
-set -euo pipefail
-echo "Hello, world!"</code></pre>
-
-  <h2>Lists</h2>
-
-  <h3>Unordered</h3>
-  <ul>
-    <li>First item</li>
-    <li>Second item</li>
-    <li>Third item with <code>inline code</code> and <a href="#">a link</a></li>
-    <li>Nested list:
-      <ul>
-        <li>Nested A</li>
-        <li>Nested B</li>
-      </ul>
-    </li>
-  </ul>
-
-  <h3>Ordered</h3>
-  <ol>
-    <li>Step one</li>
-    <li>Step two</li>
-    <li>Step three</li>
-  </ol>
-
-  <h2>Tables</h2>
-
-  <table>
-    <tr>
-      <th>Subdomain</th>
-      <th>Service</th>
-      <th>Description</th>
-      <th>Status</th>
-    </tr>
-    <tr>
-      <td><a href="#">example</a></td>
-      <td>Example Service</td>
-      <td>A demonstration of table rows</td>
-      <td><span><span class="status-dot status-online"></span>Running</span></td>
-    </tr>
-    <tr>
-      <td><a href="#">another</a></td>
-      <td>Another Service</td>
-      <td>With <code>inline code</code> and <span class="badge badge-ai">badges</span></td>
-      <td><span><span class="status-dot status-warn"></span>Degraded</span></td>
-    </tr>
-  </table>
-
-  <h2>Cards</h2>
+  <h2>Systems</h2>
 
   <div class="grid grid-2">
     <div class="card">
-      <div class="card-header">Card Title</div>
-      <div class="card-body">Card body text goes here. Cards have a surface background with a border.</div>
+      <a class="card-link" href="./vanilla/index.html">
+        <div class="card-header">Vanilla HTML</div>
+        <div class="card-body">
+          The source of truth for theme tokens and styling. Zero dependencies — pure HTML, CSS, and JavaScript.
+        </div>
+        <div class="card-meta">
+          <span class="badge badge-app">HTML/CSS/JS</span>
+          3 pages
+        </div>
+      </a>
     </div>
     <div class="card">
-      <div class="card-header">Another Card</div>
-      <div class="card-body">Cards can contain <a href="#">links</a>, <code>code</code>, <span class="badge badge-success">badges</span>, and other elements.</div>
+      <a class="card-link" href="./svelte/style/">
+        <div class="card-header">Svelte</div>
+        <div class="card-body">
+          Svelte 5 (runes) + Vite 8 implementation. Mirrors the vanilla design with framework-native components.
+        </div>
+        <div class="card-meta">
+          <span class="badge badge-ai">Svelte 5</span>
+          <span class="badge badge-infra">Vite</span>
+          3 pages
+        </div>
+      </a>
     </div>
   </div>
 
-  <h2>Progress Bars</h2>
+  <h2>Features</h2>
 
-  <div class="progress"><div class="progress-bar progress-pink" style="width: 25%"></div></div>
-  <div class="progress"><div class="progress-bar progress-cyan" style="width: 50%"></div></div>
-  <div class="progress"><div class="progress-bar progress-purple" style="width: 75%"></div></div>
-    <div class="progress"><div class="progress-bar progress-success" style="width: 100%"></div></div>
-
-  <h2>Gradient Progress Bars</h2>
-
-    <div class="progress"><div class="progress-bar gradient" style="width: 25%"></div></div>
-    <div class="progress"><div class="progress-bar gradient" style="width: 50%"></div></div>
-    <div class="progress"><div class="progress-bar gradient" style="width: 75%"></div></div>
-    <div class="progress"><div class="progress-bar gradient" style="width: 100%"></div></div>
-
-  <h2>Reverse Gradient Progress Bars</h2>
-
-    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 25%"></div></div>
-    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 50%"></div></div>
-    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 75%"></div></div>
-    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 100%"></div></div>
-
-  <h2>Forms</h2>
-
-  <label for="demo-text">Text input</label>
-  <input type="text" id="demo-text" placeholder="Enter text...">
-
-  <label for="demo-pass">Password input</label>
-  <input type="password" id="demo-pass" placeholder="Enter password...">
-
-  <label for="demo-select">Select</label>
-  <select id="demo-select">
-    <option>Option one</option>
-    <option>Option two</option>
-    <option>Option three</option>
-  </select>
-
-  <label for="demo-textarea">Textarea</label>
-  <textarea id="demo-textarea" placeholder="Enter multiline text..."></textarea>
-
-  <h2>Tool Cards</h2>
-
-  <div class="tool">
-    <span class="tool-name">search_articles</span>
-    <span class="tool-desc">— Search Wikipedia articles by keyword. Returns a list of matching article titles with relevance scores.</span>
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card-header"><a href="./vanilla/index.html#colors">Colors</a></div>
+      <div class="card-body">
+        Dark and light mode tokens with primary, secondary, and accent palette.
+      </div>
+      <div class="card-meta">
+        <a href="./vanilla/index.html#colors"><span class="badge badge-app">Vanilla</span></a>
+        <a href="./svelte/style/#colors"><span class="badge badge-ai">Svelte</span></a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><a href="./vanilla/index.html#typography">Typography</a></div>
+      <div class="card-body">
+        Source Serif 4 and Source Code Pro with fallbacks. Heading hierarchy and text utilities.
+      </div>
+      <div class="card-meta">
+        <a href="./vanilla/index.html#typography"><span class="badge badge-app">Vanilla</span></a>
+        <a href="./svelte/style/#typography"><span class="badge badge-ai">Svelte</span></a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><a href="./vanilla/icons.html">Icons</a></div>
+      <div class="card-body">
+        Tabler Icons — 6146+ MIT-licensed SVG icons with adjustable weights and stroke widths.
+      </div>
+      <div class="card-meta">
+        <a href="./vanilla/icons.html"><span class="badge badge-app">Vanilla</span></a>
+        <a href="./svelte/icons/"><span class="badge badge-ai">Svelte</span></a>
+        <span class="badge badge-infra">Tabler Icons</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><a href="./vanilla/prism.html">Code Highlighting</a></div>
+      <div class="card-body">
+        Prism.js syntax highlighting mapped to the style guide color palette.
+      </div>
+      <div class="card-meta">
+        <a href="./vanilla/prism.html"><span class="badge badge-app">Vanilla</span></a>
+        <a href="./svelte/prism/"><span class="badge badge-ai">Svelte</span></a>
+        <span class="badge badge-infra">Prism.js</span>
+      </div>
+    </div>
   </div>
-
-  <div class="tool">
-    <span class="tool-name">get_article</span>
-    <span class="tool-desc">— Get the full text of a Wikipedia article by its exact title.</span>
-  </div>
-
-  <h2>Config Sections</h2>
-
-  <div class="config-section">
-    <h3>Example Config</h3>
-    <p class="config-path">~/.config/example/config.json</p>
-    <pre><code>{
-  "key": "value",
-  "nested": {
-    "enabled": true
-  }
-}</code></pre>
-  </div>
-
-  <h2>Horizontal Rule</h2>
-
-  <hr>
-
-  <h2>Reverse Horizontal Rule</h2>
-
-  <hr class="reverse">
-
-  <p class="dim" style="margin-top: 1rem;">End of style guide.</p>
 
   <script>
     var toggle = document.getElementById('theme-toggle');
@@ -762,11 +105,12 @@ echo "Hello, world!"</code></pre>
       document.documentElement.classList.add('light');
       toggle.textContent = 'Toggle Dark Mode';
     }
-    toggle.addEventListener('click', function() {
+    toggle.addEventListener('click', function () {
       isLight = !isLight;
       document.documentElement.classList.toggle('light', isLight);
       toggle.textContent = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
     });
   </script>
 </body>
+
 </html>

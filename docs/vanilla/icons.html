@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Style Guide — Icons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./theme.css">
+  <style>
+    /* Icon grid */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .icon-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.75rem;
+      background: var(--surface);
+      border-radius: 5px;
+      border: 1px solid var(--border);
+    }
+    .icon-cell svg {
+      color: var(--fg);
+    }
+    .icon-cell .icon-name {
+      font-family: 'Source Code Pro', 'Roboto Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: center;
+      word-break: break-all;
+    }
+
+    /* Icon sizes demo */
+    .icon-sizes {
+      display: flex;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .icon-size-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .icon-size-cell span {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-family: 'Source Code Pro', monospace;
+    }
+
+    /* Icon weights demo */
+    .icon-weights {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .icon-weight-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .icon-weight-cell span {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-family: 'Source Code Pro', monospace;
+    }
+
+    /* Icon colors demo */
+    .icon-colors {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .icon-color-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .icon-color-cell span {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-family: 'Source Code Pro', monospace;
+    }
+
+    /* Icon stroke demo */
+    .icon-stroke {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .icon-stroke-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .icon-stroke-cell span {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-family: 'Source Code Pro', monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Icons — Tabler Icons</h1>
+  <p class="subtitle">Open source icon library (MIT license) — <a href="https://tabler.io/icons">tabler.io/icons</a></p>
+
+  <div class="toolbar">
+    <button class="btn btn-primary" id="theme-toggle">Toggle Light Mode</button>
+    <a href="./index.html" class="back-link">← Back to style guide</a>
+    <a href="./prism.html" class="back-link">Code highlighting (Prism) →</a>
+  </div>
+
+  <div class="instructions instructions-info">
+    <strong>Library:</strong> <a href="https://github.com/tabler/tabler-icons">Tabler Icons</a> — 6146+ free MIT-licensed SVG icons. Used via CDN for vanilla HTML. Available as <code>@tabler/icons-svelte-runes</code> for Svelte 5.
+  </div>
+
+  <h2>Weights</h2>
+  <p class="muted">Tabler Icons come in multiple weights: <code>outline</code> (default), <code>fill</code>, and <code>fonts</code>.</p>
+
+  <h3>Outline vs Fill</h3>
+  <div class="icon-weights">
+    <div class="icon-weight-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.019 12.725a1 1 0 0 0 1.963 0v-3.05a1 1 0 0 0-1.963 0Z"/><path d="M12 2a7 7 0 1 0 0 14a7 7 0 0 0 0-14z"/><path d="M12 12v3"/></svg>
+      <span>outline</span>
+    </div>
+    <div class="icon-weight-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.019 12.725a1 1 0 0 0 1.963 0v-3.05a1 1 0 0 0-1.963 0Z"/><path d="M12 2a7 7 0 1 0 0 14a7 7 0 0 0 0-14z"/><path d="M12 12v3"/></svg>
+      <span>outline</span>
+    </div>
+  </div>
+
+  <h2>Sizes</h2>
+  <div class="icon-sizes">
+    <div class="icon-size-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L4 7m3-3l3 3m6 12V4m0 0l3 3m-3-3l-3 3"/><path d="M11 10l4 4"/><path d="M7 18l4-4"/><path d="M13 18l-4-4"/><path d="M17 10l-4 4"/></svg>
+      <span>12px</span>
+    </div>
+    <div class="icon-size-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L4 7m3-3l3 3m6 12V4m0 0l3 3m-3-3l-3 3"/><path d="M11 10l4 4"/><path d="M7 18l4-4"/><path d="M13 18l-4-4"/><path d="M17 10l-4 4"/></svg>
+      <span>16px</span>
+    </div>
+    <div class="icon-size-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L4 7m3-3l3 3m6 12V4m0 0l3 3m-3-3l-3 3"/><path d="M11 10l4 4"/><path d="M7 18l4-4"/><path d="M13 18l-4-4"/><path d="M17 10l-4 4"/></svg>
+      <span>24px</span>
+    </div>
+    <div class="icon-size-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L4 7m3-3l3 3m6 12V4m0 0l3 3m-3-3l-3 3"/><path d="M11 10l4 4"/><path d="M7 18l4-4"/><path d="M13 18l-4-4"/><path d="M17 10l-4 4"/></svg>
+      <span>32px</span>
+    </div>
+    <div class="icon-size-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L4 7m3-3l3 3m6 12V4m0 0l3 3m-3-3l-3 3"/><path d="M11 10l4 4"/><path d="M7 18l4-4"/><path d="M13 18l-4-4"/><path d="M17 10l-4 4"/></svg>
+      <span>48px</span>
+    </div>
+  </div>
+
+  <h2>Colors</h2>
+  <p class="muted">Icons inherit <code>currentColor</code> and can be styled with any CSS color variable.</p>
+  <div class="icon-colors">
+    <div class="icon-color-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M18 7m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 17l5 -5"/><path d="M17 17l-5 -5"/></svg>
+      <span>primary</span>
+    </div>
+    <div class="icon-color-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M18 7m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 17l5 -5"/><path d="M17 17l-5 -5"/></svg>
+      <span>secondary</span>
+    </div>
+    <div class="icon-color-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M18 7m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 17l5 -5"/><path d="M17 17l-5 -5"/></svg>
+      <span>accent</span>
+    </div>
+    <div class="icon-color-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M18 7m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 17l5 -5"/><path d="M17 17l-5 -5"/></svg>
+      <span>success</span>
+    </div>
+    <div class="icon-color-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M18 7m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 17l5 -5"/><path d="M17 17l-5 -5"/></svg>
+      <span>warning</span>
+    </div>
+    <div class="icon-color-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--error)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M18 7m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 17l5 -5"/><path d="M17 17l-5 -5"/></svg>
+      <span>error</span>
+    </div>
+  </div>
+
+  <h2>Stroke Width</h2>
+  <p class="muted">Tabler Icons support adjustable stroke widths from 0.5 to 3.</p>
+  <div class="icon-stroke">
+    <div class="icon-stroke-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L4 7m3-3l3 3m6 12V4m0 0l3 3m-3-3l-3 3"/><path d="M11 10l4 4"/><path d="M7 18l4-4"/><path d="M13 18l-4-4"/><path d="M17 10l-4 4"/></svg>
+      <span>0.5</span>
+    </div>
+    <div class="icon-stroke-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L4 7m3-3l3 3m6 12V4m0 0l3 3m-3-3l-3 3"/><path d="M11 10l4 4"/><path d="M7 18l4-4"/><path d="M13 18l-4-4"/><path d="M17 10l-4 4"/></svg>
+      <span>1</span>
+    </div>
+    <div class="icon-stroke-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L4 7m3-3l3 3m6 12V4m0 0l3 3m-3-3l-3 3"/><path d="M11 10l4 4"/><path d="M7 18l4-4"/><path d="M13 18l-4-4"/><path d="M17 10l-4 4"/></svg>
+      <span>1.5</span>
+    </div>
+    <div class="icon-stroke-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L4 7m3-3l3 3m6 12V4m0 0l3 3m-3-3l-3 3"/><path d="M11 10l4 4"/><path d="M7 18l4-4"/><path d="M13 18l-4-4"/><path d="M17 10l-4 4"/></svg>
+      <span>2 (default)</span>
+    </div>
+    <div class="icon-stroke-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L4 7m3-3l3 3m6 12V4m0 0l3 3m-3-3l-3 3"/><path d="M11 10l4 4"/><path d="M7 18l4-4"/><path d="M13 18l-4-4"/><path d="M17 10l-4 4"/></svg>
+      <span>2.5</span>
+    </div>
+    <div class="icon-stroke-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L4 7m3-3l3 3m6 12V4m0 0l3 3m-3-3l-3 3"/><path d="M11 10l4 4"/><path d="M7 18l4-4"/><path d="M13 18l-4-4"/><path d="M17 10l-4 4"/></svg>
+      <span>3</span>
+    </div>
+  </div>
+
+  <h2>Icon Samples</h2>
+  <p class="muted">A selection of commonly used icons from the library.</p>
+
+  <h3>UI & Navigation</h3>
+  <div class="icon-grid">
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l-2 0l9-8l9 8l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg>
+      <span class="icon-name">home</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h6.267l-11.733 -16z"/><path d="M18 16l-3.4 -12"/></svg>
+      <span class="icon-name">pencil</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12l2 2l4 -4"/><path d="M12 3c7.18 0 10.09 0 10.5 4.251c.139 1.451 .128 6.049 -.127 8.749c-.255 2.7 -1.484 4.4 -4.873 5.249c-1.451 .379 -5.493 .379 -6.944 0c-3.389 -.849 -4.618 -2.549 -4.873 -5.249c-.255 -2.7 -.266 -7.299 -.127 -8.749c.411 -4.251 3.321 -4.251 10.5 -4.251z"/></svg>
+      <span class="icon-name">mail</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l-8 6l0 10l8 -4l8 4l0 -10z"/></svg>
+      <span class="icon-name">package</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 3l0 .5"/><path d="M12 20.5l0 -.5"/><path d="M3 12l.5 0"/><path d="M20.5 12l-.5 0"/></svg>
+      <span class="icon-name">search</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 12l4 0"/><path d="M12 8l0 4"/></svg>
+      <span class="icon-name">plus-circle</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 8l0 4"/><path d="M12 16l.01 0"/></svg>
+      <span class="icon-name">info-circle</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M10 10l4 4"/><path d="M14 10l-4 4"/></svg>
+      <span class="icon-name">x-circle</span>
+    </div>
+  </div>
+
+  <h3>Actions & Status</h3>
+  <div class="icon-grid">
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 3l0 .5"/><path d="M12 20.5l0 -.5"/><path d="M3 12l.5 0"/><path d="M20.5 12l-.5 0"/></svg>
+      <span class="icon-name">search</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l3 3l-3 3"/><path d="M13 15l3 0"/><path d="M5 12h13.5"/></svg>
+      <span class="icon-name">arrow-right</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 -4 2.43v3a2.85 2.83 0 0 1 -5.17 1.77l-1.29 .74a2.85 2.83 0 0 1 -2.85 -4.9l1.28 -.74a2.85 2.83 0 0 1 5.17 -1.77v-3a2.85 2.83 0 0 1 4 -2.43z"/><path d="M10 13v9"/><path d="M14 13v9"/><path d="M10 17h4"/></svg>
+      <span class="icon-name">user</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4"/><path d="M12 8l.01 0"/><path d="M6 12a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><path d="M12 2l-2 2"/><path d="M12 2l2 2"/><path d="M2 12l2 -2"/><path d="M22 12l-2 -2"/></svg>
+      <span class="icon-name">alert-circle</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 10l2 2l4 -4"/></svg>
+      <span class="icon-name">check-circle</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+      <span class="icon-name">alert-triangle</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+      <span class="icon-name">bell</span>
+    </div>
+    <div class="icon-cell">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+      <span class="icon-name">settings</span>
+    </div>
+  </div>
+
+  <h2>Usage</h2>
+
+  <h3>CDN (Vanilla HTML)</h3>
+  <pre><code>&lt;!-- Inline SVG (copy from tabler.io/icons) --&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+  viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;
+  &lt;path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/&gt;
+  &lt;path d="M12 8v4"/&gt;
+  &lt;path d="M12 16h.01"/&gt;
+&lt;/svg&gt;
+
+&lt;!-- Or use the iconfont via CDN --&gt;
+&lt;link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"&gt;
+&lt;i class="ti ti-alert-circle"&gt;&lt;/i&gt;</code></pre>
+
+  <h3>Svelte 5</h3>
+  <pre><code>npm install @tabler/icons-svelte-runes
+
+&lt;script&gt;
+  import { IconHeart } from '@tabler/icons-svelte-runes';
+&lt;/script&gt;
+
+&lt;IconHeart size={24} stroke={2} /&gt;</code></pre>
+
+  <h2>License</h2>
+
+  <table>
+    <tr>
+      <th>Field</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>License</td>
+      <td><a href="https://opensource.org/licenses/MIT">MIT</a></td>
+    </tr>
+    <tr>
+      <td>Repository</td>
+      <td><a href="https://github.com/tabler/tabler-icons">github.com/tabler/tabler-icons</a></td>
+    </tr>
+    <tr>
+      <td>Icon count</td>
+      <td>6146+ (outline + filled)</td>
+    </tr>
+    <tr>
+      <td>Format</td>
+      <td>SVG (inline), icon font (optional)</td>
+    </tr>
+    <tr>
+      <td>Grid</td>
+      <td>24×24, 2px stroke default</td>
+    </tr>
+  </table>
+
+  <p class="dim" style="margin-top: 1rem;">Icons from <a href="https://tabler.io/icons">Tabler Icons</a> — MIT licensed</p>
+
+  <script>
+    var toggle = document.getElementById('theme-toggle');
+    var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (isLight) {
+      document.documentElement.classList.add('light');
+      toggle.textContent = 'Toggle Dark Mode';
+    }
+    toggle.addEventListener('click', function() {
+      isLight = !isLight;
+      document.documentElement.classList.toggle('light', isLight);
+      toggle.textContent = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+    });
+  </script>
+</body>
+</html>

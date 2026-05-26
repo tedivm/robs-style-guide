@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Rob's Style Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./theme.css">
+</head>
+<body>
+  <h1>Style Guide</h1>
+  <p class="subtitle">Shared design system for Rob's services</p>
+
+  <div class="toolbar">
+    <button class="btn btn-primary" id="theme-toggle">Toggle Light Mode</button>
+    <a href="../" class="back-link">← Home</a>
+    <a href="./prism.html" class="back-link">Code highlighting →</a>
+    <a href="./icons.html" class="back-link">Icons →</a>
+  </div>
+
+  <h2>Colors</h2>
+
+  <table class="color-table">
+    <thead>
+      <tr>
+        <th>Color</th>
+        <th>Dark Mode</th>
+        <th>Light Mode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Background</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #150d1e"></span><span class="color-hex">#150d1e</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #f5f1fc"></span><span class="color-hex">#f5f1fc</span></span></td>
+      </tr>
+      <tr>
+        <td>Surface / Cards</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #1a1130"></span><span class="color-hex">#1a1130</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #e9e0f7"></span><span class="color-hex">#e9e0f7</span></span></td>
+      </tr>
+      <tr>
+        <td>Code blocks / Inputs</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #0f0a1a"></span><span class="color-hex">#0f0a1a</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #eee5f9"></span><span class="color-hex">#eee5f9</span></span></td>
+      </tr>
+      <tr>
+        <td>Borders / Dividers</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #3d2b5a"></span><span class="color-hex">#3d2b5a</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #d4c2ec"></span><span class="color-hex">#d4c2ec</span></span></td>
+      </tr>
+      <tr>
+        <td>Primary (pink)</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #bc0081"></span><span class="color-hex">#bc0081</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #bc0081"></span><span class="color-hex">#bc0081</span></span></td>
+      </tr>
+      <tr>
+        <td>Secondary (purple)</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #6f26c9"></span><span class="color-hex">#6f26c9</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #6f26c9"></span><span class="color-hex">#6f26c9</span></span></td>
+      </tr>
+      <tr>
+        <td>Tertiary (cyan)</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #005cb5"></span><span class="color-hex">#005cb5</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #005cb5"></span><span class="color-hex">#005cb5</span></span></td>
+      </tr>
+      <tr>
+        <td>Body text</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #dcdcdc"></span><span class="color-hex">#dcdcdc</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #1d152a"></span><span class="color-hex">#1d152a</span></span></td>
+      </tr>
+      <tr>
+        <td>Muted text</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #b4b4b4"></span><span class="color-hex">#b4b4b4</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #5e546d"></span><span class="color-hex">#5e546d</span></span></td>
+      </tr>
+      <tr>
+        <td>Dim text</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #999"></span><span class="color-hex">#999</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #756a87"></span><span class="color-hex">#756a87</span></span></td>
+      </tr>
+      <tr>
+        <td>Success</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #50c878"></span><span class="color-hex">#50c878</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #50c878"></span><span class="color-hex">#50c878</span></span></td>
+      </tr>
+      <tr>
+        <td>Warning</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #ffbe32"></span><span class="color-hex">#ffbe32</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #ffbe32"></span><span class="color-hex">#ffbe32</span></span></td>
+      </tr>
+      <tr>
+        <td>Error</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #ee343b"></span><span class="color-hex">#ee343b</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #ee343b"></span><span class="color-hex">#ee343b</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Typography</h2>
+
+  <div class="instructions instructions-info">
+    <strong>Fonts:</strong> <code>Source Serif 4</code> (body, primary) / <code>Roboto Slab</code> (body, fallback). <code>Source Code Pro</code> (monospace, primary) / <code>Roboto Mono</code> (monospace, fallback). All loaded from Google Fonts CDN, self-hostable.
+  </div>
+
+  <div class="grid grid-2" style="margin: 1rem 0;">
+    <div class="card font-card">
+      <div class="card-header">Source Serif 4</div>
+      <div class="card-body">
+        <div class="font-specimen">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+        <div class="font-specimen">abcdefghijklmnopqrstuvwxyz</div>
+        <div class="font-specimen">0123456789</div>
+      </div>
+    </div>
+    <div class="card font-card">
+      <div class="card-header">Roboto Slab</div>
+      <div class="card-body">
+        <div class="font-specimen" style="font-family: 'Roboto Slab', serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+        <div class="font-specimen" style="font-family: 'Roboto Slab', serif;">abcdefghijklmnopqrstuvwxyz</div>
+        <div class="font-specimen" style="font-family: 'Roboto Slab', serif;">0123456789</div>
+      </div>
+    </div>
+    <div class="card font-card">
+      <div class="card-header">Source Code Pro</div>
+      <div class="card-body">
+        <div class="font-specimen" style="font-family: 'Source Code Pro', monospace;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+        <div class="font-specimen" style="font-family: 'Source Code Pro', monospace;">abcdefghijklmnopqrstuvwxyz</div>
+        <div class="font-specimen" style="font-family: 'Source Code Pro', monospace;">0123456789</div>
+      </div>
+    </div>
+    <div class="card font-card">
+      <div class="card-header">Roboto Mono</div>
+      <div class="card-body">
+        <div class="font-specimen" style="font-family: 'Roboto Mono', monospace;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+        <div class="font-specimen" style="font-family: 'Roboto Mono', monospace;">abcdefghijklmnopqrstuvwxyz</div>
+        <div class="font-specimen" style="font-family: 'Roboto Mono', monospace;">0123456789</div>
+      </div>
+    </div>
+  </div>
+
+  <h1>Heading 1 — Primary pink</h1>
+   <p class="muted">Used for page titles. Primary pink color.</p>
+
+  <h2>Heading 2 — Purple with underline</h2>
+  <p class="muted">Used for section headers. Bottom border divider.</p>
+
+  <h3>Heading 3 — Cyan</h3>
+  <p class="muted">Used for subsections.</p>
+
+  <h4>Heading 4 — Body color</h4>
+  <p class="muted">Minor section headers.</p>
+
+  <h5>Heading 5 — Cyan uppercase</h5>
+  <p class="muted">Small labels, uppercase with letter-spacing.</p>
+
+  <h6>Heading 6 — Muted uppercase</h6>
+  <p class="muted">Smallest labels.</p>
+
+  <p>This is a standard paragraph. Body font: <code>Source Serif 4</code> with <code>Roboto Slab</code> fallback. Monospace: <code>Source Code Pro, Roboto Mono</code>.</p>
+
+  <p class="muted">This is muted text using the <code>.muted</code> class.</p>
+  <p class="dim">This is dim text using the <code>.dim</code> class — color <code>#999</code>.</p>
+
+  <p>
+    <span class="text-pink">Colored text: pink</span><br>
+    <span class="text-purple">Colored text: purple</span><br>
+    <span class="text-cyan">Colored text: cyan</span><br>
+    <span class="text-success">Colored text: success</span><br>
+    <span class="text-warn">Colored text: warning</span><br>
+    <span class="text-error">Colored text: error</span>
+  </p>
+
+  <p>
+    <span class="text-sm">Small text (0.85rem)</span><br>
+    <span class="text-xs">Extra small text (0.75rem)</span>
+  </p>
+
+  <p>
+    <span class="font-bold">Bold text</span><br>
+    <span class="uppercase">Uppercase with letter-spacing</span><br>
+    <span class="font-mono">Monospace text</span>
+  </p>
+
+  <p>
+    This paragraph contains <a href="#">inline links</a>, <code>inline code</code>, <span class="url">URL-style code</span>, <span class="tooltip" data-tip="This is a tooltip">tooltips</span>, and <span class="kbd">keyboard shortcuts</span>.
+  </p>
+
+  <h2>Links</h2>
+
+  <p>
+    Standard link: <a href="#">Default purple link</a><br>
+    Hover state: <a href="#">Links get underline on hover</a>
+  </p>
+
+  <h2>Inline Elements</h2>
+
+  <p>
+    <code>Inline code</code> — dark purple background, purple text.<br>
+    <span class="url">URL-style code</span> — monospace with tighter padding.<br>
+    <span class="kbd">Ctrl</span> + <span class="kbd">C</span> — keyboard keys.<br>
+    <span class="tooltip" data-tip="Hover for tooltip">Tooltip text</span> — dotted underline, hover for tooltip.<br>
+    <span class="truncate" style="display: inline-block; max-width: 200px; border-bottom: 1px solid var(--surface);">This is truncated text that gets ellipsis</span> — text truncation.
+  </p>
+
+  <h2>Badges</h2>
+
+  <div class="flex flex-wrap">
+    <span class="badge badge-app">App</span>
+    <span class="badge badge-ai">AI</span>
+    <span class="badge badge-infra">Infrastructure</span>
+    <span class="badge badge-success">Success</span>
+    <span class="badge badge-warn">Warning</span>
+    <span class="badge badge-error">Error</span>
+    <span class="badge badge-gradient">Gradient</span>
+  </div>
+
+  <h2>Tags</h2>
+
+  <div class="flex flex-wrap">
+    <span class="tag">v1.0.0</span>
+    <span class="tag">production</span>
+    <span class="tag">docker</span>
+    <span class="tag">traefik</span>
+    <span class="tag">nginx</span>
+    <span class="tag">internal</span>
+  </div>
+
+  <h2>Status Indicators</h2>
+
+  <div class="flex flex-wrap">
+    <span><span class="status-dot status-online"></span>Online</span><br>
+    <span><span class="status-dot status-offline"></span>Offline</span><br>
+    <span><span class="status-dot status-warn"></span>Degraded</span>
+  </div>
+
+  <h2>Buttons</h2>
+
+  <div class="flex flex-wrap">
+    <a href="#" class="btn btn-primary">Primary</a>
+    <a href="#" class="btn btn-secondary">Secondary</a>
+    <a href="#" class="btn btn-destructive">Destructive</a>
+    <a href="#" class="btn btn-outline">Outline</a>
+    <a href="#" class="btn btn-ghost">Ghost</a>
+    <a href="#" class="btn btn-link">Link</a>
+    <a href="#" class="btn btn-gradient">Gradient</a>
+    <a href="#" class="btn btn-subtle">Subtle</a>
+  </div>
+
+  <div class="flex flex-wrap" style="margin-top: 0.5rem;">
+    <a href="#" class="btn btn-primary btn-sm">Small</a>
+    <a href="#" class="btn btn-primary">Normal</a>
+    <a href="#" class="btn btn-primary btn-lg">Large</a>
+  </div>
+
+  <h2>Alert Boxes</h2>
+
+  <div class="instructions">
+    <strong>Default (pink border)</strong> — General instructions or important notes.
+  </div>
+
+  <div class="instructions instructions-info">
+    <strong>Info (purple border)</strong> — Informational messages.
+  </div>
+
+  <div class="instructions instructions-success">
+    <strong>Success (green border)</strong> — Confirmation or positive feedback.
+  </div>
+
+  <div class="instructions instructions-warn">
+    <strong>Warning (amber border)</strong> — Cautionary messages.
+  </div>
+
+  <div class="instructions instructions-error">
+    <strong>Error (red border)</strong> — Errors or critical issues.
+  </div>
+
+  <h2>Blockquote</h2>
+
+  <blockquote>
+    This is a blockquote. It has a pink left border and dark background, similar to the instructions box but with italic text.
+  </blockquote>
+
+  <h2>Code Blocks</h2>
+
+  <pre><code>{
+  "mcpServers": {
+    "wikipedia": {
+      "url": "https://example.com/mcp"
+    }
+  }
+}</code></pre>
+
+  <pre><code>#!/usr/bin/env bash
+set -euo pipefail
+echo "Hello, world!"</code></pre>
+
+  <h2>Lists</h2>
+
+  <h3>Unordered</h3>
+  <ul>
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item with <code>inline code</code> and <a href="#">a link</a></li>
+    <li>Nested list:
+      <ul>
+        <li>Nested A</li>
+        <li>Nested B</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Ordered</h3>
+  <ol>
+    <li>Step one</li>
+    <li>Step two</li>
+    <li>Step three</li>
+  </ol>
+
+  <h2>Tables</h2>
+
+  <table>
+    <tr>
+      <th>Subdomain</th>
+      <th>Service</th>
+      <th>Description</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td><a href="#">example</a></td>
+      <td>Example Service</td>
+      <td>A demonstration of table rows</td>
+      <td><span><span class="status-dot status-online"></span>Running</span></td>
+    </tr>
+    <tr>
+      <td><a href="#">another</a></td>
+      <td>Another Service</td>
+      <td>With <code>inline code</code> and <span class="badge badge-ai">badges</span></td>
+      <td><span><span class="status-dot status-warn"></span>Degraded</span></td>
+    </tr>
+  </table>
+
+  <h2>Cards</h2>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card-header">Card Title</div>
+      <div class="card-body">Card body text goes here. Cards have a surface background with a border.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">Another Card</div>
+      <div class="card-body">Cards can contain <a href="#">links</a>, <code>code</code>, <span class="badge badge-success">badges</span>, and other elements.</div>
+    </div>
+  </div>
+
+  <h2>Progress Bars</h2>
+
+  <div class="progress"><div class="progress-bar progress-pink" style="width: 25%"></div></div>
+  <div class="progress"><div class="progress-bar progress-cyan" style="width: 50%"></div></div>
+  <div class="progress"><div class="progress-bar progress-purple" style="width: 75%"></div></div>
+    <div class="progress"><div class="progress-bar progress-success" style="width: 100%"></div></div>
+
+  <h2>Gradient Progress Bars</h2>
+
+    <div class="progress"><div class="progress-bar gradient" style="width: 25%"></div></div>
+    <div class="progress"><div class="progress-bar gradient" style="width: 50%"></div></div>
+    <div class="progress"><div class="progress-bar gradient" style="width: 75%"></div></div>
+    <div class="progress"><div class="progress-bar gradient" style="width: 100%"></div></div>
+
+  <h2>Reverse Gradient Progress Bars</h2>
+
+    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 25%"></div></div>
+    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 50%"></div></div>
+    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 75%"></div></div>
+    <div class="progress"><div class="progress-bar gradient-reverse" style="width: 100%"></div></div>
+
+  <h2>Forms</h2>
+
+  <label for="demo-text">Text input</label>
+  <input type="text" id="demo-text" placeholder="Enter text...">
+
+  <label for="demo-pass">Password input</label>
+  <input type="password" id="demo-pass" placeholder="Enter password...">
+
+  <label for="demo-select">Select</label>
+  <select id="demo-select">
+    <option>Option one</option>
+    <option>Option two</option>
+    <option>Option three</option>
+  </select>
+
+  <label for="demo-textarea">Textarea</label>
+  <textarea id="demo-textarea" placeholder="Enter multiline text..."></textarea>
+
+  <h2>Tool Cards</h2>
+
+  <div class="tool">
+    <span class="tool-name">search_articles</span>
+    <span class="tool-desc">— Search Wikipedia articles by keyword. Returns a list of matching article titles with relevance scores.</span>
+  </div>
+
+  <div class="tool">
+    <span class="tool-name">get_article</span>
+    <span class="tool-desc">— Get the full text of a Wikipedia article by its exact title.</span>
+  </div>
+
+  <h2>Config Sections</h2>
+
+  <div class="config-section">
+    <h3>Example Config</h3>
+    <p class="config-path">~/.config/example/config.json</p>
+    <pre><code>{
+  "key": "value",
+  "nested": {
+    "enabled": true
+  }
+}</code></pre>
+  </div>
+
+  <h2>Horizontal Rule</h2>
+
+  <hr>
+
+  <h2>Reverse Horizontal Rule</h2>
+
+  <hr class="reverse">
+
+  <p class="dim" style="margin-top: 1rem;">End of style guide.</p>
+
+  <script>
+    var toggle = document.getElementById('theme-toggle');
+    var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (isLight) {
+      document.documentElement.classList.add('light');
+      toggle.textContent = 'Toggle Dark Mode';
+    }
+    toggle.addEventListener('click', function() {
+      isLight = !isLight;
+      document.documentElement.classList.toggle('light', isLight);
+      toggle.textContent = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+    });
+  </script>
+</body>
+</html>

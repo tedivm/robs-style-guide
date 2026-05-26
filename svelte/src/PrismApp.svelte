@@ -251,7 +251,8 @@ echo "Done."</code></pre>` },
     <button id="theme-toggle" class="btn btn-primary" onclick={toggle}>
       {dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}
     </button>
-    <a href="../" class="back-link">← Back to style guide</a>
+    <a href="../style/" class="back-link">← Back to style guide</a>
+    <a href="../icons/" class="back-link">Icons →</a>
   </div>
 
   <h2>Token Mappings</h2>

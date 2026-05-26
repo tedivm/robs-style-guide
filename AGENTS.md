@@ -8,8 +8,12 @@ Rob's Style Guide is a shared design system replicated across multiple implement
 
 | System | Source | Build Output | Description |
 | --- | --- | --- | --- |
-| **Vanilla** | `docs/index.html`, `docs/prism/index.html` | — | HTML/CSS/JS, zero dependencies. **Source of truth for theme.** |
-| **Svelte** | `svelte/` | `docs/svelte/`, `docs/svelte-prism/` | Svelte 5 (runes), Vite 8 |
+| **Vanilla** | `docs/vanilla/` | — | HTML/CSS/JS, zero dependencies. **Source of truth for theme.** |
+| **Svelte** | `svelte/` | `docs/svelte/style/`, `docs/svelte/prism/` | Svelte 5 (runes), Vite 8 |
+
+### Entry Point
+
+`docs/index.html` — Landing page that links to each system and feature. Not a style guide itself, just an entrypoint.
 
 ### Feature Pages
 
@@ -17,8 +21,9 @@ Each feature is implemented in every system. Pages are paired by feature:
 
 | Feature | Vanilla | Svelte |
 | --- | --- | --- |
-| Style guide | `docs/index.html` | `docs/svelte/` |
-| Code highlighting | `docs/prism/index.html` | `docs/svelte-prism/` |
+| Style guide | `docs/vanilla/index.html` | `docs/svelte/style/` |
+| Code highlighting | `docs/vanilla/prism.html` | `docs/svelte/prism/` |
+| Icons | `docs/vanilla/icons.html` | `docs/svelte/icons/` |
 
 When adding a new feature, create a corresponding page in each system so the visual output matches across all implementations.
 
@@ -33,9 +38,10 @@ make stop
 cd svelte && npm run dev
 
 # Build for production
-cd svelte && npm run build       # Svelte app -> docs/svelte/
-cd svelte && npm run build:prism  # Prism page -> docs/svelte-prism/
-cd svelte && npm run build:all    # Both
+cd svelte && npm run build        # Svelte app -> docs/svelte/style/
+cd svelte && npm run build:prism  # Prism page -> docs/svelte/prism/
+cd svelte && npm run build:icons  # Icons page -> docs/svelte/icons/
+cd svelte && npm run build:all    # All three
 ```
 
 ## Tech Stack
@@ -84,15 +90,18 @@ Both implementations share the same palette. Vanilla HTML (`docs/index.html`) is
 Push to `main` triggers `.github/workflows/deploy.yml`:
 
 1. Checks out code, sets up Node 24
-2. Runs `npm ci` + `npx vite build` in `svelte/`
+2. Runs `npm ci` + `npm run build:all` in `svelte/`
 3. Uploads entire `docs/` directory as Pages artifact
 4. Deploys via `actions/deploy-pages`
 
 ## File Structure Notes
 
-- `svelte/vite.config.js` — main Svelte build (outputs to `docs/svelte/`)
-- `svelte/vite.prism.config.js` — Prism build with `prism.index.html` rename plugin (outputs to `docs/svelte-prism/`)
+- `svelte/vite.config.js` — main Svelte build (outputs to `docs/svelte/style/`)
+- `svelte/vite.prism.config.js` — Prism build with `prism.index.html` rename plugin (outputs to `docs/svelte/prism/`)
+- `svelte/vite.icons.config.js` — Icons build with `icons.index.html` rename plugin (outputs to `docs/svelte/icons/`)
 - `svelte/src/App.svelte` — main style guide component
 - `svelte/src/PrismApp.svelte` — Prism.js code highlighting component
+- `svelte/src/IconsApp.svelte` — Tabler Icons showcase component
 - `svelte/src/prism/main.js` — Prism app entry point
+- `svelte/src/icons/main.js` — Icons app entry point
 - `svelte/src/theme.css` — shared CSS variables (light/dark)
