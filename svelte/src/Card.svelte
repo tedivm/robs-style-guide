@@ -15,4 +15,8 @@
     border: 1px solid var(--border);
     margin-bottom: 0.5rem;
   }
+
+  .card:hover {
+    border-color: var(--primary);
+  }
 </style>
