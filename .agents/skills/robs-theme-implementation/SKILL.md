@@ -442,20 +442,16 @@ Without these steps, `<pre><code>` blocks will render with the base styles from 
 
 ## Assets
 
-| File                                           | Contents                                                                     |
-| ---------------------------------------------- | ---------------------------------------------------------------------------- |
-| [assets/variables.css](assets/variables.css)   | `:root` + `.light` color tokens and gradient variables                       |
-| [assets/typography.css](assets/typography.css) | Reset, body, headings, text, code, blockquote, lists                         |
-| [assets/components.css](assets/components.css) | Buttons, badges, cards, alerts, progress, forms, tables, inline elements, hr |
-| [assets/layout.css](assets/layout.css)         | Grid, flex, toolbar, swatch, avatar, tool cards                              |
+- [assets/variables.css](assets/variables.css) — `:root` + `.light` color tokens and gradient variables
+- [assets/typography.css](assets/typography.css) — Reset, body, headings, text, code, blockquote, lists
+- [assets/components.css](assets/components.css) — Buttons, badges, cards, alerts, progress, forms, tables, inline elements, hr
+- [assets/layout.css](assets/layout.css) — Grid, flex, toolbar, swatch, avatar, tool cards
 
 ## References
 
-| File                                                             | Contents                                                     |
-| ---------------------------------------------------------------- | ------------------------------------------------------------ |
-| [references/svelte-theme-css.md](references/svelte-theme-css.md) | Svelte shadcn-style variables and component styles           |
-| [references/components.md](references/components.md)             | Svelte component code (Button, Badge, Card, Alert, Progress) |
-| [references/prism-theme.md](references/prism-theme.md)           | Prism.js token mappings and integration                      |
-| [references/icons.md](references/icons.md)                       | Tabler Icons usage patterns                                  |
-| [references/theme-toggle-js.md](references/theme-toggle-js.md)   | Svelte theme toggle with Prism re-highlight                  |
-| [references/page-templates.md](references/page-templates.md)     | Full HTML and Svelte page scaffolds                          |
+- [references/svelte-theme-css.md](references/svelte-theme-css.md) — Svelte shadcn-style variables and component styles
+- [references/components.md](references/components.md) — Svelte component code (Button, Badge, Card, Alert, Progress)
+- [references/prism-theme.md](references/prism-theme.md) — Prism.js token mappings and integration
+- [references/icons.md](references/icons.md) — Tabler Icons usage patterns
+- [references/theme-toggle-js.md](references/theme-toggle-js.md) — Svelte theme toggle with Prism re-highlight
+- [references/page-templates.md](references/page-templates.md) — Full HTML and Svelte page scaffolds
