@@ -284,7 +284,7 @@
 
   <h2>Code Blocks</h2>
 
-  <pre><code>{
+  <pre><code class="language-json">{
   "mcpServers": {
     "wikipedia": {
       "url": "https://example.com/mcp"
@@ -292,7 +292,7 @@
   }
 }</code></pre>
 
-  <pre><code>#!/usr/bin/env bash
+  <pre><code class="language-bash">#!/usr/bin/env bash
 set -euo pipefail
 echo "Hello, world!"</code></pre>
 
@@ -410,7 +410,7 @@ echo "Hello, world!"</code></pre>
   <div class="config-section">
     <h3>Example Config</h3>
     <p class="config-path">~/.config/example/config.json</p>
-    <pre><code>{
+    <pre><code class="language-json">{
   "key": "value",
   "nested": {
     "enabled": true
@@ -428,6 +428,14 @@ echo "Hello, world!"</code></pre>
 
   <p class="dim" style="margin-top: 1rem;">End of style guide.</p>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
   <script>
     var toggle = document.getElementById('theme-toggle');
     var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
@@ -439,7 +447,10 @@ echo "Hello, world!"</code></pre>
       isLight = !isLight;
       document.documentElement.classList.toggle('light', isLight);
       toggle.textContent = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+      Prism.highlightAll();
     });
+
+    Prism.highlightAll();
   </script>
 </body>
 </html>

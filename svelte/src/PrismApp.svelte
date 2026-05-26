@@ -275,11 +275,11 @@ echo "Done."</code></pre>` },
       </tr>
       <tr>
         <td><span class="swatch" style="background: #005cb5"></span></td>
-        <td class="token-list">operator, punctuation, url</td>
+        <td class="token-list">constant, class-name, builtin</td>
       </tr>
       <tr>
         <td><span class="swatch" style="background: #50c878"></span></td>
-        <td class="token-list">constant, class-name, builtin, inserted</td>
+        <td class="token-list">prolog, doctype, string, char, attr-value, number, boolean, inserted</td>
       </tr>
       <tr>
         <td><span class="swatch" style="background: #ffbe32"></span></td>
@@ -287,7 +287,7 @@ echo "Done."</code></pre>` },
       </tr>
       <tr>
         <td><span class="swatch" style="background: #ee343b"></span></td>
-        <td class="token-list">prolog, doctype, string, char, attr-value, number, boolean, deleted</td>
+        <td class="token-list">operator, punctuation, url, deleted</td>
       </tr>
       <tr>
         <td><span class="swatch" style="background: #b4b4b4"></span></td>
@@ -458,19 +458,18 @@ echo "Done."</code></pre>` },
   }
 
   :global(.token.comment),
-  :global(.token.prolog),
   :global(.token.cdata) {
     color: var(--muted-foreground) !important;
   }
 
+  :global(.token.prolog),
   :global(.token.doctype),
   :global(.token.string),
   :global(.token.char),
   :global(.token.attr-value),
   :global(.token.number),
-  :global(.token.boolean),
-  :global(.token.deleted) {
-    color: var(--destructive) !important;
+  :global(.token.boolean) {
+    color: var(--success) !important;
   }
 
   :global(.token.selector),
@@ -486,8 +485,9 @@ echo "Done."</code></pre>` },
 
   :global(.token.operator),
   :global(.token.punctuation),
-  :global(.token.url) {
-    color: var(--accent) !important;
+  :global(.token.url),
+  :global(.token.deleted) {
+    color: var(--destructive) !important;
   }
 
   :global(.token.property),
@@ -500,7 +500,10 @@ echo "Done."</code></pre>` },
 
   :global(.token.constant),
   :global(.token.class-name),
-  :global(.token.builtin),
+  :global(.token.builtin) {
+    color: var(--accent) !important;
+  }
+
   :global(.token.inserted) {
     color: var(--success) !important;
   }

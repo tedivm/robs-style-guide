@@ -61,20 +61,19 @@ pre code { background: none; padding: 0; color: inherit; }
 
 /* Comments: muted */
 .token.comment,
-.token.prolog,
 .token.cdata {
   color: var(--muted) !important;
 }
 
-/* Strings, numbers, booleans: error (red) */
+/* Strings, numbers, booleans, prolog: success (green) */
+.token.prolog,
 .token.doctype,
 .token.string,
 .token.char,
 .token.attr-value,
 .token.number,
-.token.boolean,
-.token.deleted {
-  color: var(--error) !important;
+.token.boolean {
+  color: var(--success) !important;
 }
 
 /* Keywords, functions: pink (primary) */
@@ -87,11 +86,12 @@ pre code { background: none; padding: 0; color: inherit; }
   color: var(--primary) !important;
 }
 
-/* Operators, punctuation, URL: cyan (accent) */
+/* Operators, punctuation, URL, deleted: error (red) */
 .token.operator,
 .token.punctuation,
-.token.url {
-  color: var(--accent) !important;
+.token.url,
+.token.deleted {
+  color: var(--error) !important;
 }
 
 /* Properties / variables: secondary (purple) */
@@ -111,11 +111,11 @@ pre code { background: none; padding: 0; color: inherit; }
   color: var(--secondary) !important;
 }
 
-/* Built-in constants: success (green) */
+/* Built-in constants: cyan (accent) */
 .token.constant,
 .token.class-name,
 .token.builtin {
-  color: var(--success) !important;
+  color: var(--accent) !important;
 }
 
 /* Selectors / at-rules: primary */
@@ -145,7 +145,6 @@ pre code { background: none; padding: 0; color: inherit; }
 }
 
 /* Diff */
-.token.deleted { color: var(--error) !important; }
 .token.inserted { color: var(--success) !important; }
 ```
 
@@ -158,19 +157,18 @@ The Svelte implementation uses `:global()` wrappers on all token selectors and m
 
 ```css
 :global(.token.comment),
-:global(.token.prolog),
 :global(.token.cdata) {
   color: var(--muted-foreground) !important;
 }
 
+:global(.token.prolog),
 :global(.token.doctype),
 :global(.token.string),
 :global(.token.char),
 :global(.token.attr-value),
 :global(.token.number),
-:global(.token.boolean),
-:global(.token.deleted) {
-  color: var(--destructive) !important;
+:global(.token.boolean) {
+  color: var(--success) !important;
 }
 
 /* ... same pattern for remaining tokens ... */
@@ -190,10 +188,10 @@ The Svelte implementation uses `:global()` wrappers on all token selectors and m
 |---|---|---|
 | Primary (pink) | `#bc0081` | keyword, module, control, function, function-name, function-variable, tag, selector, atrule |
 | Secondary (purple) | `#6f26c9` | property, variable, symbol, attr-name, namespace |
-| Accent (cyan) | `#005cb5` | operator, punctuation, url |
-| Success (green) | `#50c878` | constant, class-name, builtin, inserted |
+| Accent (cyan) | `#005cb5` | constant, class-name, builtin |
+| Success (green) | `#50c878` | prolog, doctype, string, char, attr-value, number, boolean, inserted |
 | Warning (amber) | `#ffbe32` | regex, entity, important |
-| Error (red) | `#ee343b` | prolog, doctype, string, char, attr-value, number, boolean, deleted |
+| Error (red) | `#ee343b` | operator, punctuation, url, deleted |
 | Muted | `#b4b4b4` | comment, cdata |
 
 ## Token Table Styling

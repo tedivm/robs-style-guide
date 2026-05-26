@@ -307,7 +307,7 @@
   <h2>Usage</h2>
 
   <h3>CDN (Vanilla HTML)</h3>
-  <pre><code>&lt;!-- Inline SVG (copy from tabler.io/icons) --&gt;
+  <pre><code class="language-html">&lt;!-- Inline SVG (copy from tabler.io/icons) --&gt;
 &lt;svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
   viewBox="0 0 24 24" fill="none" stroke="currentColor"
   stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;
@@ -361,6 +361,9 @@
 
   <p class="dim" style="margin-top: 1rem;">Icons from <a href="https://tabler.io/icons">Tabler Icons</a> — MIT licensed</p>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
   <script>
     var toggle = document.getElementById('theme-toggle');
     var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
@@ -372,7 +375,10 @@
       isLight = !isLight;
       document.documentElement.classList.toggle('light', isLight);
       toggle.textContent = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+      Prism.highlightAll();
     });
+
+    Prism.highlightAll();
   </script>
 </body>
 </html>

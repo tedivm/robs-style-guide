@@ -37,20 +37,19 @@
 
     /* Comments: muted */
     .token.comment,
-    .token.prolog,
     .token.cdata {
       color: var(--muted) !important;
     }
 
-    /* Strings, numbers, booleans: error (red) */
+    /* Strings, numbers, booleans, prolog: success (green) */
+    .token.prolog,
     .token.doctype,
     .token.string,
     .token.char,
     .token.attr-value,
     .token.number,
-    .token.boolean,
-    .token.deleted {
-      color: var(--error) !important;
+    .token.boolean {
+      color: var(--success) !important;
     }
 
     /* Keywords, functions: pink (primary) */
@@ -63,11 +62,12 @@
       color: var(--primary) !important;
     }
 
-    /* Operators, punctuation, URL: cyan (accent) */
+    /* Operators, punctuation, URL, deleted: error (red) */
     .token.operator,
     .token.punctuation,
-    .token.url {
-      color: var(--accent) !important;
+    .token.url,
+    .token.deleted {
+      color: var(--error) !important;
     }
 
     /* Properties / variables: secondary */
@@ -87,11 +87,11 @@
       color: var(--secondary) !important;
     }
 
-    /* Built-in constants: success (green) */
+    /* Built-in constants: cyan (accent) */
     .token.constant,
     .token.class-name,
     .token.builtin {
-      color: var(--success) !important;
+      color: var(--accent) !important;
     }
 
     /* Selectors / at-rules: primary */
@@ -121,7 +121,6 @@
     }
 
     /* Diff */
-    .token.deleted { color: var(--error) !important; }
     .token.inserted { color: var(--success) !important; }
 
     /* Token table */
@@ -191,11 +190,11 @@
       </tr>
       <tr>
         <td><span class="swatch" style="background: #005cb5"></span></td>
-        <td class="token-list">operator, punctuation, url</td>
+        <td class="token-list">constant, class-name, builtin</td>
       </tr>
       <tr>
         <td><span class="swatch" style="background: #50c878"></span></td>
-        <td class="token-list">constant, class-name, builtin, inserted</td>
+        <td class="token-list">prolog, doctype, string, char, attr-value, number, boolean, inserted</td>
       </tr>
       <tr>
         <td><span class="swatch" style="background: #ffbe32"></span></td>
@@ -203,7 +202,7 @@
       </tr>
       <tr>
         <td><span class="swatch" style="background: #ee343b"></span></td>
-        <td class="token-list">prolog, doctype, string, char, attr-value, number, boolean, deleted</td>
+        <td class="token-list">operator, punctuation, url, deleted</td>
       </tr>
       <tr>
         <td><span class="swatch" style="background: #b4b4b4"></span></td>

@@ -1,6 +1,6 @@
 <script>
   import './theme.css';
-  import { onMount } from 'svelte';
+  import { onMount, tick } from 'svelte';
   import Button from './Button.svelte';
   import Card from './Card.svelte';
   import Badge from './Badge.svelte';
@@ -31,11 +31,39 @@
     document.documentElement.classList.toggle('dark', dark);
   }
 
-  onMount(() => {
+  onMount(async () => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       dark = true;
       document.documentElement.classList.add('dark');
     }
+
+    const loadScript = (src) => new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+
+    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js');
+    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js');
+    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js');
+
+    await tick();
+
+    Prism.highlightAll();
+
+    for (const pre of document.querySelectorAll('pre')) {
+      pre.removeAttribute('style');
+    }
+
+    const btn = document.getElementById('theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+      Prism.highlightAll();
+      for (const pre of document.querySelectorAll('pre')) {
+        pre.removeAttribute('style');
+      }
+    });
   });
 </script>
 
@@ -253,7 +281,7 @@
 
   <h2>Code Blocks</h2>
 
-  <pre><code>&#123;
+  <pre><code class="language-json">&#123;
   "mcpServers": &#123;
     "wikipedia": &#123;
       "url": "https://example.com/mcp"
@@ -261,7 +289,7 @@
   &#125;
 &#125;</code></pre>
 
-  <pre><code>#!/usr/bin/env bash
+  <pre><code class="language-bash">#!/usr/bin/env bash
 set -euo pipefail
 echo "Hello, world!"</code></pre>
 
@@ -386,7 +414,7 @@ echo "Hello, world!"</code></pre>
   <div class="config-section">
     <h3>Example Config</h3>
     <p class="config-path">~/.config/example/config.json</p>
-    <pre><code>&#123;
+    <pre><code class="language-json">&#123;
   "key": "value",
   "nested": &#123;
     "enabled": true
@@ -772,6 +800,70 @@ echo "Hello, world!"</code></pre>
     background: none;
     padding: 0;
     color: inherit;
+  }
+
+  :global(.token.comment),
+  :global(.token.cdata) {
+    color: var(--muted-foreground) !important;
+  }
+
+  :global(.token.prolog),
+  :global(.token.doctype),
+  :global(.token.string),
+  :global(.token.char),
+  :global(.token.attr-value),
+  :global(.token.number),
+  :global(.token.boolean) {
+    color: var(--success) !important;
+  }
+
+  :global(.token.keyword),
+  :global(.token.module),
+  :global(.token.control),
+  :global(.token.function),
+  :global(.token.function-name),
+  :global(.token.function-variable) {
+    color: var(--primary) !important;
+  }
+
+  :global(.token.operator),
+  :global(.token.punctuation),
+  :global(.token.url),
+  :global(.token.deleted) {
+    color: var(--destructive) !important;
+  }
+
+  :global(.token.property),
+  :global(.token.variable),
+  :global(.token.symbol),
+  :global(.token.attr-name),
+  :global(.token.namespace) {
+    color: var(--secondary) !important;
+  }
+
+  :global(.token.tag) {
+    color: var(--primary) !important;
+  }
+
+  :global(.token.constant),
+  :global(.token.class-name),
+  :global(.token.builtin) {
+    color: var(--accent) !important;
+  }
+
+  :global(.token.selector),
+  :global(.token.atrule) {
+    color: var(--primary) !important;
+  }
+
+  :global(.token.entity),
+  :global(.token.regex),
+  :global(.token.important) {
+    color: var(--warning) !important;
+  }
+
+  :global(.token.inserted) {
+    color: var(--success) !important;
   }
 
   ul, ol {

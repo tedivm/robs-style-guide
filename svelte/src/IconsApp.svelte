@@ -1,6 +1,6 @@
 <script>
   import './theme.css';
-  import { onMount } from 'svelte';
+  import { onMount, tick } from 'svelte';
   import IconInfoCircle from '@tabler/icons-svelte-runes/icons/info-circle';
   import IconUsers from '@tabler/icons-svelte-runes/icons/users';
   import IconHome from '@tabler/icons-svelte-runes/icons/home';
@@ -25,11 +25,39 @@
     document.documentElement.classList.toggle('dark', dark);
   }
 
-  onMount(() => {
+  onMount(async () => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       dark = true;
       document.documentElement.classList.add('dark');
     }
+
+    const loadScript = (src) => new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+
+    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js');
+    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js');
+    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js');
+
+    await tick();
+
+    Prism.highlightAll();
+
+    for (const pre of document.querySelectorAll('pre')) {
+      pre.removeAttribute('style');
+    }
+
+    const btn = document.getElementById('theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+      Prism.highlightAll();
+      for (const pre of document.querySelectorAll('pre')) {
+        pre.removeAttribute('style');
+      }
+    });
   });
 </script>
 
@@ -224,7 +252,7 @@
   <h2>Usage</h2>
 
   <h3>Svelte 5</h3>
-  <pre><code>npm install @tabler/icons-svelte-runes
+  <pre><code class="language-html">npm install @tabler/icons-svelte-runes
 
 &lt;script&gt;
   import IconHeart from '@tabler/icons-svelte-runes/icons/heart';
@@ -398,6 +426,70 @@
     background: none;
     padding: 0;
     color: inherit;
+  }
+
+  :global(.token.comment),
+  :global(.token.cdata) {
+    color: var(--muted-foreground) !important;
+  }
+
+  :global(.token.prolog),
+  :global(.token.doctype),
+  :global(.token.string),
+  :global(.token.char),
+  :global(.token.attr-value),
+  :global(.token.number),
+  :global(.token.boolean) {
+    color: var(--success) !important;
+  }
+
+  :global(.token.keyword),
+  :global(.token.module),
+  :global(.token.control),
+  :global(.token.function),
+  :global(.token.function-name),
+  :global(.token.function-variable) {
+    color: var(--primary) !important;
+  }
+
+  :global(.token.operator),
+  :global(.token.punctuation),
+  :global(.token.url),
+  :global(.token.deleted) {
+    color: var(--destructive) !important;
+  }
+
+  :global(.token.property),
+  :global(.token.variable),
+  :global(.token.symbol),
+  :global(.token.attr-name),
+  :global(.token.namespace) {
+    color: var(--secondary) !important;
+  }
+
+  :global(.token.tag) {
+    color: var(--primary) !important;
+  }
+
+  :global(.token.constant),
+  :global(.token.class-name),
+  :global(.token.builtin) {
+    color: var(--accent) !important;
+  }
+
+  :global(.token.selector),
+  :global(.token.atrule) {
+    color: var(--primary) !important;
+  }
+
+  :global(.token.entity),
+  :global(.token.regex),
+  :global(.token.important) {
+    color: var(--warning) !important;
+  }
+
+  :global(.token.inserted) {
+    color: var(--success) !important;
   }
 
   table {
