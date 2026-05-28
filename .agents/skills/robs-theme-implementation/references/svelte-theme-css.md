@@ -247,12 +247,12 @@ hr {
   height: 1px;
   margin: 1.5rem 0;
   background: var(--gradient);
-  filter: drop-shadow(0 0 6px rgba(188, 0, 129, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4));
+  filter: drop-shadow(0 0 6px rgba(222, 56, 168, 0.7)) drop-shadow(0 0 16px rgba(185, 109, 255, 0.4));
 }
 
 hr.reverse {
   background: var(--gradient-reverse);
-  filter: drop-shadow(0 0 6px rgba(0, 92, 181, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4));
+  filter: drop-shadow(0 0 6px rgba(1, 205, 254, 0.7)) drop-shadow(0 0 16px rgba(185, 109, 255, 0.4));
 }
 ```
 

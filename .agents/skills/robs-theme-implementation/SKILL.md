@@ -23,26 +23,26 @@ The fastest way to adopt the theme is to copy the complete [vanilla `theme.css`]
 
 | Name               | Hex       | Usage                               |
 | ------------------ | --------- | ----------------------------------- |
-| Primary (pink)     | `#bc0081` | h1, primary buttons, gradient start |
-| Secondary (purple) | `#6f26c9` | h2, links, secondary buttons        |
-| Accent (cyan)      | `#005cb5` | h3, accent elements                 |
+| Primary (pink)     | `#de38a8` | h1, primary buttons, gradient start |
+| Secondary (purple) | `#b96dff` | h2, links, secondary buttons        |
+| Accent (cyan)      | `#01cdfe` | h3, accent elements                 |
 | Success (green)    | `#50c878` | Success states, online              |
 | Warning (amber)    | `#ffbe32` | Warning states, degraded            |
-| Error (red)        | `#ee343b` | Error states, destructive           |
+| Error (red)        | `#ff5050` | Error states, destructive           |
 
 ### Mode-dependent
 
 | Layer           | Dark      | Light     |
 | --------------- | --------- | --------- |
-| Background      | `#150d1e` | `#f5f1fc` |
-| Surface / Cards | `#1a1130` | `#e9e0f7` |
-| Code / Inputs   | `#0f0a1a` | `#eee5f9` |
-| Borders         | `#3d2b5a` | `#d4c2ec` |
-| Body text       | `#dcdcdc` | `#1d152a` |
-| Muted text      | `#b4b4b4` | `#5e546d` |
-| Dim text        | `#999`    | `#756a87` |
+| Background      | `#1a1025` | `#fef5f7` |
+| Surface / Cards | `#2d1b4e` | `#fce4ec` |
+| Code / Inputs   | `#0f0a1a` | `#fce4ec` |
+| Borders         | `#3d2b5a` | `#e4b8c8` |
+| Body text       | `#dcdcdc` | `#2a1525` |
+| Muted text      | `#b4b4b4` | `#8a6578` |
+| Dim text        | `#999`    | `#a88a9a` |
 | Code text       | `#e0e0e0` | `#4c1161` |
-| Surface text    | `#dcdcdc` | `#221733` |
+| Surface text    | `#dcdcdc` | `#2a1525` |
 
 ### Gradient Variables
 
@@ -60,21 +60,21 @@ The fastest way to adopt the theme is to copy the complete [vanilla `theme.css`]
 
 ```css
 :root {
-  --bg: #150d1e;
+  --bg: #1a1025;
   --fg: #dcdcdc;
-  --surface: #1a1130;
+  --surface: #2d1b4e;
   --surface-fg: #dcdcdc;
   --code: #0f0a1a;
   --code-fg: #e0e0e0;
   --border: #3d2b5a;
-  --primary: #bc0081;
-  --secondary: #6f26c9;
-  --accent: #005cb5;
+  --primary: #de38a8;
+  --secondary: #b96dff;
+  --accent: #01cdfe;
   --muted: #b4b4b4;
   --dim: #999;
   --success: #50c878;
   --warning: #ffbe32;
-  --error: #ee343b;
+  --error: #ff5050;
   --gradient: linear-gradient(
     90deg,
     var(--primary),
@@ -102,15 +102,18 @@ Global colors and gradient variables carry through automatically — they refere
 
 ```css
 .light {
-  --bg: #f5f1fc;
-  --fg: #1d152a;
-  --surface: #e9e0f7;
-  --surface-fg: #221733;
-  --code: #eee5f9;
+  --bg: #fef5f7;
+  --fg: #2a1525;
+  --surface: #fce4ec;
+  --surface-fg: #2a1525;
+  --code: #fce4ec;
   --code-fg: #4c1161;
-  --border: #d4c2ec;
-  --muted: #5e546d;
-  --dim: #756a87;
+  --border: #e4b8c8;
+  --primary: #de38a8;
+  --secondary: #b96dff;
+  --accent: #01cdfe;
+  --muted: #8a6578;
+  --dim: #a88a9a;
 }
 ```
 

@@ -13,19 +13,19 @@
   let dark = $state(false);
 
   const colors = [
-    { name: 'Background', dark: '#150d1e', light: '#f5f1fc' },
-    { name: 'Surface / Cards', dark: '#1a1130', light: '#e9e0f7' },
-    { name: 'Code blocks / Inputs', dark: '#0f0a1a', light: '#eee5f9' },
-    { name: 'Borders / Dividers', dark: '#3d2b5a', light: '#d4c2ec' },
-    { name: 'Primary (pink)', dark: '#bc0081', light: '#bc0081' },
-    { name: 'Secondary (purple)', dark: '#6020c0', light: '#6020c0' },
-    { name: 'Tertiary (cyan)', dark: '#005cb5', light: '#005cb5' },
-    { name: 'Body text', dark: '#dcdcdc', light: '#1d152a' },
-    { name: 'Muted text', dark: '#b4b4b4', light: '#5e546d' },
-    { name: 'Dim text', dark: '#999', light: '#756a87' },
+    { name: 'Background', dark: '#1a1025', light: '#fef5f7' },
+    { name: 'Surface / Cards', dark: '#2d1b4e', light: '#fce4ec' },
+    { name: 'Code blocks / Inputs', dark: '#0f0a1a', light: '#fce4ec' },
+    { name: 'Borders / Dividers', dark: '#3d2b5a', light: '#e4b8c8' },
+    { name: 'Primary (pink)', dark: '#de38a8', light: '#de38a8' },
+    { name: 'Secondary (purple)', dark: '#b96dff', light: '#b96dff' },
+    { name: 'Tertiary (cyan)', dark: '#01cdfe', light: '#01cdfe' },
+    { name: 'Body text', dark: '#dcdcdc', light: '#2a1525' },
+    { name: 'Muted text', dark: '#b4b4b4', light: '#8a6578' },
+    { name: 'Dim text', dark: '#999', light: '#a88a9a' },
     { name: 'Success', dark: '#50c878', light: '#50c878' },
     { name: 'Warning', dark: '#ffbe32', light: '#ffbe32' },
-    { name: 'Error', dark: '#ee343b', light: '#ee343b' },
+    { name: 'Error', dark: '#ff5050', light: '#ff5050' },
   ];
 
   function toggle() {

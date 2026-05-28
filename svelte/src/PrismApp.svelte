@@ -11,9 +11,9 @@
   "name": "robs-style-guide",
   "version": "1.0.0",
   "theme": {
-    "primary": "#bc0081",
-    "secondary": "#6020c0",
-    "accent": "#005cb5"
+        "primary": "#de38a8",
+        "secondary": "#b96dff",
+        "accent": "#01cdfe"
   }
 }</code></pre>` },
     { lang: 'yaml', label: 'YAML', code: `<pre><code class="language-yaml">version: '3.8'
@@ -71,9 +71,9 @@ class Config:
     def __post_init__(self):
         if self.colors is None:
             self.colors = {
-                "primary": "#bc0081",
-                "secondary": "#6020c0",
-                "accent": "#005cb5"
+                "primary": "#de38a8",
+                "secondary": "#b96dff",
+                "accent": "#01cdfe"
             }
 
     def to_json(self) -> str:
@@ -97,9 +97,9 @@ func main() {
 		Port:  8080,
 		Debug: false,
 		Colors: map[string]string{
-			"primary":   "#bc0081",
-			"secondary": "#6020c0",
-			"accent":    "#005cb5",
+			"primary":   "#de38a8",
+			"secondary": "#b96dff",
+			"accent":    "#01cdfe",
 		},
 	}
 
@@ -137,12 +137,12 @@ func main() {
     { lang: 'xml', label: 'XML', code: `<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
   &lt;theme name="dark-purple"&gt;
-    &lt;color name="primary" value="#bc0081" /&gt;
-    &lt;color name="secondary" value="#6020c0" /&gt;
-    &lt;color name="accent" value="#005cb5" /&gt;
+    &lt;color name="primary" value="#de38a8" /&gt;
+    &lt;color name="secondary" value="#b96dff" /&gt;
+    &lt;color name="accent" value="#01cdfe" /&gt;
     &lt;color name="success" value="#50c878" /&gt;
     &lt;color name="warning" value="#ffbe32" /&gt;
-    &lt;color name="error" value="#ee343b" /&gt;
+    &lt;color name="error" value="#ff5050" /&gt;
     &lt;typography&gt;
       &lt;body&gt;Source Serif 4, Roboto Slab, serif&lt;/body&gt;
       &lt;monospace&gt;Source Code Pro, Roboto Mono, monospace&lt;/monospace&gt;
@@ -159,11 +159,11 @@ func main() {
 +  --surface: #1a1130;
    --code: #0f0a1a;
    --code-fg: #e0e0e0;
-   --primary: #bc0081;
+   --primary: #de38a8;
 @@ -25,6 +25,8 @@
    --success: #50c878;
    --warning: #ffbe32;
-   --error: #ee343b;
+   --error: #ff5050;
 +  --border: #2d1b4e;
 +  --radius: 6px;
  }
@@ -272,15 +272,15 @@ echo "Done."</code></pre>` },
     </thead>
     <tbody>
       <tr>
-        <td><span class="swatch" style="background: #bc0081"></span></td>
+        <td><span class="swatch" style="background: #de38a8"></span></td>
         <td class="token-list">keyword, module, control, function, function-name, function-variable, tag, selector, atrule</td>
       </tr>
       <tr>
-        <td><span class="swatch" style="background: #6020c0"></span></td>
+        <td><span class="swatch" style="background: #b96dff"></span></td>
         <td class="token-list">property, variable, symbol, attr-name, namespace</td>
       </tr>
       <tr>
-        <td><span class="swatch" style="background: #005cb5"></span></td>
+        <td><span class="swatch" style="background: #01cdfe"></span></td>
         <td class="token-list">constant, class-name, builtin</td>
       </tr>
       <tr>
@@ -292,7 +292,7 @@ echo "Done."</code></pre>` },
         <td class="token-list">regex, entity, important</td>
       </tr>
       <tr>
-        <td><span class="swatch" style="background: #ee343b"></span></td>
+        <td><span class="swatch" style="background: #ff5050"></span></td>
         <td class="token-list">operator, punctuation, url, deleted</td>
       </tr>
       <tr>
