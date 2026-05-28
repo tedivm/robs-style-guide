@@ -1,31 +1,31 @@
 :root {
   --radius: 0.5rem;
 
-  --background: #f5f1fc;
-  --foreground: #1d152a;
-  --card: #e9e0f7;
-  --card-foreground: #221733;
-  --popover: #e9e0f7;
-  --popover-foreground: #221733;
-  --primary: #bc0081;
+  --background: #fef5f7;
+  --foreground: #2a1525;
+  --card: #fce4ec;
+  --card-foreground: #2a1525;
+  --popover: #fce4ec;
+  --popover-foreground: #2a1525;
+  --primary: #de38a8;
   --primary-foreground: #ffffff;
-  --secondary: #6020c0;
+  --secondary: #b96dff;
   --secondary-foreground: #ffffff;
-  --muted: #eee5f9;
-  --muted-foreground: #5e546d;
-  --accent: #005cb5;
+  --muted: #fce4ec;
+  --muted-foreground: #8a6578;
+  --accent: #01cdfe;
   --accent-foreground: #ffffff;
-  --destructive: #ee343b;
+  --destructive: #ff5050;
   --destructive-foreground: #ffffff;
   --success: #50c878;
   --success-foreground: #ffffff;
   --warning: #ffbe32;
   --warning-foreground: #ffffff;
-  --border: #d4c2ec;
-  --input: #eee5f9;
-  --ring: #bc0081;
+  --border: #e4b8c8;
+  --input: #fce4ec;
+  --ring: #de38a8;
 
-  --code: #eee5f9;
+  --code: #fce4ec;
   --code-fg: #4c1161;
 
   --gradient: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
@@ -34,21 +34,21 @@
 }
 
 .dark {
-  --background: #150d1e;
+  --background: #1a1025;
   --foreground: #dcdcdc;
-  --card: #1a1130;
+  --card: #2d1b4e;
   --card-foreground: #dcdcdc;
-  --popover: #1a1130;
+  --popover: #2d1b4e;
   --popover-foreground: #dcdcdc;
-  --primary: #bc0081;
+  --primary: #de38a8;
   --primary-foreground: #ffffff;
-  --secondary: #6020c0;
+  --secondary: #b96dff;
   --secondary-foreground: #ffffff;
   --muted: #3d2b5a;
   --muted-foreground: #b4b4b4;
-  --accent: #005cb5;
+  --accent: #01cdfe;
   --accent-foreground: #0f0a1a;
-  --destructive: #ee343b;
+  --destructive: #ff5050;
   --destructive-foreground: #0f0a1a;
   --success: #50c878;
   --success-foreground: #0f0a1a;
@@ -56,7 +56,7 @@
   --warning-foreground: #0f0a1a;
   --border: #3d2b5a;
   --input: #0f0a1a;
-  --ring: #e042b0;
+  --ring: #de38a8;
 
   --code: #0f0a1a;
   --code-fg: #e0e0e0;

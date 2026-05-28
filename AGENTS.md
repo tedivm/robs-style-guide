@@ -58,23 +58,11 @@ Global (same for dark and light):
 | Color | Value |
 | --- | --- |
 | Primary (pink) | `#bc0081` |
-| Secondary (purple) | `#6f26c9` |
-| Tertiary (cyan) | `#005cb5` |
+| Secondary (purple) | `#b96dff` |
+| Tertiary (cyan) | `#01cdfe` |
 | Success | `#50c878` |
 | Warning | `#ffbe32` |
-| Error | `#ee343b` |
-
-Mode-dependent:
-
-| Color | Dark Mode | Light Mode |
-| --- | --- | --- |
-| Background | `#150d1e` | `#f5f1fc` |
-| Surface / Cards | `#1a1130` | `#e9e0f7` |
-| Code blocks / Inputs | `#0f0a1a` | `#eee5f9` |
-| Borders / Dividers | `#3d2b5a` | `#d4c2ec` |
-| Body text | `#dcdcdc` | `#1d152a` |
-| Muted text | `#b4b4b4` | `#5e546d` |
-| Dim text | `#999` | `#756a87` |
+| Error | `#ff5050` |
 
 Both implementations share the same palette. Vanilla HTML (`docs/index.html`) is the canonical reference for styling.
 
