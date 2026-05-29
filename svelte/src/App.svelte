@@ -74,7 +74,7 @@
   <p class="subtitle">CSS variable theme based on Rob's core design system</p>
 
   <div class="toolbar">
-    <Button icon variant="primary" onclick={toggle} title={dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}>
+    <Button icon variant="primary" class="theme-toggle" onclick={toggle} title={dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}>
       {#if dark}
         <IconSun size={18} />
       {:else}
@@ -247,6 +247,7 @@
   <div class="flex-wrap">
     <Button>Primary</Button>
     <Button variant="secondary">Secondary</Button>
+    <Button variant="tertiary">Tertiary</Button>
     <Button variant="destructive">Destructive</Button>
     <Button variant="outline">Outline</Button>
     <Button variant="ghost">Ghost</Button>
@@ -403,16 +404,21 @@ echo "Hello, world!"</code></pre>
   <label for="demo-textarea">Textarea</label>
   <textarea id="demo-textarea" class="textarea" placeholder="Enter multiline text..."></textarea>
 
-  <h2>Tool Cards</h2>
+  <h2>Glossary</h2>
 
-  <div class="tool">
-    <span class="tool-name">search_articles</span>
-    <span class="tool-desc">— Search Wikipedia articles by keyword. Returns a list of matching article titles with relevance scores.</span>
+  <div class="glossary">
+    <span class="glossary-term">Primary</span>
+    <span class="glossary-desc">— Pink accent (`#de38a8`). Used for headings, buttons, and focal elements.</span>
   </div>
 
-  <div class="tool">
-    <span class="tool-name">get_article</span>
-    <span class="tool-desc">— Get the full text of a Wikipedia article by its exact title.</span>
+  <div class="glossary">
+    <span class="glossary-term">Secondary</span>
+    <span class="glossary-desc">— Purple accent (`#b96dff`). Used for h2 headings and supporting UI elements.</span>
+  </div>
+
+  <div class="glossary">
+    <span class="glossary-term">Accent</span>
+    <span class="glossary-desc">— Cyan accent (`#01cdfe`). Used for links, inline code, card headers, and tertiary buttons.</span>
   </div>
 
   <h2>Config Sections</h2>
@@ -432,8 +438,6 @@ echo "Hello, world!"</code></pre>
 
   <hr>
 
-  <h2>Reverse Horizontal Rule</h2>
-
   <hr class="reverse">
 
   <p class="dim" style="margin-top: 1rem;">End of Svelte theme demo.</p>
@@ -448,6 +452,7 @@ echo "Hello, world!"</code></pre>
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: var(--primary);
+    text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
   }
 
   h2 {
@@ -457,6 +462,7 @@ echo "Hello, world!"</code></pre>
     border-bottom: 1px solid;
     border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
     color: var(--secondary);
+    text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
     position: relative;
   }
   h2::after {
@@ -469,6 +475,39 @@ echo "Hello, world!"</code></pre>
     background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
     filter: blur(6px);
     opacity: 0.7;
+  }
+
+  .theme-toggle {
+    background: rgba(185, 109, 255, 0.15);
+    color: var(--secondary);
+    border-color: var(--secondary);
+  }
+  .theme-toggle svg {
+    filter: drop-shadow(0 0 6px rgba(185, 109, 255, 0.7)) drop-shadow(0 0 14px rgba(185, 109, 255, 0.4));
+  }
+  .theme-toggle:hover {
+    background: rgba(185, 109, 255, 0.3);
+  }
+
+  :global(.dark) .theme-toggle {
+    background: rgba(1, 205, 254, 0.15);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  :global(.dark) .theme-toggle svg {
+    color: #ffe033;
+    filter: drop-shadow(0 0 6px rgba(255, 224, 51, 0.7)) drop-shadow(0 0 14px rgba(255, 224, 51, 0.4));
+  }
+  :global(.dark) .theme-toggle:hover {
+    background: rgba(1, 205, 254, 0.3);
+  }
+
+  :global(.dark) h1 {
+    text-shadow: 0 0 20px rgba(222, 56, 168, 0.6), 0 0 40px rgba(222, 56, 168, 0.35), 0 0 60px rgba(222, 56, 168, 0.2);
+  }
+
+  :global(.dark) h2 {
+    text-shadow: 0 0 20px rgba(185, 109, 255, 0.5), 0 0 40px rgba(185, 109, 255, 0.3), 0 0 60px rgba(185, 109, 255, 0.15);
   }
 
   .subtitle {
@@ -615,7 +654,7 @@ echo "Hello, world!"</code></pre>
     padding: 2px 6px;
     border-radius: 3px;
     font-size: 0.9em;
-    color: var(--secondary);
+    color: var(--accent);
   }
 
   .muted {
@@ -692,7 +731,7 @@ echo "Hello, world!"</code></pre>
   }
 
   a {
-    color: var(--secondary);
+    color: var(--accent);
     text-decoration: none;
   }
 
@@ -705,7 +744,7 @@ echo "Hello, world!"</code></pre>
     background: var(--card);
     padding: 0.2rem 0.5rem;
     border-radius: 3px;
-    color: var(--secondary);
+    color: var(--accent);
   }
 
   .kbd {
@@ -902,19 +941,19 @@ echo "Hello, world!"</code></pre>
     letter-spacing: 0.05em;
   }
 
-  .tool {
+  .glossary {
     margin: 0.5rem 0;
     padding: 0.5rem 0;
     border-bottom: 1px solid var(--card);
   }
 
-  .tool-name {
+  .glossary-term {
     font-weight: bold;
     font-family: 'Source Code Pro', monospace;
     color: var(--primary);
   }
 
-  .tool-desc {
+  .glossary-desc {
     color: var(--foreground);
     font-size: 0.9rem;
   }

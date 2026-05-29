@@ -26,6 +26,14 @@
   --gradient-vertical: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
 }
 
+.light h1 {
+  text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
+}
+
+.light h2 {
+  text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
+}
+
 .light {
   --bg: #fef5f7;
   --fg: #2a1525;
@@ -65,6 +73,7 @@ h1 {
   font-size: 1.8rem;
   margin: 2rem 0 0.75rem;
   color: var(--primary);
+  text-shadow: 0 0 20px rgba(222, 56, 168, 0.6), 0 0 40px rgba(222, 56, 168, 0.35), 0 0 60px rgba(222, 56, 168, 0.2);
 }
 
 h2 {
@@ -74,6 +83,7 @@ h2 {
   border-bottom: 1px solid;
   border-image: var(--gradient) 1;
   color: var(--secondary);
+  text-shadow: 0 0 20px rgba(185, 109, 255, 0.5), 0 0 40px rgba(185, 109, 255, 0.3), 0 0 60px rgba(185, 109, 255, 0.15);
   position: relative;
 }
 
@@ -123,7 +133,7 @@ p { margin: 0.5rem 0; }
 
 /* --- Links --- */
 
-a { color: var(--secondary); text-decoration: none; }
+a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* --- Code --- */
@@ -134,7 +144,7 @@ code {
   padding: 2px 6px;
   border-radius: 3px;
   font-size: 0.9em;
-  color: var(--secondary);
+  color: var(--accent);
 }
 
 pre {
@@ -156,7 +166,7 @@ pre code { background: none; padding: 0; color: inherit; }
   background: var(--surface);
   padding: 0.2rem 0.5rem;
   border-radius: 3px;
-  color: var(--secondary);
+  color: var(--accent);
 }
 
 /* --- Blockquote --- */
@@ -309,6 +319,8 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: up
 .btn-primary:hover { background: rgba(222, 56, 168, 0.3); }
 .btn-secondary { background: rgba(185, 109, 255, 0.15); color: var(--secondary); border-color: var(--secondary); }
 .btn-secondary:hover { background: rgba(185, 109, 255, 0.3); }
+.btn-tertiary { background: rgba(1, 205, 254, 0.15); color: var(--accent); border-color: var(--accent); }
+.btn-tertiary:hover { background: rgba(1, 205, 254, 0.3); }
 .btn-subtle { background: transparent; color: var(--muted); border-color: var(--border); }
 .btn-subtle:hover { color: var(--fg); border-color: var(--muted); }
 .btn-destructive { background: rgba(255, 80, 80, 0.15); color: var(--error); border-color: var(--error); }
@@ -324,6 +336,34 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: up
 .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
 .btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
 .btn-icon { display: inline-flex; align-items: center; justify-content: center; padding: 0.45rem; line-height: 0; }
+
+/* --- Theme Toggle --- */
+
+.theme-toggle {
+  background: rgba(1, 205, 254, 0.15);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.theme-toggle svg {
+  color: #ffe033;
+  filter: drop-shadow(0 0 6px rgba(255, 224, 51, 0.7)) drop-shadow(0 0 14px rgba(255, 224, 51, 0.4));
+}
+.theme-toggle:hover {
+  background: rgba(1, 205, 254, 0.3);
+}
+
+.light .theme-toggle {
+  background: rgba(185, 109, 255, 0.15);
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+.light .theme-toggle svg {
+  color: var(--secondary);
+  filter: drop-shadow(0 0 6px rgba(185, 109, 255, 0.7)) drop-shadow(0 0 14px rgba(185, 109, 255, 0.4));
+}
+.light .theme-toggle:hover {
+  background: rgba(185, 109, 255, 0.3);
+}
 
 /* --- Grid --- */
 
@@ -344,7 +384,7 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: up
 .card:hover { border-color: var(--primary); }
 .card a.card-link { text-decoration: none; }
 .card a.card-link:hover { text-decoration: none; }
-.card-header { font-weight: 600; margin-bottom: 0.5rem; color: var(--primary); font-size: 1.1rem; }
+.card-header { font-weight: 600; margin-bottom: 0.5rem; color: var(--accent); font-size: 1.1rem; }
 .card-body { font-size: 0.9rem; color: var(--surface-fg); }
 .card-meta { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; font-family: 'Source Code Pro', monospace; }
 
@@ -377,7 +417,16 @@ label { display: block; margin: 0.5rem 0 0.25rem; color: var(--muted); font-size
 
 /* --- Tooltip --- */
 
-.tooltip { position: relative; border-bottom: 1px dotted var(--secondary); cursor: help; }
+.tooltip { position: relative; border-bottom: none; cursor: help; }
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient);
+}
 
 .tooltip:hover::after {
   content: attr(data-tip);
@@ -441,16 +490,16 @@ label { display: block; margin: 0.5rem 0 0.25rem; color: var(--muted); font-size
   vertical-align: middle;
 }
 
-/* --- Tool Cards --- */
+/* --- Glossary --- */
 
-.tool {
+.glossary {
   margin: 0.5rem 0;
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--surface);
 }
 
-.tool-name { font-weight: bold; font-family: monospace; color: var(--primary); }
-.tool-desc { color: var(--fg); font-size: 0.9rem; }
+.glossary-term { font-weight: bold; font-family: monospace; color: var(--primary); }
+.glossary-desc { color: var(--fg); font-size: 0.9rem; }
 
 /* --- Config Sections --- */
 

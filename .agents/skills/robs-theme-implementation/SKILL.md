@@ -167,6 +167,7 @@ h1 {
   font-size: 1.8rem;
   margin: 2rem 0 0.75rem;
   color: var(--primary);
+  text-shadow: 0 0 20px rgba(222, 56, 168, 0.6), 0 0 40px rgba(222, 56, 168, 0.35), 0 0 60px rgba(222, 56, 168, 0.2);
 }
 
 h2 {
@@ -176,6 +177,7 @@ h2 {
   border-bottom: 1px solid;
   border-image: var(--gradient) 1;
   color: var(--secondary);
+  text-shadow: 0 0 20px rgba(185, 109, 255, 0.5), 0 0 40px rgba(185, 109, 255, 0.3), 0 0 60px rgba(185, 109, 255, 0.15);
   position: relative;
 }
 
@@ -189,6 +191,14 @@ h2::after {
   background: var(--gradient);
   filter: blur(6px);
   opacity: 0.7;
+}
+
+.light h1 {
+  text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
+}
+
+.light h2 {
+  text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
 }
 
 h3 {
@@ -353,7 +363,7 @@ All component CSS is in [assets/components.css](assets/components.css) (sourced 
 
 | Component    | Variants                                                                                                                                              |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Button**   | `.btn-primary`, `.btn-secondary`, `.btn-subtle`, `.btn-destructive`, `.btn-outline`, `.btn-ghost`, `.btn-link`, `.btn-gradient`, `.btn-sm`, `.btn-lg` |
+| **Button**   | `.btn-primary`, `.btn-secondary`, `.btn-tertiary`, `.btn-subtle`, `.btn-destructive`, `.btn-outline`, `.btn-ghost`, `.btn-link`, `.btn-gradient`, `.btn-sm`, `.btn-lg` |
 | **Badge**    | `.badge-app`, `.badge-ai`, `.badge-infra`, `.badge-success`, `.badge-warn`, `.badge-error`, `.badge-gradient`                                         |
 | **Tag**      | `.tag`                                                                                                                                                |
 | **Card**     | `.card`, `.card-header`, `.card-body`, `.card-meta`, `.card-link`                                                                                     |
@@ -371,7 +381,7 @@ Svelte component code (Button, Badge, Card, etc.): [references/components.md](re
 
 ## Layout Utilities
 
-Grid, flex, toolbar, swatch, avatar, tool cards: [assets/layout.css](assets/layout.css)
+Grid, flex, toolbar, swatch, avatar, glossary: [assets/layout.css](assets/layout.css)
 
 | Utility                                | Description                            |
 | -------------------------------------- | -------------------------------------- |
@@ -382,7 +392,7 @@ Grid, flex, toolbar, swatch, avatar, tool cards: [assets/layout.css](assets/layo
 | `.swatch`, `.color-cell`, `.color-hex` | Color palette display                  |
 | `.font-specimen`                       | Font showcase text                     |
 | `.avatar`                              | 32px circular placeholder              |
-| `.tool`, `.tool-name`, `.tool-desc`    | Tool listing                           |
+| `.glossary`, `.glossary-term`, `.glossary-desc` | Glossary listing                       |
 | `.config-section`, `.config-path`      | Config display                         |
 
 ---
@@ -391,19 +401,23 @@ Grid, flex, toolbar, swatch, avatar, tool cards: [assets/layout.css](assets/layo
 
 ### Vanilla JavaScript
 
-Dark mode is the default. The `.light` class on `<html>` switches to light mode.
+Dark mode is the default. The `.light` class on `<html>` switches to light mode. Uses SVG icons — sun in dark mode, moon in light mode.
 
 ```js
+var sunSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+var moonSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
 var toggle = document.getElementById("theme-toggle");
 var isLight = window.matchMedia("(prefers-color-scheme: light)").matches;
 if (isLight) {
   document.documentElement.classList.add("light");
-  toggle.textContent = "Toggle Dark Mode";
+  toggle.innerHTML = moonSvg;
+  toggle.title = "Toggle Dark Mode";
 }
 toggle.addEventListener("click", function () {
   isLight = !isLight;
   document.documentElement.classList.toggle("light", isLight);
-  toggle.textContent = isLight ? "Toggle Dark Mode" : "Toggle Light Mode";
+  toggle.innerHTML = isLight ? moonSvg : sunSvg;
+  toggle.title = isLight ? "Toggle Dark Mode" : "Toggle Light Mode";
 });
 ```
 
@@ -448,7 +462,7 @@ Without these steps, `<pre><code>` blocks will render with the base styles from 
 - [assets/variables.css](assets/variables.css) — `:root` + `.light` color tokens and gradient variables
 - [assets/typography.css](assets/typography.css) — Reset, body, headings, text, code, blockquote, lists
 - [assets/components.css](assets/components.css) — Buttons, badges, cards, alerts, progress, forms, tables, inline elements, hr
-- [assets/layout.css](assets/layout.css) — Grid, flex, toolbar, swatch, avatar, tool cards
+- [assets/layout.css](assets/layout.css) — Grid, flex, toolbar, swatch, avatar, glossary
 
 ## References
 

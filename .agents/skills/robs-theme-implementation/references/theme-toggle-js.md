@@ -17,16 +17,20 @@ Two patterns exist depending on the naming scheme. The conventions are opposite 
 Dark mode is the default. A `.light` class on `<html>` overrides to light colors.
 
 ```js
+var sunSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+var moonSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
 var toggle = document.getElementById('theme-toggle');
 var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 if (isLight) {
   document.documentElement.classList.add('light');
-  toggle.textContent = 'Toggle Dark Mode';
+  toggle.innerHTML = moonSvg;
+  toggle.title = 'Toggle Dark Mode';
 }
 toggle.addEventListener('click', function() {
   isLight = !isLight;
   document.documentElement.classList.toggle('light', isLight);
-  toggle.textContent = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+  toggle.innerHTML = isLight ? moonSvg : sunSvg;
+  toggle.title = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
 });
 ```
 
@@ -36,7 +40,8 @@ toggle.addEventListener('click', function() {
 - `.light` class on `<html>` overrides to light colors
 - Checks `prefers-color-scheme: light` media query on load
 - Button toggles `.light` class on `<html>` element
-- Button text switches between "Toggle Dark Mode" and "Toggle Light Mode"
+- **Dark mode shows sun icon** (click to go to light mode)
+- **Light mode shows moon icon** (click to go to dark mode)
 
 ## Svelte 5
 
@@ -45,6 +50,7 @@ Light mode is the default. A `.dark` class on `<html>` overrides to dark colors.
 ```svelte
 <script>
   import { onMount } from 'svelte';
+  import { IconSun, IconMoon } from '@tabler/icons-svelte';
   let dark = $state(false);
 
   function toggle() {
@@ -60,8 +66,12 @@ Light mode is the default. A `.dark` class on `<html>` overrides to dark colors.
   });
 </script>
 
-<button class="btn btn-primary" onclick={toggle}>
-  {dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}
+<button class="btn btn-primary btn-icon" onclick={toggle} title={dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}>
+  {#if dark}
+    <IconSun size={18} />
+  {:else}
+    <IconMoon size={18} />
+  {/if}
 </button>
 ```
 
@@ -71,7 +81,8 @@ Light mode is the default. A `.dark` class on `<html>` overrides to dark colors.
 - `.dark` class on `<html>` overrides to dark colors
 - Checks `prefers-color-scheme: dark` media query on mount
 - Uses Svelte 5 `$state` rune for reactivity
-- Button text switches between "Toggle Light Mode" and "Toggle Dark Mode"
+- **Dark mode shows sun icon** (click to go to light mode)
+- **Light mode shows moon icon** (click to go to dark mode)
 
 ## Svelte with Prism.js
 
