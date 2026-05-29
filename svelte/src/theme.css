@@ -1,6 +1,57 @@
 :root {
-  --radius: 0.5rem;
+  --radius: 4px;
 
+  --background: #1a1025;
+  --foreground: #dcdcdc;
+  --card: #2d1b4e;
+  --card-foreground: #dcdcdc;
+  --popover: #2d1b4e;
+  --popover-foreground: #dcdcdc;
+  --primary: #de38a8;
+  --primary-foreground: #ffffff;
+  --secondary: #b96dff;
+  --secondary-foreground: #ffffff;
+  --muted: #3d2b5a;
+  --muted-foreground: #b4b4b4;
+  --accent: #01cdfe;
+  --accent-foreground: #0f0a1a;
+  --destructive: #ff5050;
+  --destructive-foreground: #0f0a1a;
+  --success: #50c878;
+  --success-foreground: #0f0a1a;
+  --warning: #ffbe32;
+  --warning-foreground: #0f0a1a;
+  --border: #3d2b5a;
+  --input: #0f0a1a;
+  --ring: #de38a8;
+
+  --code: #0f0a1a;
+  --code-fg: #e0e0e0;
+
+  --gradient: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  --gradient-reverse: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
+  --gradient-vertical: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
+
+  --primary-15: color-mix(in srgb, var(--primary) 15%, transparent);
+  --primary-30: color-mix(in srgb, var(--primary) 30%, transparent);
+  --secondary-15: color-mix(in srgb, var(--secondary) 15%, transparent);
+  --secondary-30: color-mix(in srgb, var(--secondary) 30%, transparent);
+  --accent-15: color-mix(in srgb, var(--accent) 15%, transparent);
+  --accent-30: color-mix(in srgb, var(--accent) 30%, transparent);
+  --destructive-15: color-mix(in srgb, var(--destructive) 15%, transparent);
+  --destructive-30: color-mix(in srgb, var(--destructive) 30%, transparent);
+  --success-15: color-mix(in srgb, var(--success) 15%, transparent);
+  --success-30: color-mix(in srgb, var(--success) 30%, transparent);
+  --warning-15: color-mix(in srgb, var(--warning) 15%, transparent);
+  --warning-30: color-mix(in srgb, var(--warning) 30%, transparent);
+
+  --sun-glow: #ffe033;
+  --sun-glow-70: rgba(255, 224, 51, 0.7);
+  --sun-glow-40: rgba(255, 224, 51, 0.4);
+  --text-on-gradient: #ffffff;
+}
+
+.light {
   --background: #fef5f7;
   --foreground: #2a1525;
   --card: #fce4ec;
@@ -28,38 +79,23 @@
   --code: #fce4ec;
   --code-fg: #4c1161;
 
-  --gradient: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-  --gradient-reverse: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
-  --gradient-vertical: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
-}
+  --primary-15: color-mix(in srgb, var(--primary) 15%, transparent);
+  --primary-30: color-mix(in srgb, var(--primary) 30%, transparent);
+  --secondary-15: color-mix(in srgb, var(--secondary) 15%, transparent);
+  --secondary-30: color-mix(in srgb, var(--secondary) 30%, transparent);
+  --accent-15: color-mix(in srgb, var(--accent) 15%, transparent);
+  --accent-30: color-mix(in srgb, var(--accent) 30%, transparent);
+  --destructive-15: color-mix(in srgb, var(--destructive) 15%, transparent);
+  --destructive-30: color-mix(in srgb, var(--destructive) 30%, transparent);
+  --success-15: color-mix(in srgb, var(--success) 15%, transparent);
+  --success-30: color-mix(in srgb, var(--success) 30%, transparent);
+  --warning-15: color-mix(in srgb, var(--warning) 15%, transparent);
+  --warning-30: color-mix(in srgb, var(--warning) 30%, transparent);
 
-.dark {
-  --background: #1a1025;
-  --foreground: #dcdcdc;
-  --card: #2d1b4e;
-  --card-foreground: #dcdcdc;
-  --popover: #2d1b4e;
-  --popover-foreground: #dcdcdc;
-  --primary: #de38a8;
-  --primary-foreground: #ffffff;
-  --secondary: #b96dff;
-  --secondary-foreground: #ffffff;
-  --muted: #3d2b5a;
-  --muted-foreground: #b4b4b4;
-  --accent: #01cdfe;
-  --accent-foreground: #0f0a1a;
-  --destructive: #ff5050;
-  --destructive-foreground: #0f0a1a;
-  --success: #50c878;
-  --success-foreground: #0f0a1a;
-  --warning: #ffbe32;
-  --warning-foreground: #0f0a1a;
-  --border: #3d2b5a;
-  --input: #0f0a1a;
-  --ring: #de38a8;
-
-  --code: #0f0a1a;
-  --code-fg: #e0e0e0;
+  --sun-glow: #ffe033;
+  --sun-glow-70: rgba(255, 224, 51, 0.7);
+  --sun-glow-40: rgba(255, 224, 51, 0.4);
+  --text-on-gradient: #ffffff;
 }
 
 * {
@@ -77,4 +113,135 @@ body {
   color: var(--foreground);
   line-height: 1.6;
   transition: background 0.2s, color 0.2s;
+}
+
+/* --- Buttons --- */
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary-15);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.btn-primary:hover {
+  background: var(--primary-30);
+}
+
+.btn-secondary {
+  background: var(--secondary-15);
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+.btn-secondary:hover {
+  background: var(--secondary-30);
+}
+
+.btn-tertiary {
+  background: var(--accent-15);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.btn-tertiary:hover {
+  background: var(--accent-30);
+}
+
+.btn-destructive {
+  background: var(--destructive-15);
+  color: var(--destructive);
+  border-color: var(--destructive);
+}
+.btn-destructive:hover {
+  background: var(--destructive-30);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--foreground);
+  border-color: var(--border);
+}
+.btn-outline:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--foreground);
+}
+.btn-ghost:hover {
+  background: var(--muted);
+}
+
+.btn-link {
+  background: transparent;
+  color: var(--primary);
+}
+.btn-link:hover {
+  opacity: 0.85;
+}
+
+.btn-gradient {
+  border: 1px solid transparent;
+  background: var(--gradient) padding-box, var(--gradient-reverse) border-box;
+  color: var(--text-on-gradient);
+}
+.btn-gradient:hover {
+  background:
+    linear-gradient(90deg, var(--primary-30), var(--secondary-30), var(--accent-30)) padding-box,
+    var(--gradient-reverse) border-box;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+}
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem;
+  line-height: 0;
+}
+
+/* --- Theme Toggle --- */
+
+.theme-toggle {
+  background: var(--accent-15);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.theme-toggle svg {
+  color: var(--sun-glow);
+  filter: drop-shadow(0 0 6px var(--sun-glow-70)) drop-shadow(0 0 14px var(--sun-glow-40));
+}
+.theme-toggle:hover {
+  background: var(--accent-30);
+}
+
+.light .theme-toggle {
+  background: var(--secondary-15);
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+.light .theme-toggle svg {
+  color: var(--secondary);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--secondary) 70%, transparent)) drop-shadow(0 0 14px color-mix(in srgb, var(--secondary) 40%, transparent));
+}
+.light .theme-toggle:hover {
+  background: var(--secondary-30);
 }

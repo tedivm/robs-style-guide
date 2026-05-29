@@ -22,6 +22,7 @@
 
   <h2>Colors</h2>
 
+  <button class="btn btn-subtle btn-sm color-toggle" id="color-toggle">▸ Show Derived Colors</button>
   <table class="color-table">
     <thead>
       <tr>
@@ -51,20 +52,50 @@
         <td><span class="color-cell"><span class="swatch" style="background: #3d2b5a"></span><span class="color-hex">#3d2b5a</span></span></td>
         <td><span class="color-cell"><span class="swatch" style="background: #e4b8c8"></span><span class="color-hex">#e4b8c8</span></span></td>
       </tr>
-       <tr>
+      <tr>
         <td>Primary (pink)</td>
         <td><span class="color-cell"><span class="swatch" style="background: #de38a8"></span><span class="color-hex">#de38a8</span></span></td>
         <td><span class="color-cell"><span class="swatch" style="background: #de38a8"></span><span class="color-hex">#de38a8</span></span></td>
+      </tr>
+      <tr data-derived>
+        <td class="derived-name">Primary 15%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(222, 56, 168, 0.15)"></span><span class="color-hex">rgba(222, 56, 168, 0.15)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(222, 56, 168, 0.15)"></span><span class="color-hex">rgba(222, 56, 168, 0.15)</span></span></td>
+      </tr>
+      <tr data-derived>
+        <td class="derived-name">Primary 30%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(222, 56, 168, 0.30)"></span><span class="color-hex">rgba(222, 56, 168, 0.30)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(222, 56, 168, 0.30)"></span><span class="color-hex">rgba(222, 56, 168, 0.30)</span></span></td>
       </tr>
       <tr>
         <td>Secondary (purple)</td>
         <td><span class="color-cell"><span class="swatch" style="background: #b96dff"></span><span class="color-hex">#b96dff</span></span></td>
         <td><span class="color-cell"><span class="swatch" style="background: #b96dff"></span><span class="color-hex">#b96dff</span></span></td>
       </tr>
+      <tr data-derived>
+        <td class="derived-name">Secondary 15%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(185, 109, 255, 0.15)"></span><span class="color-hex">rgba(185, 109, 255, 0.15)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(185, 109, 255, 0.15)"></span><span class="color-hex">rgba(185, 109, 255, 0.15)</span></span></td>
+      </tr>
+      <tr data-derived>
+        <td class="derived-name">Secondary 30%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(185, 109, 255, 0.30)"></span><span class="color-hex">rgba(185, 109, 255, 0.30)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(185, 109, 255, 0.30)"></span><span class="color-hex">rgba(185, 109, 255, 0.30)</span></span></td>
+      </tr>
       <tr>
         <td>Tertiary (cyan)</td>
         <td><span class="color-cell"><span class="swatch" style="background: #01cdfe"></span><span class="color-hex">#01cdfe</span></span></td>
         <td><span class="color-cell"><span class="swatch" style="background: #01cdfe"></span><span class="color-hex">#01cdfe</span></span></td>
+      </tr>
+      <tr data-derived>
+        <td class="derived-name">Accent 15%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(1, 205, 254, 0.15)"></span><span class="color-hex">rgba(1, 205, 254, 0.15)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(1, 205, 254, 0.15)"></span><span class="color-hex">rgba(1, 205, 254, 0.15)</span></span></td>
+      </tr>
+      <tr data-derived>
+        <td class="derived-name">Accent 30%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(1, 205, 254, 0.30)"></span><span class="color-hex">rgba(1, 205, 254, 0.30)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(1, 205, 254, 0.30)"></span><span class="color-hex">rgba(1, 205, 254, 0.30)</span></span></td>
       </tr>
       <tr>
         <td>Body text</td>
@@ -86,15 +117,65 @@
         <td><span class="color-cell"><span class="swatch" style="background: #50c878"></span><span class="color-hex">#50c878</span></span></td>
         <td><span class="color-cell"><span class="swatch" style="background: #50c878"></span><span class="color-hex">#50c878</span></span></td>
       </tr>
+      <tr data-derived>
+        <td class="derived-name">Success 15%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(80, 200, 120, 0.15)"></span><span class="color-hex">rgba(80, 200, 120, 0.15)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(80, 200, 120, 0.15)"></span><span class="color-hex">rgba(80, 200, 120, 0.15)</span></span></td>
+      </tr>
+      <tr data-derived>
+        <td class="derived-name">Success 30%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(80, 200, 120, 0.30)"></span><span class="color-hex">rgba(80, 200, 120, 0.30)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(80, 200, 120, 0.30)"></span><span class="color-hex">rgba(80, 200, 120, 0.30)</span></span></td>
+      </tr>
       <tr>
         <td>Warning</td>
         <td><span class="color-cell"><span class="swatch" style="background: #ffbe32"></span><span class="color-hex">#ffbe32</span></span></td>
         <td><span class="color-cell"><span class="swatch" style="background: #ffbe32"></span><span class="color-hex">#ffbe32</span></span></td>
       </tr>
+      <tr data-derived>
+        <td class="derived-name">Warning 15%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 190, 50, 0.15)"></span><span class="color-hex">rgba(255, 190, 50, 0.15)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 190, 50, 0.15)"></span><span class="color-hex">rgba(255, 190, 50, 0.15)</span></span></td>
+      </tr>
+      <tr data-derived>
+        <td class="derived-name">Warning 30%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 190, 50, 0.30)"></span><span class="color-hex">rgba(255, 190, 50, 0.30)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 190, 50, 0.30)"></span><span class="color-hex">rgba(255, 190, 50, 0.30)</span></span></td>
+      </tr>
       <tr>
         <td>Error</td>
         <td><span class="color-cell"><span class="swatch" style="background: #ff5050"></span><span class="color-hex">#ff5050</span></span></td>
         <td><span class="color-cell"><span class="swatch" style="background: #ff5050"></span><span class="color-hex">#ff5050</span></span></td>
+      </tr>
+      <tr data-derived>
+        <td class="derived-name">Error 15%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 80, 80, 0.15)"></span><span class="color-hex">rgba(255, 80, 80, 0.15)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 80, 80, 0.15)"></span><span class="color-hex">rgba(255, 80, 80, 0.15)</span></span></td>
+      </tr>
+      <tr data-derived>
+        <td class="derived-name">Error 30%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 80, 80, 0.30)"></span><span class="color-hex">rgba(255, 80, 80, 0.30)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 80, 80, 0.30)"></span><span class="color-hex">rgba(255, 80, 80, 0.30)</span></span></td>
+      </tr>
+      <tr>
+        <td>Sun glow</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #ffe033"></span><span class="color-hex">#ffe033</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #ffe033"></span><span class="color-hex">#ffe033</span></span></td>
+      </tr>
+      <tr data-derived>
+        <td class="derived-name">Sun glow 70%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 224, 51, 0.7)"></span><span class="color-hex">rgba(255, 224, 51, 0.7)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 224, 51, 0.7)"></span><span class="color-hex">rgba(255, 224, 51, 0.7)</span></span></td>
+      </tr>
+      <tr data-derived>
+        <td class="derived-name">Sun glow 40%</td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 224, 51, 0.4)"></span><span class="color-hex">rgba(255, 224, 51, 0.4)</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: rgba(255, 224, 51, 0.4)"></span><span class="color-hex">rgba(255, 224, 51, 0.4)</span></span></td>
+      </tr>
+      <tr>
+        <td>Text on gradient</td>
+        <td><span class="color-cell"><span class="swatch" style="background: #ffffff"></span><span class="color-hex">#ffffff</span></span></td>
+        <td><span class="color-cell"><span class="swatch" style="background: #ffffff"></span><span class="color-hex">#ffffff</span></span></td>
       </tr>
     </tbody>
   </table>
@@ -459,6 +540,18 @@ echo "Hello, world!"</code></pre>
     });
 
     Prism.highlightAll();
+
+    var colorToggle = document.getElementById('color-toggle');
+    var showDerived = false;
+    colorToggle.addEventListener('click', function() {
+      showDerived = !showDerived;
+      colorToggle.textContent = showDerived ? '▾ Hide Derived Colors' : '▸ Show Derived Colors';
+      var rows = document.querySelectorAll('[data-derived]');
+      for (var i = 0; i < rows.length; i++) {
+        rows[i].style.display = showDerived ? '' : 'none';
+      }
+    });
+    colorToggle.click();
   </script>
 </body>
 </html>

@@ -1,16 +1,16 @@
 # Theme Toggle JavaScript
 
-Two patterns exist depending on the naming scheme. The conventions are opposite between implementations.
+Both implementations use the same convention.
 
-## Key Differences
+## Key Details
 
-| Aspect | Vanilla HTML | Svelte |
-| --- | --- | --- |
-| Default mode | Dark (`:root` defines dark colors) | Light (`:root` defines light colors) |
-| Override class | `.light` on `<html>` | `.dark` on `<html>` |
-| Media query | `prefers-color-scheme: light` | `prefers-color-scheme: dark` |
+| Aspect | Value |
+| --- | --- |
+| Default mode | Dark (`:root` defines dark colors) |
+| Override class | `.light` on `<html>` |
+| Media query | `prefers-color-scheme: light` |
 
-**Vanilla assumes dark mode by default. Svelte assumes light mode by default.**
+**Both vanilla and Svelte default to dark mode.**
 
 ## Vanilla HTML
 
@@ -45,23 +45,23 @@ toggle.addEventListener('click', function() {
 
 ## Svelte 5
 
-Light mode is the default. A `.dark` class on `<html>` overrides to dark colors. Uses the `$state` rune for reactivity.
+Dark mode is the default. A `.light` class on `<html>` overrides to light colors. Uses the `$state` rune for reactivity.
 
 ```svelte
 <script>
   import { onMount } from 'svelte';
   import { IconSun, IconMoon } from '@tabler/icons-svelte';
-  let dark = $state(false);
+  let dark = $state(true);
 
   function toggle() {
     dark = !dark;
-    document.documentElement.classList.toggle('dark', dark);
+    document.documentElement.classList.toggle('light', !dark);
   }
 
   onMount(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      dark = true;
-      document.documentElement.classList.add('dark');
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+      dark = false;
+      document.documentElement.classList.add('light');
     }
   });
 </script>
@@ -77,9 +77,9 @@ Light mode is the default. A `.dark` class on `<html>` overrides to dark colors.
 
 ### How it works
 
-- Default is light mode (`:root` in CSS defines light colors)
-- `.dark` class on `<html>` overrides to dark colors
-- Checks `prefers-color-scheme: dark` media query on mount
+- Default is dark mode (`:root` in CSS defines dark colors)
+- `.light` class on `<html>` overrides to light colors
+- Checks `prefers-color-scheme: light` media query on mount
 - Uses Svelte 5 `$state` rune for reactivity
 - **Dark mode shows sun icon** (click to go to light mode)
 - **Light mode shows moon icon** (click to go to dark mode)
@@ -91,11 +91,11 @@ When Prism.js code highlighting is involved, re-run `Prism.highlightAll()` on to
 ```svelte
 <script>
   import { onMount, tick } from 'svelte';
-  let dark = $state(false);
+  let dark = $state(true);
 
   function toggle() {
     dark = !dark;
-    document.documentElement.classList.toggle('dark', dark);
+    document.documentElement.classList.toggle('light', !dark);
     Prism.highlightAll();
     for (const pre of document.querySelectorAll('pre')) {
       pre.removeAttribute('style');
@@ -103,9 +103,9 @@ When Prism.js code highlighting is involved, re-run `Prism.highlightAll()` on to
   }
 
   onMount(async () => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      dark = true;
-      document.documentElement.classList.add('dark');
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+      dark = false;
+      document.documentElement.classList.add('light');
     }
     // ... load prism scripts ...
     await tick();
@@ -120,6 +120,6 @@ When Prism.js code highlighting is involved, re-run `Prism.highlightAll()` on to
 ### How it works
 
 - Same toggle logic as standard Svelte pattern
-- After toggling the `.dark` class, calls `Prism.highlightAll()` to re-highlight all code blocks with the new theme
+- After toggling the `.light` class, calls `Prism.highlightAll()` to re-highlight all code blocks with the new theme
 - Clears inline `style` attributes on `<pre>` elements to prevent stale styling from the previous highlight pass
 - On mount, waits for the DOM to update with `tick()` before initial highlighting

@@ -198,17 +198,17 @@ Svelte 5 runes-based page component. Uses `onMount` for theme detection and inli
   import './theme.css';
   import { onMount } from 'svelte';
   import { IconSun, IconMoon } from '@tabler/icons-svelte';
-  let dark = $state(false);
+  let dark = $state(true);
 
   function toggle() {
     dark = !dark;
-    document.documentElement.classList.toggle('dark', dark);
+    document.documentElement.classList.toggle('light', !dark);
   }
 
   onMount(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      dark = true;
-      document.documentElement.classList.add('dark');
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+      dark = false;
+      document.documentElement.classList.add('light');
     }
   });
 </script>
@@ -254,15 +254,15 @@ Svelte 5 runes-based page component. Uses `onMount` for theme detection and inli
     filter: drop-shadow(0 0 6px rgba(185, 109, 255, 0.7)) drop-shadow(0 0 14px rgba(185, 109, 255, 0.4));
   }
 
-  :global(.dark) .theme-toggle {
+  :global(.light) .theme-toggle {
     background: rgba(1, 205, 254, 0.15);
     color: var(--accent);
     border-color: var(--accent);
   }
-  :global(.dark) .theme-toggle:hover {
+  :global(.light) .theme-toggle:hover {
     background: rgba(1, 205, 254, 0.3);
   }
-  :global(.dark) .theme-toggle svg {
+  :global(.light) .theme-toggle svg {
     filter: drop-shadow(0 0 6px rgba(1, 205, 254, 0.7)) drop-shadow(0 0 14px rgba(1, 205, 254, 0.4));
   }
 

@@ -20,13 +20,11 @@ In Svelte, the theme CSS is imported at the root of the app:
 import './theme.css';
 ```
 
-The `theme.css` file defines CSS variables on `:root` (light mode default) and `.dark` (dark mode override).
+The `theme.css` file defines CSS variables on `:root` (dark mode default) and `.light` (light mode override).
 
 ## CSS Variables
 
-See [css-variables.md](css-variables.md) for the complete variable definitions (Svelte/shadcn section).
-
-## CSS Variables
+See [SKILL.md](../SKILL.md#css-variables) for the complete variable definitions.
 
 ```css
 :root {
@@ -68,7 +66,7 @@ h1 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   color: var(--primary);
-  text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
+  text-shadow: 0 0 20px rgba(222, 56, 168, 0.6), 0 0 40px rgba(222, 56, 168, 0.35), 0 0 60px rgba(222, 56, 168, 0.2);
 }
 
 h2 {
@@ -78,7 +76,7 @@ h2 {
   border-bottom: 1px solid;
   border-image: var(--gradient) 1;
   color: var(--secondary);
-  text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
+  text-shadow: 0 0 20px rgba(185, 109, 255, 0.5), 0 0 40px rgba(185, 109, 255, 0.3), 0 0 60px rgba(185, 109, 255, 0.15);
   position: relative;
 }
 
@@ -94,12 +92,12 @@ h2::after {
   opacity: 0.7;
 }
 
-.dark h1 {
-  text-shadow: 0 0 20px rgba(222, 56, 168, 0.6), 0 0 40px rgba(222, 56, 168, 0.35), 0 0 60px rgba(222, 56, 168, 0.2);
+.light h1 {
+  text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
 }
 
-.dark h2 {
-  text-shadow: 0 0 20px rgba(185, 109, 255, 0.5), 0 0 40px rgba(185, 109, 255, 0.3), 0 0 60px rgba(185, 109, 255, 0.15);
+.light h2 {
+  text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
 }
 
 h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: var(--accent); }

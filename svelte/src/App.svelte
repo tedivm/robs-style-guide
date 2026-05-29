@@ -10,33 +10,58 @@
   import IconSun from '@tabler/icons-svelte-runes/icons/sun';
   import IconMoon from '@tabler/icons-svelte-runes/icons/moon';
 
-  let dark = $state(false);
+  let dark = $state(true);
 
   const colors = [
     { name: 'Background', dark: '#1a1025', light: '#fef5f7' },
     { name: 'Surface / Cards', dark: '#2d1b4e', light: '#fce4ec' },
     { name: 'Code blocks / Inputs', dark: '#0f0a1a', light: '#fce4ec' },
     { name: 'Borders / Dividers', dark: '#3d2b5a', light: '#e4b8c8' },
-    { name: 'Primary (pink)', dark: '#de38a8', light: '#de38a8' },
-    { name: 'Secondary (purple)', dark: '#b96dff', light: '#b96dff' },
-    { name: 'Tertiary (cyan)', dark: '#01cdfe', light: '#01cdfe' },
+    { name: 'Primary (pink)', dark: '#de38a8', light: '#de38a8', derived: [
+      { name: 'Primary 15%', dark: 'rgba(222, 56, 168, 0.15)', light: 'rgba(222, 56, 168, 0.15)' },
+      { name: 'Primary 30%', dark: 'rgba(222, 56, 168, 0.30)', light: 'rgba(222, 56, 168, 0.30)' },
+    ]},
+    { name: 'Secondary (purple)', dark: '#b96dff', light: '#b96dff', derived: [
+      { name: 'Secondary 15%', dark: 'rgba(185, 109, 255, 0.15)', light: 'rgba(185, 109, 255, 0.15)' },
+      { name: 'Secondary 30%', dark: 'rgba(185, 109, 255, 0.30)', light: 'rgba(185, 109, 255, 0.30)' },
+    ]},
+    { name: 'Tertiary (cyan)', dark: '#01cdfe', light: '#01cdfe', derived: [
+      { name: 'Accent 15%', dark: 'rgba(1, 205, 254, 0.15)', light: 'rgba(1, 205, 254, 0.15)' },
+      { name: 'Accent 30%', dark: 'rgba(1, 205, 254, 0.30)', light: 'rgba(1, 205, 254, 0.30)' },
+    ]},
     { name: 'Body text', dark: '#dcdcdc', light: '#2a1525' },
     { name: 'Muted text', dark: '#b4b4b4', light: '#8a6578' },
     { name: 'Dim text', dark: '#999', light: '#a88a9a' },
-    { name: 'Success', dark: '#50c878', light: '#50c878' },
-    { name: 'Warning', dark: '#ffbe32', light: '#ffbe32' },
-    { name: 'Error', dark: '#ff5050', light: '#ff5050' },
+    { name: 'Success', dark: '#50c878', light: '#50c878', derived: [
+      { name: 'Success 15%', dark: 'rgba(80, 200, 120, 0.15)', light: 'rgba(80, 200, 120, 0.15)' },
+      { name: 'Success 30%', dark: 'rgba(80, 200, 120, 0.30)', light: 'rgba(80, 200, 120, 0.30)' },
+    ]},
+    { name: 'Warning', dark: '#ffbe32', light: '#ffbe32', derived: [
+      { name: 'Warning 15%', dark: 'rgba(255, 190, 50, 0.15)', light: 'rgba(255, 190, 50, 0.15)' },
+      { name: 'Warning 30%', dark: 'rgba(255, 190, 50, 0.30)', light: 'rgba(255, 190, 50, 0.30)' },
+    ]},
+    { name: 'Error', dark: '#ff5050', light: '#ff5050', derived: [
+      { name: 'Error 15%', dark: 'rgba(255, 80, 80, 0.15)', light: 'rgba(255, 80, 80, 0.15)' },
+      { name: 'Error 30%', dark: 'rgba(255, 80, 80, 0.30)', light: 'rgba(255, 80, 80, 0.30)' },
+    ]},
+    { name: 'Sun glow', dark: '#ffe033', light: '#ffe033', derived: [
+      { name: 'Sun glow 70%', dark: 'rgba(255, 224, 51, 0.7)', light: 'rgba(255, 224, 51, 0.7)' },
+      { name: 'Sun glow 40%', dark: 'rgba(255, 224, 51, 0.4)', light: 'rgba(255, 224, 51, 0.4)' },
+    ]},
+    { name: 'Text on gradient', dark: '#ffffff', light: '#ffffff' },
   ];
+
+  let showDerived = $state(false);
 
   function toggle() {
     dark = !dark;
-    document.documentElement.classList.toggle('dark', dark);
+    document.documentElement.classList.toggle('light', !dark);
   }
 
   onMount(async () => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      dark = true;
-      document.documentElement.classList.add('dark');
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+      dark = false;
+      document.documentElement.classList.add('light');
     }
 
     const loadScript = (src) => new Promise((resolve, reject) => {
@@ -74,19 +99,22 @@
   <p class="subtitle">CSS variable theme based on Rob's core design system</p>
 
   <div class="toolbar">
-    <Button icon variant="primary" class="theme-toggle" onclick={toggle} title={dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}>
+    <button id="theme-toggle" class="btn btn-icon theme-toggle" onclick={toggle} title={dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}>
       {#if dark}
         <IconSun size={18} />
       {:else}
         <IconMoon size={18} />
       {/if}
-    </Button>
+    </button>
     <a href="../../" class="back-link">← Home</a>
     <a href="../prism/" class="back-link">Code highlighting →</a>
     <a href="../icons/" class="back-link">Icons →</a>
   </div>
 
   <h2>Colors</h2>
+  <button class="color-toggle" onclick={() => showDerived = !showDerived}>
+    {showDerived ? '▾ Hide Derived Colors' : '▸ Show Derived Colors'}
+  </button>
   <table class="color-table">
     <thead>
       <tr>
@@ -102,6 +130,15 @@
           <td><span class="color-cell"><span class="swatch" style="background: {c.dark}"></span><span class="color-hex">{c.dark}</span></span></td>
           <td><span class="color-cell"><span class="swatch" style="background: {c.light}"></span><span class="color-hex">{c.light}</span></span></td>
         </tr>
+        {#if showDerived && c.derived}
+          {#each c.derived as d}
+            <tr data-derived>
+              <td class="derived-name">{d.name}</td>
+              <td><span class="color-cell"><span class="swatch" style="background: {d.dark}"></span><span class="color-hex">{d.dark}</span></span></td>
+              <td><span class="color-cell"><span class="swatch" style="background: {d.light}"></span><span class="color-hex">{d.light}</span></span></td>
+            </tr>
+          {/each}
+        {/if}
       {/each}
     </tbody>
   </table>
@@ -452,7 +489,7 @@ echo "Hello, world!"</code></pre>
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: var(--primary);
-    text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
+    text-shadow: 0 0 20px color-mix(in srgb, var(--primary) 60%, transparent), 0 0 40px color-mix(in srgb, var(--primary) 35%, transparent), 0 0 60px color-mix(in srgb, var(--primary) 20%, transparent);
   }
 
   h2 {
@@ -462,7 +499,7 @@ echo "Hello, world!"</code></pre>
     border-bottom: 1px solid;
     border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
     color: var(--secondary);
-    text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
+    text-shadow: 0 0 20px color-mix(in srgb, var(--secondary) 50%, transparent), 0 0 40px color-mix(in srgb, var(--secondary) 30%, transparent), 0 0 60px color-mix(in srgb, var(--secondary) 15%, transparent);
     position: relative;
   }
   h2::after {
@@ -477,37 +514,12 @@ echo "Hello, world!"</code></pre>
     opacity: 0.7;
   }
 
-  .theme-toggle {
-    background: rgba(185, 109, 255, 0.15);
-    color: var(--secondary);
-    border-color: var(--secondary);
-  }
-  .theme-toggle svg {
-    filter: drop-shadow(0 0 6px rgba(185, 109, 255, 0.7)) drop-shadow(0 0 14px rgba(185, 109, 255, 0.4));
-  }
-  .theme-toggle:hover {
-    background: rgba(185, 109, 255, 0.3);
+  :global(.light) h1 {
+    text-shadow: 0 0 20px color-mix(in srgb, var(--primary) 25%, transparent), 0 0 40px color-mix(in srgb, var(--primary) 12%, transparent);
   }
 
-  :global(.dark) .theme-toggle {
-    background: rgba(1, 205, 254, 0.15);
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-  :global(.dark) .theme-toggle svg {
-    color: #ffe033;
-    filter: drop-shadow(0 0 6px rgba(255, 224, 51, 0.7)) drop-shadow(0 0 14px rgba(255, 224, 51, 0.4));
-  }
-  :global(.dark) .theme-toggle:hover {
-    background: rgba(1, 205, 254, 0.3);
-  }
-
-  :global(.dark) h1 {
-    text-shadow: 0 0 20px rgba(222, 56, 168, 0.6), 0 0 40px rgba(222, 56, 168, 0.35), 0 0 60px rgba(222, 56, 168, 0.2);
-  }
-
-  :global(.dark) h2 {
-    text-shadow: 0 0 20px rgba(185, 109, 255, 0.5), 0 0 40px rgba(185, 109, 255, 0.3), 0 0 60px rgba(185, 109, 255, 0.15);
+  :global(.light) h2 {
+    text-shadow: 0 0 20px color-mix(in srgb, var(--secondary) 25%, transparent), 0 0 40px color-mix(in srgb, var(--secondary) 12%, transparent);
   }
 
   .subtitle {
@@ -568,6 +580,37 @@ echo "Hello, world!"</code></pre>
     display: flex;
     align-items: center;
     gap: 6px;
+  }
+
+  .color-toggle {
+    margin: 0.5rem 0;
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-family: 'Source Serif 4', 'Roboto Slab', serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--muted-foreground);
+    border-color: var(--border);
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .color-toggle:hover {
+    color: var(--foreground);
+    border-color: var(--muted-foreground);
+  }
+
+  :global(tr[data-derived]) td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .derived-name {
+    padding: 6px 14px 6px 1.5rem !important;
+    font-size: 0.9em;
+    color: var(--muted-foreground);
   }
 
   .color-hex {
@@ -687,11 +730,11 @@ echo "Hello, world!"</code></pre>
     height: 1px;
     margin: 1.5rem 0;
     background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-    filter: drop-shadow(0 0 6px rgba(188, 0, 129, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4));
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--primary) 70%, transparent)) drop-shadow(0 0 16px color-mix(in srgb, var(--secondary) 40%, transparent));
   }
   hr.reverse {
     background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
-    filter: drop-shadow(0 0 6px rgba(0, 92, 181, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4));
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 70%, transparent)) drop-shadow(0 0 16px color-mix(in srgb, var(--secondary) 40%, transparent));
   }
 
   h3 {
