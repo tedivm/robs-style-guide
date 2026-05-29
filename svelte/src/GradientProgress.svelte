@@ -1,6 +1,5 @@
 <script>
-  export let value = 0;
-  export let reverse = false;
+  let { value = 0, reverse = false } = $props();
 </script>
 
 <div class="progress">

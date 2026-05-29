@@ -41,9 +41,9 @@
       document.head.appendChild(s);
     });
 
-    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js');
-    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js');
-    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js');
+    await loadScript('./prism/prism.min.js');
+    await loadScript('./prism/prism-bash.min.js');
+    await loadScript('./prism/prism-markup.min.js');
 
     await tick();
 
@@ -255,6 +255,65 @@
     </div>
   </div>
 
+  <h2>Gradient Icons</h2>
+  <p class="muted">Icons enhanced with gradient effects — strokes, backgrounds, and overlays.</p>
+
+  <h3>Gradient Background</h3>
+  <div class="icon-gradient-row">
+    <div class="icon-gradient-cell">
+      <div class="icon-gradient-bg">
+        <IconSearch size={24} color="#fff" />
+      </div>
+      <span>search</span>
+    </div>
+    <div class="icon-gradient-cell">
+      <div class="icon-gradient-bg">
+        <IconCircleCheck size={24} color="#fff" />
+      </div>
+      <span>check-circle</span>
+    </div>
+    <div class="icon-gradient-cell">
+      <div class="icon-gradient-bg">
+        <IconAlertTriangle size={24} color="#fff" />
+      </div>
+      <span>alert-triangle</span>
+    </div>
+    <div class="icon-gradient-cell">
+      <div class="icon-gradient-bg">
+        <IconBell size={24} color="#fff" />
+      </div>
+      <span>bell</span>
+    </div>
+  </div>
+
+  <h3>Gradient Overlay</h3>
+  <div class="icon-gradient-row">
+    <div class="icon-gradient-cell">
+      <div class="icon-gradient-overlay">
+        <IconHome size={24} />
+      </div>
+      <span>home</span>
+    </div>
+    <div class="icon-gradient-cell">
+      <div class="icon-gradient-overlay">
+        <IconSearch size={24} />
+      </div>
+      <span>search</span>
+    </div>
+    <div class="icon-gradient-cell">
+      <div class="icon-gradient-overlay">
+        <IconAlertTriangle size={24} />
+      </div>
+      <span>alert-triangle</span>
+    </div>
+    <div class="icon-gradient-cell">
+      <div class="icon-gradient-overlay">
+        <IconSettings size={24} />
+      </div>
+      <span>settings</span>
+    </div>
+  </div>
+
   <h2>Usage</h2>
 
   <h3>Svelte 5</h3>
@@ -407,16 +466,6 @@
     justify-content: center;
     padding: 0.45rem;
     line-height: 0;
-  }
-
-  .btn-primary {
-    background: rgba(188, 0, 129, 0.15);
-    color: var(--primary);
-    border-color: var(--primary);
-  }
-
-  .btn-primary:hover {
-    background: rgba(188, 0, 129, 0.3);
   }
 
   .muted {
@@ -679,5 +728,61 @@
     font-size: 0.7rem;
     color: var(--muted-foreground);
     font-family: 'Source Code Pro', monospace;
+  }
+
+  /* Gradient icons */
+  .icon-gradient-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+  }
+
+  .icon-gradient-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .icon-gradient-cell span {
+    font-size: 0.7rem;
+    color: var(--muted-foreground);
+    font-family: 'Source Code Pro', monospace;
+  }
+
+  .icon-gradient-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--gradient);
+    border-radius: 8px;
+    color: #fff;
+  }
+
+  .icon-gradient-overlay {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    overflow: hidden;
+  }
+
+  .icon-gradient-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient);
+    opacity: 0.2;
+    border-radius: 8px;
   }
 </style>
