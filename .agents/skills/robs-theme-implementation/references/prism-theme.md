@@ -186,12 +186,12 @@ The Svelte implementation uses `:global()` wrappers on all token selectors and m
 
 | Color | Value | Token Types |
 |---|---|---|
-| Primary (pink) | `#bc0081` | keyword, module, control, function, function-name, function-variable, tag, selector, atrule |
-| Secondary (purple) | `#6f26c9` | property, variable, symbol, attr-name, namespace |
-| Accent (cyan) | `#005cb5` | constant, class-name, builtin |
+| Primary (pink) | `#de38a8` | keyword, module, control, function, function-name, function-variable, tag, selector, atrule |
+| Secondary (purple) | `#b96dff` | property, variable, symbol, attr-name, namespace |
+| Accent (cyan) | `#01cdfe` | constant, class-name, builtin |
 | Success (green) | `#50c878` | prolog, doctype, string, char, attr-value, number, boolean, inserted |
 | Warning (amber) | `#ffbe32` | regex, entity, important |
-| Error (red) | `#ee343b` | operator, punctuation, url, deleted |
+| Error (red) | `#ff5050` | operator, punctuation, url, deleted |
 | Muted | `#b4b4b4` | comment, cdata |
 
 ## Token Table Styling

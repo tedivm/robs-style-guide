@@ -213,7 +213,7 @@ h1 {
   font-size: 1.8rem;
   margin: 2rem 0 0.75rem;
   color: var(--primary);
-  text-shadow: 0 0 20px rgba(222, 56, 168, 0.6), 0 0 40px rgba(222, 56, 168, 0.35), 0 0 60px rgba(222, 56, 168, 0.2);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--primary) 60%, transparent), 0 0 40px color-mix(in srgb, var(--primary) 35%, transparent), 0 0 60px color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 h2 {
@@ -223,7 +223,7 @@ h2 {
   border-bottom: 1px solid;
   border-image: var(--gradient) 1;
   color: var(--secondary);
-  text-shadow: 0 0 20px rgba(185, 109, 255, 0.5), 0 0 40px rgba(185, 109, 255, 0.3), 0 0 60px rgba(185, 109, 255, 0.15);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--secondary) 50%, transparent), 0 0 40px color-mix(in srgb, var(--secondary) 30%, transparent), 0 0 60px color-mix(in srgb, var(--secondary) 15%, transparent);
   position: relative;
 }
 
@@ -240,11 +240,11 @@ h2::after {
 }
 
 .light h1 {
-  text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--primary) 25%, transparent), 0 0 40px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 .light h2 {
-  text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--secondary) 25%, transparent), 0 0 40px color-mix(in srgb, var(--secondary) 12%, transparent);
 }
 
 h3 {
@@ -334,7 +334,7 @@ p {
 }
 
 a {
-  color: var(--secondary);
+  color: var(--accent);
   text-decoration: none;
 }
 a:hover {
@@ -351,7 +351,7 @@ code {
   padding: 2px 6px;
   border-radius: 3px;
   font-size: 0.9em;
-  color: var(--secondary);
+  color: var(--accent);
 }
 
 pre {
@@ -409,7 +409,7 @@ All component CSS is in [assets/components.css](assets/components.css) (sourced 
 
 | Component    | Variants                                                                                                                                              |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Button**   | `.btn-primary`, `.btn-secondary`, `.btn-tertiary`, `.btn-subtle`, `.btn-destructive`, `.btn-outline`, `.btn-ghost`, `.btn-link`, `.btn-gradient`, `.btn-sm`, `.btn-lg` |
+| **Button**   | `.btn-primary`, `.btn-secondary`, `.btn-tertiary`, `.btn-subtle`, `.btn-destructive`, `.btn-outline`, `.btn-ghost`, `.btn-link`, `.btn-gradient`, `.btn-sm`, `.btn-lg`, `.btn-icon` |
 | **Badge**    | `.badge-app`, `.badge-ai`, `.badge-infra`, `.badge-success`, `.badge-warn`, `.badge-error`, `.badge-gradient`                                         |
 | **Tag**      | `.tag`                                                                                                                                                |
 | **Card**     | `.card`, `.card-header`, `.card-body`, `.card-meta`, `.card-link`                                                                                     |
@@ -420,6 +420,8 @@ All component CSS is in [assets/components.css](assets/components.css) (sourced 
 | **Table**    | `table`, `th`, `td`                                                                                                                                   |
 | **Inline**   | `.tooltip`, `.kbd`, `.url`                                                                                                                            |
 | **HR**       | `hr` + `.reverse`                                                                                                                                     |
+| **Theme toggle** | `.theme-toggle` + `.light .theme-toggle`                                                                                                          |
+| **Color table** | `.color-toggle`, `tr[data-derived]`, `.derived-name`                                                                                                |
 
 Svelte component code (Button, Badge, Card, etc.): [references/components.md](references/components.md)
 
@@ -483,6 +485,8 @@ The theme uses Prism.js for syntax highlighting with custom token colors that ma
 - Re-highlighting code after a theme toggle (required so tokens adapt to dark/light)
 - Language selection and which bundles to load
 
+The complete Prism CSS token styles are available in [assets/prism.css](assets/prism.css).
+
 Without these steps, `<pre><code>` blocks will render with the base styles from [assets/typography.css](assets/typography.css) but will have no syntax coloring.
 
 ---
@@ -507,8 +511,9 @@ Without these steps, `<pre><code>` blocks will render with the base styles from 
 
 - [assets/variables.css](assets/variables.css) — `:root` + `.light` color tokens and gradient variables
 - [assets/typography.css](assets/typography.css) — Reset, body, headings, text, code, blockquote, lists
-- [assets/components.css](assets/components.css) — Buttons, badges, cards, alerts, progress, forms, tables, inline elements, hr
+- [assets/components.css](assets/components.css) — Buttons, badges, cards, alerts, progress, forms, tables, inline elements, hr, theme toggle, color table
 - [assets/layout.css](assets/layout.css) — Grid, flex, toolbar, swatch, avatar, glossary
+- [assets/prism.css](assets/prism.css) — Prism.js token color mappings for syntax highlighting
 
 ## References
 

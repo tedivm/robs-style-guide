@@ -156,6 +156,16 @@ body {
   background: var(--accent-30);
 }
 
+.btn-subtle {
+  background: transparent;
+  color: var(--muted-foreground);
+  border-color: var(--border);
+}
+.btn-subtle:hover {
+  color: var(--foreground);
+  border-color: var(--muted-foreground);
+}
+
 .btn-destructive {
   background: var(--destructive-15);
   color: var(--destructive);

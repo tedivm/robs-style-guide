@@ -64,9 +64,9 @@ In Svelte, component styles are typically scoped within each `.svelte` file usin
 ```css
 h1 {
   font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+  margin: 2rem 0 0.75rem;
   color: var(--primary);
-  text-shadow: 0 0 20px rgba(222, 56, 168, 0.6), 0 0 40px rgba(222, 56, 168, 0.35), 0 0 60px rgba(222, 56, 168, 0.2);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--primary) 60%, transparent), 0 0 40px color-mix(in srgb, var(--primary) 35%, transparent), 0 0 60px color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 h2 {
@@ -76,7 +76,7 @@ h2 {
   border-bottom: 1px solid;
   border-image: var(--gradient) 1;
   color: var(--secondary);
-  text-shadow: 0 0 20px rgba(185, 109, 255, 0.5), 0 0 40px rgba(185, 109, 255, 0.3), 0 0 60px rgba(185, 109, 255, 0.15);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--secondary) 50%, transparent), 0 0 40px color-mix(in srgb, var(--secondary) 30%, transparent), 0 0 60px color-mix(in srgb, var(--secondary) 15%, transparent);
   position: relative;
 }
 
@@ -93,11 +93,11 @@ h2::after {
 }
 
 .light h1 {
-  text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--primary) 25%, transparent), 0 0 40px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 .light h2 {
-  text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--secondary) 25%, transparent), 0 0 40px color-mix(in srgb, var(--secondary) 12%, transparent);
 }
 
 h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: var(--accent); }
@@ -112,7 +112,7 @@ h6 { font-size: 0.85rem; margin: 1rem 0 0.3rem; color: var(--muted-foreground); 
 p { margin: 0.5rem 0; }
 
 .muted { color: var(--muted-foreground); }
-.dim { color: var(--muted-foreground); opacity: 0.7; }
+.dim { color: var(--muted-foreground); }
 
 .text-primary { color: var(--primary); }
 .text-secondary { color: var(--secondary); }
@@ -128,7 +128,7 @@ p { margin: 0.5rem 0; }
 .uppercase { text-transform: uppercase; letter-spacing: 0.05em; }
 
 .subtitle {
-  color: var(--muted-foreground);
+  color: var(--foreground);
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
 }
@@ -137,7 +137,7 @@ p { margin: 0.5rem 0; }
 ### Links
 
 ```css
-a { color: var(--secondary); text-decoration: none; }
+a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 ```
 
@@ -150,7 +150,7 @@ code {
   padding: 2px 6px;
   border-radius: 3px;
   font-size: 0.9em;
-  color: var(--secondary);
+  color: var(--accent);
 }
 
 pre {
@@ -255,12 +255,12 @@ hr {
   height: 1px;
   margin: 1.5rem 0;
   background: var(--gradient);
-  filter: drop-shadow(0 0 6px rgba(222, 56, 168, 0.7)) drop-shadow(0 0 16px rgba(185, 109, 255, 0.4));
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--primary) 70%, transparent)) drop-shadow(0 0 16px color-mix(in srgb, var(--secondary) 40%, transparent));
 }
 
 hr.reverse {
   background: var(--gradient-reverse);
-  filter: drop-shadow(0 0 6px rgba(1, 205, 254, 0.7)) drop-shadow(0 0 16px rgba(185, 109, 255, 0.4));
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 70%, transparent)) drop-shadow(0 0 16px color-mix(in srgb, var(--secondary) 40%, transparent));
 }
 ```
 

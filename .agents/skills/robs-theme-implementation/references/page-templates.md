@@ -235,9 +235,9 @@ Svelte 5 runes-based page component. Uses `onMount` for theme detection and inli
   .container { max-width: 900px; }
 
   .theme-toggle {
-    background: rgba(185, 109, 255, 0.15);
-    color: var(--secondary);
-    border: 1px solid var(--secondary);
+    background: var(--accent-15);
+    color: var(--accent);
+    border: 1px solid var(--accent);
     border-radius: var(--radius);
     padding: 0.4rem;
     cursor: pointer;
@@ -248,22 +248,22 @@ Svelte 5 runes-based page component. Uses `onMount` for theme detection and inli
     justify-content: center;
   }
   .theme-toggle:hover {
-    background: rgba(185, 109, 255, 0.3);
+    background: var(--accent-30);
   }
   .theme-toggle svg {
-    filter: drop-shadow(0 0 6px rgba(185, 109, 255, 0.7)) drop-shadow(0 0 14px rgba(185, 109, 255, 0.4));
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 70%, transparent)) drop-shadow(0 0 14px color-mix(in srgb, var(--accent) 40%, transparent));
   }
 
   :global(.light) .theme-toggle {
-    background: rgba(1, 205, 254, 0.15);
-    color: var(--accent);
-    border-color: var(--accent);
+    background: var(--secondary-15);
+    color: var(--secondary);
+    border-color: var(--secondary);
   }
   :global(.light) .theme-toggle:hover {
-    background: rgba(1, 205, 254, 0.3);
+    background: var(--secondary-30);
   }
   :global(.light) .theme-toggle svg {
-    filter: drop-shadow(0 0 6px rgba(1, 205, 254, 0.7)) drop-shadow(0 0 14px rgba(1, 205, 254, 0.4));
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--secondary) 70%, transparent)) drop-shadow(0 0 14px color-mix(in srgb, var(--secondary) 40%, transparent));
   }
 
   /* ... styles from the skill references ... */

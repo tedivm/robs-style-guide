@@ -89,6 +89,7 @@
 .btn-gradient:hover { background: linear-gradient(90deg, var(--primary-30), var(--secondary-30), var(--accent-30)) padding-box, var(--gradient-reverse) border-box; }
 .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
 .btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
+.btn-icon { display: inline-flex; align-items: center; justify-content: center; padding: 0.45rem; line-height: 0; }
 
 /* --- Card --- */
 
@@ -142,7 +143,16 @@ hr.reverse { background: var(--gradient-reverse); filter: drop-shadow(0 0 6px co
 
 /* --- Tooltip --- */
 
-.tooltip { position: relative; border-bottom: 1px dotted var(--secondary); cursor: help; }
+.tooltip { position: relative; border-bottom: none; cursor: help; }
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient);
+}
 
 .tooltip:hover::after {
   content: attr(data-tip);
@@ -194,3 +204,93 @@ hr.reverse { background: var(--gradient-reverse); filter: drop-shadow(0 0 6px co
 .progress-success { background: var(--success); }
 .progress-bar.gradient { background: var(--gradient); }
 .progress-bar.gradient-reverse { background: var(--gradient-reverse); }
+
+/* --- Theme Toggle --- */
+
+.theme-toggle {
+  background: var(--accent-15);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.theme-toggle svg {
+  color: var(--sun-glow);
+  filter: drop-shadow(0 0 6px var(--sun-glow-70)) drop-shadow(0 0 14px var(--sun-glow-40));
+}
+.theme-toggle:hover {
+  background: var(--accent-30);
+}
+
+.light .theme-toggle {
+  background: var(--secondary-15);
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+.light .theme-toggle svg {
+  color: var(--secondary);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--secondary) 70%, transparent)) drop-shadow(0 0 14px color-mix(in srgb, var(--secondary) 40%, transparent));
+}
+.light .theme-toggle:hover {
+  background: var(--secondary-30);
+}
+
+/* --- Color Table --- */
+
+.color-toggle {
+  margin: 0.5rem 0;
+}
+
+tr[data-derived] td {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.derived-name {
+  padding-left: 1.5rem;
+  font-size: 0.9em;
+  color: var(--muted);
+}
+
+/* --- Theme Toggle --- */
+
+.theme-toggle {
+  background: var(--accent-15);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.theme-toggle svg {
+  color: var(--sun-glow);
+  filter: drop-shadow(0 0 6px var(--sun-glow-70)) drop-shadow(0 0 14px var(--sun-glow-40));
+}
+.theme-toggle:hover {
+  background: var(--accent-30);
+}
+
+.light .theme-toggle {
+  background: var(--secondary-15);
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+.light .theme-toggle svg {
+  color: var(--secondary);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--secondary) 70%, transparent)) drop-shadow(0 0 14px color-mix(in srgb, var(--secondary) 40%, transparent));
+}
+.light .theme-toggle:hover {
+  background: var(--secondary-30);
+}
+
+/* --- Color Table --- */
+
+.color-toggle {
+  margin: 0.5rem 0;
+}
+
+tr[data-derived] td {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.derived-name {
+  padding-left: 1.5rem;
+  font-size: 0.9em;
+  color: var(--muted);
+}
