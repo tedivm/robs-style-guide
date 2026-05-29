@@ -47,9 +47,9 @@
       document.head.appendChild(s);
     });
 
-    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js');
-    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js');
-    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js');
+    await loadScript('./prism/prism.min.js');
+    await loadScript('./prism/prism-json.min.js');
+    await loadScript('./prism/prism-bash.min.js');
 
     await tick();
 
@@ -591,10 +591,6 @@ echo "Hello, world!"</code></pre>
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-  }
-
-  .form-group {
-    margin-bottom: 1rem;
   }
 
   .instructions {

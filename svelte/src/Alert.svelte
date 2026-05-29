@@ -1,5 +1,5 @@
 <script>
-  export let variant = 'default';
+  let { variant = 'default' } = $props();
 
   function getStyles() {
     const c = variant === 'default' ? 'var(--primary)'

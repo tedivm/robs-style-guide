@@ -1,6 +1,5 @@
 <script>
-  export let value = 0;
-  export let color = 'primary';
+  let { value = 0, color = 'primary' } = $props();
 
   function getStyles() {
     const c = color === 'primary' ? 'var(--primary)'

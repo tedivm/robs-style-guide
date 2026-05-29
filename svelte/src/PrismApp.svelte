@@ -211,18 +211,18 @@ echo "Done."</code></pre>` },
       document.head.appendChild(s);
     });
 
-    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js');
+    await loadScript('./prism/prism.min.js');
 
     await Promise.all([
-      loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js'),
-      loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js'),
-      loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json5.min.js'),
-      loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js'),
-      loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js'),
-      loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js'),
-      loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js'),
-      loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js'),
-      loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-diff.min.js'),
+      loadScript('./prism/prism-json.min.js'),
+      loadScript('./prism/prism-yaml.min.js'),
+      loadScript('./prism/prism-json5.min.js'),
+      loadScript('./prism/prism-javascript.min.js'),
+      loadScript('./prism/prism-python.min.js'),
+      loadScript('./prism/prism-go.min.js'),
+      loadScript('./prism/prism-bash.min.js'),
+      loadScript('./prism/prism-markup.min.js'),
+      loadScript('./prism/prism-diff.min.js'),
     ]);
 
     await tick();
@@ -457,16 +457,6 @@ echo "Done."</code></pre>` },
     justify-content: center;
     padding: 0.45rem;
     line-height: 0;
-  }
-
-  .btn-primary {
-    background: rgba(188, 0, 129, 0.15);
-    color: var(--primary);
-    border-color: var(--primary);
-  }
-
-  .btn-primary:hover {
-    background: rgba(188, 0, 129, 0.3);
   }
 
   .dim {
