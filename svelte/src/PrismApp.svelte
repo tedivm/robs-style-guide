@@ -317,7 +317,7 @@ echo "Done."</code></pre>` },
 
   h1 {
     font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    margin: 2rem 0 0.75rem;
     color: var(--primary);
     text-shadow: 0 0 20px color-mix(in srgb, var(--primary) 60%, transparent), 0 0 40px color-mix(in srgb, var(--primary) 35%, transparent), 0 0 60px color-mix(in srgb, var(--primary) 20%, transparent);
   }
@@ -353,7 +353,7 @@ echo "Done."</code></pre>` },
   }
 
   .subtitle {
-    color: var(--muted-foreground);
+    color: var(--foreground);
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
   }
@@ -436,7 +436,6 @@ echo "Done."</code></pre>` },
 
   .dim {
     color: var(--muted-foreground);
-    opacity: 0.7;
   }
 
   a {

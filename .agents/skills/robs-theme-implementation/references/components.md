@@ -61,38 +61,40 @@ Complete component implementations for Rob's Style Guide. Each component include
   border: 1px solid transparent;
 }
 
-.btn-primary { background: rgba(222, 56, 168, 0.15); color: var(--primary); border-color: var(--primary); }
-.btn-primary:hover { background: rgba(222, 56, 168, 0.3); }
-.btn-secondary { background: rgba(185, 109, 255, 0.15); color: var(--secondary); border-color: var(--secondary); }
-.btn-secondary:hover { background: rgba(185, 109, 255, 0.3); }
-.btn-tertiary { background: rgba(1, 205, 254, 0.15); color: var(--accent); border-color: var(--accent); }
-.btn-tertiary:hover { background: rgba(1, 205, 254, 0.3); }
+.btn-primary { background: var(--primary-15); color: var(--primary); border-color: var(--primary); }
+.btn-primary:hover { background: var(--primary-30); }
+.btn-secondary { background: var(--secondary-15); color: var(--secondary); border-color: var(--secondary); }
+.btn-secondary:hover { background: var(--secondary-30); }
+.btn-tertiary { background: var(--accent-15); color: var(--accent); border-color: var(--accent); }
+.btn-tertiary:hover { background: var(--accent-30); }
 .btn-subtle { background: transparent; color: var(--muted); border-color: var(--border); }
 .btn-subtle:hover { color: var(--fg); border-color: var(--muted); }
-.btn-destructive { background: rgba(255, 80, 80, 0.15); color: var(--error); border-color: var(--error); }
-.btn-destructive:hover { background: rgba(255, 80, 80, 0.3); }
+.btn-destructive { background: var(--error-15); color: var(--error); border-color: var(--error); }
+.btn-destructive:hover { background: var(--error-30); }
 .btn-outline { background: transparent; color: var(--fg); border-color: var(--border); }
 .btn-outline:hover { color: var(--primary); border-color: var(--primary); }
 .btn-ghost { background: transparent; color: var(--fg); border: none; }
 .btn-ghost:hover { background: var(--surface); }
 .btn-link { background: transparent; color: var(--primary); border: none; }
 .btn-link:hover { opacity: 0.85; }
-.btn-gradient { border: 1px solid transparent; background: var(--gradient) padding-box, var(--gradient-reverse) border-box; color: #ffffff; }
-.btn-gradient:hover { background: linear-gradient(90deg, rgba(188, 0, 129, 0.3), rgba(111, 38, 201, 0.3), rgba(0, 92, 181, 0.3)) padding-box, var(--gradient-reverse) border-box; }
+.btn-gradient { border: 1px solid transparent; background: var(--gradient) padding-box, var(--gradient-reverse) border-box; color: var(--text-on-gradient); }
+.btn-gradient:hover { background: linear-gradient(90deg, var(--primary-30), var(--secondary-30), var(--accent-30)) padding-box, var(--gradient-reverse) border-box; }
 .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
 .btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
+.btn-icon { display: inline-flex; align-items: center; justify-content: center; padding: 0.45rem; line-height: 0; }
 ```
 
 ### Svelte `Button.svelte`
 
 ```svelte
 <script>
-  let { variant = 'primary', size = 'default', onclick } = $props();
+  let { variant = 'primary', size = 'default', onclick, icon = false, class: extraClass = '' } = $props();
 
   function getClasses() {
     let v = 'btn-' + variant;
     let s = size !== 'default' ? 'btn-' + size : '';
-    return (v + ' ' + s).trim();
+    let i = icon ? 'btn-icon' : '';
+    return [v, s, i, extraClass].filter(Boolean).join(' ');
   }
 </script>
 
@@ -101,34 +103,7 @@ Complete component implementations for Rob's Style Guide. Each component include
 </button>
 
 <style>
-  .btn {
-    display: inline-block;
-    border-radius: var(--radius);
-    font-weight: 600;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background 0.15s;
-    border: 1px solid transparent;
-  }
-  .btn-primary { background: rgba(222, 56, 168, 0.15); color: var(--primary); border-color: var(--primary); }
-  .btn-primary:hover { background: rgba(222, 56, 168, 0.3); }
-  .btn-secondary { background: rgba(185, 109, 255, 0.15); color: var(--secondary); border-color: var(--secondary); }
-  .btn-secondary:hover { background: rgba(185, 109, 255, 0.3); }
-  .btn-tertiary { background: rgba(1, 205, 254, 0.15); color: var(--accent); border-color: var(--accent); }
-  .btn-tertiary:hover { background: rgba(1, 205, 254, 0.3); }
-  .btn-destructive { background: rgba(255, 80, 80, 0.15); color: var(--destructive); border-color: var(--destructive); }
-  .btn-destructive:hover { background: rgba(255, 80, 80, 0.3); }
-  .btn-outline { background: transparent; color: var(--foreground); border-color: var(--border); }
-  .btn-outline:hover { color: var(--primary); border-color: var(--primary); }
-  .btn-ghost { background: transparent; color: var(--foreground); }
-  .btn-ghost:hover { background: var(--muted); }
-  .btn-link { background: transparent; color: var(--primary); }
-  .btn-link:hover { opacity: 0.85; }
-  .btn-gradient { border: 1px solid transparent; background: var(--gradient) padding-box, var(--gradient-reverse) border-box; color: #ffffff; }
-  .btn-gradient:hover { background: linear-gradient(90deg, rgba(188, 0, 129, 0.3), rgba(96, 32, 192, 0.3), rgba(0, 92, 181, 0.3)) padding-box, var(--gradient-reverse) border-box; }
-  .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.75rem; }
-  .btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
-  .btn:not(.btn-sm):not(.btn-lg) { padding: 0.5rem 1rem; font-size: 0.85rem; }
+  /* Button styles are in theme.css */
 </style>
 ```
 
@@ -158,13 +133,13 @@ Complete component implementations for Rob's Style Guide. Each component include
 
 ```css
 .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600; }
-.badge-app { background: rgba(188, 0, 129, 0.15); color: var(--primary); }
-.badge-ai { background: rgba(111, 38, 201, 0.15); color: var(--secondary); }
-.badge-infra { background: rgba(0, 92, 181, 0.15); color: var(--accent); }
-.badge-success { background: rgba(80, 200, 120, 0.15); color: var(--success); }
-.badge-warn { background: rgba(255, 190, 50, 0.15); color: var(--warning); }
-.badge-error { background: rgba(238, 52, 59, 0.15); color: var(--error); }
-.badge-gradient { border: 1px solid transparent; background: var(--gradient) padding-box, var(--gradient-reverse) border-box; color: #ffffff; }
+.badge-app { background: var(--primary-15); color: var(--primary); }
+.badge-ai { background: var(--secondary-15); color: var(--secondary); }
+.badge-infra { background: var(--accent-15); color: var(--accent); }
+.badge-success { background: var(--success-15); color: var(--success); }
+.badge-warn { background: var(--warning-15); color: var(--warning); }
+.badge-error { background: var(--error-15); color: var(--error); }
+.badge-gradient { border: 1px solid transparent; background: var(--gradient) padding-box, var(--gradient-reverse) border-box; color: var(--text-on-gradient); }
 ```
 
 ### Svelte `Badge.svelte`
@@ -172,18 +147,60 @@ Complete component implementations for Rob's Style Guide. Each component include
 ```svelte
 <script>
   let { variant = 'primary' } = $props();
-  function getClasses() { return 'badge badge-' + variant; }
+
+  function getClasses() {
+    return 'badge badge-' + variant;
+  }
 </script>
-<span class={getClasses()}><slot /></span>
+
+<span class={getClasses()}>
+  <slot />
+</span>
+
 <style>
-  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600; }
-  .badge-primary { background: rgba(255, 113, 206, 0.15); color: var(--primary); }
-  .badge-secondary { background: rgba(1, 205, 254, 0.15); color: var(--secondary); }
-  .badge-accent { background: rgba(185, 109, 255, 0.15); color: var(--accent); }
-  .badge-destructive { background: rgba(255, 80, 80, 0.15); color: var(--destructive); }
-  .badge-success { background: rgba(80, 200, 120, 0.15); color: var(--success); }
-  .badge-warning { background: rgba(255, 190, 50, 0.15); color: var(--warning); }
-  .badge-gradient { border: 1px solid transparent; background: var(--gradient) padding-box, var(--gradient-reverse) border-box; color: #ffffff; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+
+  .badge-primary {
+    background: var(--primary-15);
+    color: var(--primary);
+  }
+
+  .badge-secondary {
+    background: var(--accent-15);
+    color: var(--secondary);
+  }
+
+  .badge-accent {
+    background: var(--secondary-15);
+    color: var(--accent);
+  }
+
+  .badge-destructive {
+    background: var(--destructive-15);
+    color: var(--destructive);
+  }
+
+  .badge-success {
+    background: var(--success-15);
+    color: var(--success);
+  }
+
+  .badge-warning {
+    background: var(--warning-15);
+    color: var(--warning);
+  }
+
+  .badge-gradient {
+    border: 1px solid transparent;
+    background: var(--gradient) padding-box, var(--gradient-reverse) border-box;
+    color: var(--text-on-gradient);
+  }
 </style>
 ```
 
@@ -231,14 +248,34 @@ Complete component implementations for Rob's Style Guide. Each component include
 ### Svelte `Card.svelte`
 
 ```svelte
-<script></script>
+<script>
+</script>
+
 <div class="card">
-  <slot name="header" />
+  <div class="card-header-wrapper"><slot name="header" /></div>
   <slot name="body" />
 </div>
+
 <style>
-  .card { background: var(--card); color: var(--card-foreground); padding: 1rem; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 0.5rem; }
-  .card:hover { border-color: var(--primary); }
+  .card {
+    background: var(--card);
+    color: var(--card-foreground);
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 0.5rem;
+  }
+
+  .card:hover {
+    border-color: var(--primary);
+  }
+
+  .card-header-wrapper {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+    font-size: 1.1rem;
+  }
 </style>
 ```
 
@@ -267,7 +304,8 @@ Complete component implementations for Rob's Style Guide. Each component include
 
 ```svelte
 <script>
-  export let variant = 'default';
+  let { variant = 'default' } = $props();
+
   function getStyles() {
     const c = variant === 'default' ? 'var(--primary)'
       : variant === 'secondary' ? 'var(--secondary)'
@@ -278,9 +316,18 @@ Complete component implementations for Rob's Style Guide. Each component include
     return 'background: var(--muted); border-left: 3px solid ' + c + ';';
   }
 </script>
-<div class="alert" style={getStyles()}><slot /></div>
+
+<div class="alert" style={getStyles()}>
+  <slot />
+</div>
+
 <style>
-  .alert { padding: 1rem; border-radius: var(--radius); margin: 0.5rem 0; font-size: 0.9rem; }
+  .alert {
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+  }
 </style>
 ```
 
@@ -305,8 +352,8 @@ Complete component implementations for Rob's Style Guide. Each component include
 
 ```svelte
 <script>
-  export let value = 0;
-  export let color = 'primary';
+  let { value = 0, color = 'primary' } = $props();
+
   function getStyles() {
     const c = color === 'primary' ? 'var(--primary)'
       : color === 'secondary' ? 'var(--secondary)'
@@ -316,10 +363,24 @@ Complete component implementations for Rob's Style Guide. Each component include
     return 'background: ' + c + '; width: ' + value + '%;';
   }
 </script>
-<div class="progress"><div class="bar" style={getStyles()}></div></div>
+
+<div class="progress">
+  <div class="bar" style={getStyles()}></div>
+</div>
+
 <style>
-  .progress { background: var(--muted); border-radius: 4px; height: 8px; overflow: hidden; margin: 0.5rem 0; }
-  .bar { height: 100%; border-radius: 4px; transition: width 0.3s; }
+  .progress {
+    background: var(--muted);
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+  }
+  .bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s;
+  }
 </style>
 ```
 
@@ -327,14 +388,30 @@ Complete component implementations for Rob's Style Guide. Each component include
 
 ```svelte
 <script>
-  export let value = 0;
-  export let reverse = false;
+  let { value = 0, reverse = false } = $props();
 </script>
-<div class="progress"><div class="bar {reverse ? 'bar-reverse' : ''}" style="width: {value}%;"></div></div>
+
+<div class="progress">
+  <div class="bar {reverse ? 'bar-reverse' : ''}" style="width: {value}%;"></div>
+</div>
+
 <style>
-  .progress { background: var(--muted); border-radius: 4px; height: 8px; overflow: hidden; margin: 0.5rem 0; }
-  .bar { height: 100%; border-radius: 4px; transition: width 0.3s; background: var(--gradient); }
-  .bar-reverse { background: var(--gradient-reverse); }
+  .progress {
+    background: var(--muted);
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+  }
+  .bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s;
+    background: var(--gradient);
+  }
+  .bar-reverse {
+    background: var(--gradient-reverse);
+  }
 </style>
 ```
 
@@ -398,8 +475,8 @@ th { color: var(--muted); font-weight: 600; font-size: 0.8em; text-transform: up
 ### Vanilla CSS
 
 ```css
-hr { border: none; height: 1px; margin: 1.5rem 0; background: var(--gradient); filter: drop-shadow(0 0 6px rgba(188, 0, 129, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
-hr.reverse { background: var(--gradient-reverse); filter: drop-shadow(0 0 6px rgba(0, 92, 181, 0.7)) drop-shadow(0 0 16px rgba(96, 32, 192, 0.4)); }
+hr { border: none; height: 1px; margin: 1.5rem 0; background: var(--gradient); filter: drop-shadow(0 0 6px color-mix(in srgb, var(--primary) 70%, transparent)) drop-shadow(0 0 16px color-mix(in srgb, var(--secondary) 40%, transparent)); }
+hr.reverse { background: var(--gradient-reverse); filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 70%, transparent)) drop-shadow(0 0 16px color-mix(in srgb, var(--secondary) 40%, transparent)); }
 ```
 
 ---

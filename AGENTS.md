@@ -51,21 +51,6 @@ cd svelte && npm run build:all    # All three
 - **Fonts:** Source Serif 4, Source Code Pro (self-hosted)
 - **CI/CD:** GitHub Actions (`deploy.yml`) — push to `main` triggers build and deploy
 
-## Design Tokens
-
-Global (same for dark and light):
-
-| Color | Value |
-| --- | --- |
-| Primary (pink) | `#bc0081` |
-| Secondary (purple) | `#b96dff` |
-| Tertiary (cyan) | `#01cdfe` |
-| Success | `#50c878` |
-| Warning | `#ffbe32` |
-| Error | `#ff5050` |
-
-Both implementations share the same palette. Vanilla HTML (`docs/index.html`) is the canonical reference for styling.
-
 ## Conventions
 
 - Vanilla HTML stays dependency-free — no build tools, no frameworks
