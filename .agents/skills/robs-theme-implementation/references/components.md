@@ -17,7 +17,7 @@ Complete component implementations for Rob's Style Guide. Each component include
 11. [Layout Utilities](#layout-utilities)
 12. [Swatch / Color](#swatch-color)
 13. [Toolbar](#toolbar)
-14. [Tool Cards](#tool-cards)
+14. [Glossary](#glossary)
 15. [Config Sections](#config-sections)
 16. [Avatar](#avatar)
 
@@ -61,14 +61,16 @@ Complete component implementations for Rob's Style Guide. Each component include
   border: 1px solid transparent;
 }
 
-.btn-primary { background: rgba(188, 0, 129, 0.15); color: var(--primary); border-color: var(--primary); }
-.btn-primary:hover { background: rgba(188, 0, 129, 0.3); }
-.btn-secondary { background: rgba(111, 38, 201, 0.15); color: var(--secondary); border-color: var(--secondary); }
-.btn-secondary:hover { background: rgba(111, 38, 201, 0.3); }
+.btn-primary { background: rgba(222, 56, 168, 0.15); color: var(--primary); border-color: var(--primary); }
+.btn-primary:hover { background: rgba(222, 56, 168, 0.3); }
+.btn-secondary { background: rgba(185, 109, 255, 0.15); color: var(--secondary); border-color: var(--secondary); }
+.btn-secondary:hover { background: rgba(185, 109, 255, 0.3); }
+.btn-tertiary { background: rgba(1, 205, 254, 0.15); color: var(--accent); border-color: var(--accent); }
+.btn-tertiary:hover { background: rgba(1, 205, 254, 0.3); }
 .btn-subtle { background: transparent; color: var(--muted); border-color: var(--border); }
 .btn-subtle:hover { color: var(--fg); border-color: var(--muted); }
-.btn-destructive { background: rgba(238, 52, 59, 0.15); color: var(--error); border-color: var(--error); }
-.btn-destructive:hover { background: rgba(238, 52, 59, 0.3); }
+.btn-destructive { background: rgba(255, 80, 80, 0.15); color: var(--error); border-color: var(--error); }
+.btn-destructive:hover { background: rgba(255, 80, 80, 0.3); }
 .btn-outline { background: transparent; color: var(--fg); border-color: var(--border); }
 .btn-outline:hover { color: var(--primary); border-color: var(--primary); }
 .btn-ghost { background: transparent; color: var(--fg); border: none; }
@@ -108,10 +110,12 @@ Complete component implementations for Rob's Style Guide. Each component include
     transition: background 0.15s;
     border: 1px solid transparent;
   }
-  .btn-primary { background: rgba(188, 0, 129, 0.15); color: var(--primary); border-color: var(--primary); }
-  .btn-primary:hover { background: rgba(188, 0, 129, 0.3); }
-  .btn-secondary { background: rgba(96, 32, 192, 0.15); color: var(--secondary); border-color: var(--secondary); }
-  .btn-secondary:hover { background: rgba(96, 32, 192, 0.3); }
+  .btn-primary { background: rgba(222, 56, 168, 0.15); color: var(--primary); border-color: var(--primary); }
+  .btn-primary:hover { background: rgba(222, 56, 168, 0.3); }
+  .btn-secondary { background: rgba(185, 109, 255, 0.15); color: var(--secondary); border-color: var(--secondary); }
+  .btn-secondary:hover { background: rgba(185, 109, 255, 0.3); }
+  .btn-tertiary { background: rgba(1, 205, 254, 0.15); color: var(--accent); border-color: var(--accent); }
+  .btn-tertiary:hover { background: rgba(1, 205, 254, 0.3); }
   .btn-destructive { background: rgba(255, 80, 80, 0.15); color: var(--destructive); border-color: var(--destructive); }
   .btn-destructive:hover { background: rgba(255, 80, 80, 0.3); }
   .btn-outline { background: transparent; color: var(--foreground); border-color: var(--border); }
@@ -219,7 +223,7 @@ Complete component implementations for Rob's Style Guide. Each component include
 .card:hover { border-color: var(--primary); }
 .card a.card-link { text-decoration: none; }
 .card a.card-link:hover { text-decoration: none; }
-.card-header { font-weight: 600; margin-bottom: 0.5rem; color: var(--primary); font-size: 1.1rem; }
+.card-header { font-weight: 600; margin-bottom: 0.5rem; color: var(--accent); font-size: 1.1rem; }
 .card-body { font-size: 0.9rem; color: var(--surface-fg); }
 .card-meta { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; font-family: 'Source Code Pro', monospace; }
 ```
@@ -443,14 +447,14 @@ hr.reverse { background: var(--gradient-reverse); filter: drop-shadow(0 0 6px rg
 
 ---
 
-## Tool Cards
+## Glossary
 
 ### Vanilla CSS
 
 ```css
-.tool { margin: 0.5rem 0; padding: 0.5rem 0; border-bottom: 1px solid var(--surface); }
-.tool-name { font-weight: bold; font-family: monospace; color: var(--primary); }
-.tool-desc { color: var(--fg); font-size: 0.9rem; }
+.glossary { margin: 0.5rem 0; padding: 0.5rem 0; border-bottom: 1px solid var(--surface); }
+.glossary-term { font-weight: bold; font-family: monospace; color: var(--primary); }
+.glossary-desc { color: var(--fg); font-size: 0.9rem; }
 ```
 
 ---

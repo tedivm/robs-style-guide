@@ -1,11 +1,11 @@
 <script>
-  let { variant = 'primary', size = 'default', onclick, icon = false } = $props();
+  let { variant = 'primary', size = 'default', onclick, icon = false, class: extraClass = '' } = $props();
 
   function getClasses() {
     let v = 'btn-' + variant;
     let s = size !== 'default' ? 'btn-' + size : '';
     let i = icon ? 'btn-icon' : '';
-    return [v, s, i].filter(Boolean).join(' ');
+    return [v, s, i, extraClass].filter(Boolean).join(' ');
   }
 </script>
 
@@ -40,6 +40,15 @@
   }
   .btn-secondary:hover {
     background: rgba(96, 32, 192, 0.3);
+  }
+
+  .btn-tertiary {
+    background: rgba(1, 205, 254, 0.15);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .btn-tertiary:hover {
+    background: rgba(1, 205, 254, 0.3);
   }
 
   .btn-destructive {
@@ -106,5 +115,30 @@
     justify-content: center;
     padding: 0.45rem;
     line-height: 0;
+  }
+
+  .theme-toggle {
+    background: rgba(185, 109, 255, 0.15);
+    color: var(--secondary);
+    border-color: var(--secondary);
+  }
+  .theme-toggle svg {
+    filter: drop-shadow(0 0 6px rgba(185, 109, 255, 0.7)) drop-shadow(0 0 14px rgba(185, 109, 255, 0.4));
+  }
+  .theme-toggle:hover {
+    background: rgba(185, 109, 255, 0.3);
+  }
+
+  :global(.dark) .theme-toggle {
+    background: rgba(1, 205, 254, 0.15);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  :global(.dark) .theme-toggle svg {
+    color: #ffe033;
+    filter: drop-shadow(0 0 6px rgba(255, 224, 51, 0.7)) drop-shadow(0 0 14px rgba(255, 224, 51, 0.4));
+  }
+  :global(.dark) .theme-toggle:hover {
+    background: rgba(1, 205, 254, 0.3);
   }
 </style>

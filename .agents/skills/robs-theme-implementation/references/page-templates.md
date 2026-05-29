@@ -34,23 +34,29 @@ Main style guide page template. Zero dependencies, no build tools required.
   <p class="subtitle">Page description</p>
 
   <div class="toolbar">
-    <button class="btn btn-primary" id="theme-toggle">Toggle Light Mode</button>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle Light Mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    </button>
     <a href="../" class="back-link">← Home</a>
   </div>
 
   <!-- Content here -->
 
   <script>
+    var sunSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+    var moonSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
     var toggle = document.getElementById('theme-toggle');
     var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
     if (isLight) {
       document.documentElement.classList.add('light');
-      toggle.textContent = 'Toggle Dark Mode';
+      toggle.innerHTML = moonSvg;
+      toggle.title = 'Toggle Dark Mode';
     }
     toggle.addEventListener('click', function() {
       isLight = !isLight;
       document.documentElement.classList.toggle('light', isLight);
-      toggle.textContent = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+      toggle.innerHTML = isLight ? moonSvg : sunSvg;
+      toggle.title = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
     });
   </script>
 </body>
@@ -80,7 +86,9 @@ Code highlighting page with Prism.js. **Download Prism locally** (preferred) or 
   <p class="subtitle">Description</p>
 
   <div class="toolbar">
-    <button class="btn btn-primary" id="theme-toggle">Toggle Light Mode</button>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle Light Mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    </button>
     <a href="./index.html" class="back-link">← Back</a>
   </div>
 
@@ -94,22 +102,28 @@ Code highlighting page with Prism.js. **Download Prism locally** (preferred) or 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
   <!-- ... other language components ... -->
   <script>
+    var sunSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+    var moonSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
     var toggle = document.getElementById('theme-toggle');
     var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
     if (isLight) {
       document.documentElement.classList.add('light');
-      toggle.textContent = 'Toggle Dark Mode';
+      toggle.innerHTML = moonSvg;
+      toggle.title = 'Toggle Dark Mode';
     }
     toggle.addEventListener('click', function() {
       isLight = !isLight;
       document.documentElement.classList.toggle('light', isLight);
-      toggle.textContent = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+      toggle.innerHTML = isLight ? moonSvg : sunSvg;
+      toggle.title = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+
+      // Re-highlight on theme toggle since CSS variables change
+      if (typeof Prism !== 'undefined') {
+        setTimeout(Prism.highlightAll, 50);
+      }
     });
     if (typeof Prism !== 'undefined') {
       Prism.highlightAll();
-      toggle.addEventListener('click', function() {
-        setTimeout(Prism.highlightAll, 50);
-      });
     }
   </script>
 </body>
@@ -138,7 +152,9 @@ Entry point that links to each implementation system. Uses card grid layout with
   <p class="subtitle">Shared design system across implementation frameworks</p>
 
   <div class="toolbar">
-    <button class="btn btn-primary" id="theme-toggle">Toggle Light Mode</button>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle Light Mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    </button>
   </div>
 
   <h2>Systems</h2>
@@ -153,16 +169,20 @@ Entry point that links to each implementation system. Uses card grid layout with
   </div>
 
   <script>
+    var sunSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+    var moonSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
     var toggle = document.getElementById('theme-toggle');
     var isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
     if (isLight) {
       document.documentElement.classList.add('light');
-      toggle.textContent = 'Toggle Dark Mode';
+      toggle.innerHTML = moonSvg;
+      toggle.title = 'Toggle Dark Mode';
     }
     toggle.addEventListener('click', function() {
       isLight = !isLight;
       document.documentElement.classList.toggle('light', isLight);
-      toggle.textContent = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+      toggle.innerHTML = isLight ? moonSvg : sunSvg;
+      toggle.title = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
     });
   </script>
 </body>
@@ -177,7 +197,7 @@ Svelte 5 runes-based page component. Uses `onMount` for theme detection and inli
 <script>
   import './theme.css';
   import { onMount } from 'svelte';
-
+  import { IconSun, IconMoon } from '@tabler/icons-svelte';
   let dark = $state(false);
 
   function toggle() {
@@ -198,8 +218,12 @@ Svelte 5 runes-based page component. Uses `onMount` for theme detection and inli
   <p class="subtitle">Description</p>
 
   <div class="toolbar">
-    <button class="btn btn-primary" onclick={toggle}>
-      {dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}
+    <button class="theme-toggle" onclick={toggle} title={dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}>
+      {#if dark}
+        <IconSun size={18} />
+      {:else}
+        <IconMoon size={18} />
+      {/if}
     </button>
     <a href="../" class="back-link">← Home</a>
   </div>
@@ -209,6 +233,39 @@ Svelte 5 runes-based page component. Uses `onMount` for theme detection and inli
 
 <style>
   .container { max-width: 900px; }
+
+  .theme-toggle {
+    background: rgba(185, 109, 255, 0.15);
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+    border-radius: var(--radius);
+    padding: 0.4rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .theme-toggle:hover {
+    background: rgba(185, 109, 255, 0.3);
+  }
+  .theme-toggle svg {
+    filter: drop-shadow(0 0 6px rgba(185, 109, 255, 0.7)) drop-shadow(0 0 14px rgba(185, 109, 255, 0.4));
+  }
+
+  :global(.dark) .theme-toggle {
+    background: rgba(1, 205, 254, 0.15);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  :global(.dark) .theme-toggle:hover {
+    background: rgba(1, 205, 254, 0.3);
+  }
+  :global(.dark) .theme-toggle svg {
+    filter: drop-shadow(0 0 6px rgba(1, 205, 254, 0.7)) drop-shadow(0 0 14px rgba(1, 205, 254, 0.4));
+  }
+
   /* ... styles from the skill references ... */
 </style>
 ```

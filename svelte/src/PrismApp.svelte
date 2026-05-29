@@ -250,7 +250,7 @@ echo "Done."</code></pre>` },
   <p class="subtitle">Syntax highlighting via Prism.js with our design system palette</p>
 
   <div class="toolbar">
-    <button id="theme-toggle" class="btn btn-primary btn-icon" onclick={toggle} title={dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}>
+    <button id="theme-toggle" class="btn btn-icon theme-toggle" onclick={toggle} title={dark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}>
       {#if dark}
         <IconSun size={18} />
       {:else}
@@ -319,6 +319,7 @@ echo "Done."</code></pre>` },
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: var(--primary);
+    text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
   }
 
   h2 {
@@ -328,6 +329,7 @@ echo "Done."</code></pre>` },
     border-bottom: 1px solid;
     border-image: var(--gradient) 1;
     color: var(--secondary);
+    text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
     position: relative;
   }
   h2::after {
@@ -342,6 +344,14 @@ echo "Done."</code></pre>` },
     opacity: 0.7;
   }
 
+  :global(.dark) h1 {
+    text-shadow: 0 0 20px rgba(222, 56, 168, 0.6), 0 0 40px rgba(222, 56, 168, 0.35), 0 0 60px rgba(222, 56, 168, 0.2);
+  }
+
+  :global(.dark) h2 {
+    text-shadow: 0 0 20px rgba(185, 109, 255, 0.5), 0 0 40px rgba(185, 109, 255, 0.3), 0 0 60px rgba(185, 109, 255, 0.15);
+  }
+
   .subtitle {
     color: var(--muted-foreground);
     margin-bottom: 1.5rem;
@@ -353,6 +363,31 @@ echo "Done."</code></pre>` },
     align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
+  }
+
+  .theme-toggle {
+    background: rgba(185, 109, 255, 0.15);
+    color: var(--secondary);
+    border-color: var(--secondary);
+  }
+  .theme-toggle svg {
+    filter: drop-shadow(0 0 6px rgba(185, 109, 255, 0.7)) drop-shadow(0 0 14px rgba(185, 109, 255, 0.4));
+  }
+  .theme-toggle:hover {
+    background: rgba(185, 109, 255, 0.3);
+  }
+
+  :global(.dark) .theme-toggle {
+    background: rgba(1, 205, 254, 0.15);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  :global(.dark) .theme-toggle svg {
+    color: #ffe033;
+    filter: drop-shadow(0 0 6px rgba(255, 224, 51, 0.7)) drop-shadow(0 0 14px rgba(255, 224, 51, 0.4));
+  }
+  :global(.dark) .theme-toggle:hover {
+    background: rgba(1, 205, 254, 0.3);
   }
 
   .back-link {
@@ -440,7 +475,7 @@ echo "Done."</code></pre>` },
   }
 
   a {
-    color: var(--secondary);
+    color: var(--accent);
     text-decoration: none;
   }
 

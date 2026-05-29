@@ -66,16 +66,17 @@
   vertical-align: middle;
 }
 
-/* --- Tool Cards --- */
 
-.tool {
+/* --- Glossary --- */
+
+.glossary {
   margin: 0.5rem 0;
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--surface);
 }
 
-.tool-name { font-weight: bold; font-family: monospace; color: var(--primary); }
-.tool-desc { color: var(--fg); font-size: 0.9rem; }
+.glossary-term { font-weight: bold; font-family: monospace; color: var(--primary); }
+.glossary-desc { color: var(--fg); font-size: 0.9rem; }
 
 /* --- Config Sections --- */
 

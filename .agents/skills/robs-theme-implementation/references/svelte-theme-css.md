@@ -68,6 +68,7 @@ h1 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   color: var(--primary);
+  text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
 }
 
 h2 {
@@ -77,6 +78,7 @@ h2 {
   border-bottom: 1px solid;
   border-image: var(--gradient) 1;
   color: var(--secondary);
+  text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
   position: relative;
 }
 
@@ -90,6 +92,14 @@ h2::after {
   background: var(--gradient);
   filter: blur(6px);
   opacity: 0.7;
+}
+
+.dark h1 {
+  text-shadow: 0 0 20px rgba(222, 56, 168, 0.6), 0 0 40px rgba(222, 56, 168, 0.35), 0 0 60px rgba(222, 56, 168, 0.2);
+}
+
+.dark h2 {
+  text-shadow: 0 0 20px rgba(185, 109, 255, 0.5), 0 0 40px rgba(185, 109, 255, 0.3), 0 0 60px rgba(185, 109, 255, 0.15);
 }
 
 h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: var(--accent); }
@@ -164,7 +174,7 @@ pre code { background: none; padding: 0; color: inherit; }
   background: var(--card);
   padding: 0.2rem 0.5rem;
   border-radius: 3px;
-  color: var(--secondary);
+  color: var(--accent);
 }
 
 .kbd {
@@ -419,22 +429,22 @@ label {
 }
 ```
 
-### Tool Cards
+### Glossary
 
 ```css
-.tool {
+.glossary {
   margin: 0.5rem 0;
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--card);
 }
 
-.tool-name {
+.glossary-term {
   font-weight: bold;
   font-family: 'Source Code Pro', monospace;
   color: var(--primary);
 }
 
-.tool-desc {
+.glossary-desc {
   color: var(--foreground);
   font-size: 0.9rem;
 }
