@@ -311,6 +311,7 @@
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: var(--primary);
+    text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
   }
 
   h2 {
@@ -320,6 +321,7 @@
     border-bottom: 1px solid;
     border-image: var(--gradient) 1;
     color: var(--secondary);
+    text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
     position: relative;
   }
   h2::after {

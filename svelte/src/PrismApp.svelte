@@ -319,6 +319,7 @@ echo "Done."</code></pre>` },
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: var(--primary);
+    text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
   }
 
   h2 {
@@ -328,6 +329,7 @@ echo "Done."</code></pre>` },
     border-bottom: 1px solid;
     border-image: var(--gradient) 1;
     color: var(--secondary);
+    text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
     position: relative;
   }
   h2::after {
@@ -340,6 +342,14 @@ echo "Done."</code></pre>` },
     background: var(--gradient);
     filter: blur(6px);
     opacity: 0.7;
+  }
+
+  :global(.dark) h1 {
+    text-shadow: 0 0 20px rgba(222, 56, 168, 0.6), 0 0 40px rgba(222, 56, 168, 0.35), 0 0 60px rgba(222, 56, 168, 0.2);
+  }
+
+  :global(.dark) h2 {
+    text-shadow: 0 0 20px rgba(185, 109, 255, 0.5), 0 0 40px rgba(185, 109, 255, 0.3), 0 0 60px rgba(185, 109, 255, 0.15);
   }
 
   .subtitle {
