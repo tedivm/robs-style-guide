@@ -20,17 +20,17 @@
   import IconSun from '@tabler/icons-svelte-runes/icons/sun';
   import IconMoon from '@tabler/icons-svelte-runes/icons/moon';
 
-  let dark = $state(false);
+  let dark = $state(true);
 
   function toggle() {
     dark = !dark;
-    document.documentElement.classList.toggle('dark', dark);
+    document.documentElement.classList.toggle('light', !dark);
   }
 
   onMount(async () => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      dark = true;
-      document.documentElement.classList.add('dark');
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+      dark = false;
+      document.documentElement.classList.add('light');
     }
 
     const loadScript = (src) => new Promise((resolve, reject) => {
@@ -262,25 +262,25 @@
   <div class="icon-gradient-row">
     <div class="icon-gradient-cell">
       <div class="icon-gradient-bg">
-        <IconSearch size={24} color="#fff" />
+        <IconSearch size={24} color="var(--text-on-gradient)" />
       </div>
       <span>search</span>
     </div>
     <div class="icon-gradient-cell">
       <div class="icon-gradient-bg">
-        <IconCircleCheck size={24} color="#fff" />
+        <IconCircleCheck size={24} color="var(--text-on-gradient)" />
       </div>
       <span>check-circle</span>
     </div>
     <div class="icon-gradient-cell">
       <div class="icon-gradient-bg">
-        <IconAlertTriangle size={24} color="#fff" />
+        <IconAlertTriangle size={24} color="var(--text-on-gradient)" />
       </div>
       <span>alert-triangle</span>
     </div>
     <div class="icon-gradient-cell">
       <div class="icon-gradient-bg">
-        <IconBell size={24} color="#fff" />
+        <IconBell size={24} color="var(--text-on-gradient)" />
       </div>
       <span>bell</span>
     </div>
@@ -370,7 +370,7 @@
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: var(--primary);
-    text-shadow: 0 0 20px rgba(222, 56, 168, 0.25), 0 0 40px rgba(222, 56, 168, 0.12);
+    text-shadow: 0 0 20px color-mix(in srgb, var(--primary) 60%, transparent), 0 0 40px color-mix(in srgb, var(--primary) 35%, transparent), 0 0 60px color-mix(in srgb, var(--primary) 20%, transparent);
   }
 
   h2 {
@@ -380,9 +380,18 @@
     border-bottom: 1px solid;
     border-image: var(--gradient) 1;
     color: var(--secondary);
-    text-shadow: 0 0 20px rgba(185, 109, 255, 0.25), 0 0 40px rgba(185, 109, 255, 0.12);
+    text-shadow: 0 0 20px color-mix(in srgb, var(--secondary) 50%, transparent), 0 0 40px color-mix(in srgb, var(--secondary) 30%, transparent), 0 0 60px color-mix(in srgb, var(--secondary) 15%, transparent);
     position: relative;
   }
+
+  :global(.light) h1 {
+    text-shadow: 0 0 20px color-mix(in srgb, var(--primary) 25%, transparent), 0 0 40px color-mix(in srgb, var(--primary) 12%, transparent);
+  }
+
+  :global(.light) h2 {
+    text-shadow: 0 0 20px color-mix(in srgb, var(--secondary) 25%, transparent), 0 0 40px color-mix(in srgb, var(--secondary) 12%, transparent);
+  }
+
   h2::after {
     content: '';
     position: absolute;
@@ -412,31 +421,6 @@
     align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
-  }
-
-  .theme-toggle {
-    background: rgba(185, 109, 255, 0.15);
-    color: var(--secondary);
-    border-color: var(--secondary);
-  }
-  .theme-toggle svg {
-    filter: drop-shadow(0 0 6px rgba(185, 109, 255, 0.7)) drop-shadow(0 0 14px rgba(185, 109, 255, 0.4));
-  }
-  .theme-toggle:hover {
-    background: rgba(185, 109, 255, 0.3);
-  }
-
-  :global(.dark) .theme-toggle {
-    background: rgba(1, 205, 254, 0.15);
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-  :global(.dark) .theme-toggle svg {
-    color: #ffe033;
-    filter: drop-shadow(0 0 6px rgba(255, 224, 51, 0.7)) drop-shadow(0 0 14px rgba(255, 224, 51, 0.4));
-  }
-  :global(.dark) .theme-toggle:hover {
-    background: rgba(1, 205, 254, 0.3);
   }
 
   .back-link {
@@ -760,7 +744,7 @@
     height: 48px;
     background: var(--gradient);
     border-radius: 8px;
-    color: #fff;
+    color: var(--text-on-gradient);
   }
 
   .icon-gradient-overlay {

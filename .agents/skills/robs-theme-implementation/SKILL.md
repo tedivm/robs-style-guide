@@ -44,6 +44,34 @@ The fastest way to adopt the theme is to copy the complete [vanilla `theme.css`]
 | Code text       | `#e0e0e0` | `#4c1161` |
 | Surface text    | `#dcdcdc` | `#2a1525` |
 
+### Derived (transparency variants)
+
+These are `color-mix` expressions that compute at runtime from the base color tokens. The resolved hex values are shown for reference.
+
+| Variable | Resolved | Usage |
+|---|---|---|
+| `--primary-15` | `rgba(222, 56, 168, 0.15)` | Button/badge backgrounds |
+| `--primary-30` | `rgba(222, 56, 168, 0.30)` | Button hover states |
+| `--secondary-15` | `rgba(185, 109, 255, 0.15)` | Button/badge backgrounds |
+| `--secondary-30` | `rgba(185, 109, 255, 0.30)` | Button hover states |
+| `--accent-15` | `rgba(1, 205, 254, 0.15)` | Button/badge backgrounds |
+| `--accent-30` | `rgba(1, 205, 254, 0.30)` | Button hover states |
+| `--success-15` | `rgba(80, 200, 120, 0.15)` | Success button/badge backgrounds |
+| `--success-30` | `rgba(80, 200, 120, 0.30)` | Success hover states |
+| `--warning-15` | `rgba(255, 190, 50, 0.15)` | Warning button/badge backgrounds |
+| `--warning-30` | `rgba(255, 190, 50, 0.30)` | Warning hover states |
+| `--error-15` (vanilla) / `--destructive-15` (Svelte) | `rgba(255, 80, 80, 0.15)` | Error/destructive backgrounds |
+| `--error-30` (vanilla) / `--destructive-30` (Svelte) | `rgba(255, 80, 80, 0.30)` | Error/destructive hover |
+
+### Utility
+
+| Variable | Value | Usage |
+|---|---|---|
+| `--sun-glow` | `#ffe033` | Sun icon in dark mode |
+| `--sun-glow-70` | `rgba(255, 224, 51, 0.7)` | Sun icon glow (outer) |
+| `--sun-glow-40` | `rgba(255, 224, 51, 0.4)` | Sun icon glow (inner) |
+| `--text-on-gradient` | `#ffffff` | Text on gradient backgrounds |
+
 ### Gradient Variables
 
 | Variable              | Direction | Colors               | Used on                                           |
@@ -93,6 +121,24 @@ The fastest way to adopt the theme is to copy the complete [vanilla `theme.css`]
     var(--secondary),
     var(--accent)
   );
+
+  --primary-15: color-mix(in srgb, var(--primary) 15%, transparent);
+  --primary-30: color-mix(in srgb, var(--primary) 30%, transparent);
+  --secondary-15: color-mix(in srgb, var(--secondary) 15%, transparent);
+  --secondary-30: color-mix(in srgb, var(--secondary) 30%, transparent);
+  --accent-15: color-mix(in srgb, var(--accent) 15%, transparent);
+  --accent-30: color-mix(in srgb, var(--accent) 30%, transparent);
+  --error-15: color-mix(in srgb, var(--error) 15%, transparent);
+  --error-30: color-mix(in srgb, var(--error) 30%, transparent);
+  --success-15: color-mix(in srgb, var(--success) 15%, transparent);
+  --success-30: color-mix(in srgb, var(--success) 30%, transparent);
+  --warning-15: color-mix(in srgb, var(--warning) 15%, transparent);
+  --warning-30: color-mix(in srgb, var(--warning) 30%, transparent);
+
+  --sun-glow: #ffe033;
+  --sun-glow-70: rgba(255, 224, 51, 0.7);
+  --sun-glow-40: rgba(255, 224, 51, 0.4);
+  --text-on-gradient: #ffffff;
 }
 ```
 
@@ -444,7 +490,7 @@ Without these steps, `<pre><code>` blocks will render with the base styles from 
 ## Key Conventions
 
 - Vanilla is the **source of truth** for all styling
-- Dark mode is the **default** in vanilla (`:root` = dark); light mode is the **default** in Svelte (`:root` = light)
+- Dark mode is the **default** in both vanilla and Svelte (`:root` = dark); light mode is an override (`.light` class)
 - Max content width: `900px`, centered with `margin: 0 auto`
 - Line height: `1.6` on body, `1.5` on code blocks
 - Gradient direction is always `90deg` (left to right) unless specified otherwise

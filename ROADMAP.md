@@ -1,9 +1,5 @@
 # Roadmap
 
-## Theme
-
-1. **Dark mode as default everywhere** — Svelte currently defaults to light mode; align both implementations to dark as default
-2. **Review all hardcoded colors not part of variables** — audit CSS and components for any hex values not using `--primary`, `--secondary`, `--accent`, etc.
 
 ## UI
 
