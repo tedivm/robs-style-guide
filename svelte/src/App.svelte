@@ -109,6 +109,7 @@
     <a href="../../" class="back-link">← Home</a>
     <a href="../prism/" class="back-link">Code highlighting →</a>
     <a href="../icons/" class="back-link">Icons →</a>
+    <a href="../interactivity/" class="back-link">Interactivity →</a>
   </div>
 
   <h2>Colors</h2>

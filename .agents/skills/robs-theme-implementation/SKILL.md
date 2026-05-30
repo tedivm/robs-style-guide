@@ -422,6 +422,12 @@ All component CSS is in [assets/components.css](assets/components.css) (sourced 
 | **HR**       | `hr` + `.reverse`                                                                                                                                     |
 | **Theme toggle** | `.theme-toggle` + `.light .theme-toggle`                                                                                                          |
 | **Color table** | `.color-toggle`, `tr[data-derived]`, `.derived-name`                                                                                                |
+| **Spinner** | `.spinner`, `.spinner-sm`, `.spinner-lg`, `.spinner-track`, `.spinner-track-sm`, `.spinner-track-lg`                                                  |
+| **Pulse dot** | `.pulse-dot` + `.pulse-dot-pink`, `-cyan`, `-purple`, `-success`, `-warn`, `-error` + `.pulse-dot-sm`, `.pulse-dot-lg`                               |
+| **Skeleton** | `.skeleton`, `.skeleton-line`, `.skeleton-line-sm`, `.skeleton-line-lg`, `.skeleton-avatar`, `.skeleton-card` + width utilities `w-100`, `w-75`, `w-50`, `w-25` |
+| **Dot loader** | `.dot-loader` + `.dot-loader-sm`, `.dot-loader-lg`, `.dot-loader-solid`, `.dot-loader-pink`                                                          |
+| **Bar loader** | `.bar-loader` + `.bar-loader-sm`, `.bar-loader-lg` (5 bars: primary → blend → secondary → blend → accent)                                          |
+| **Vertical bar loader** | `.bar-loader-vertical` + `.bar-loader-vertical-sm`, `.bar-loader-vertical-lg` (same 5-bar gradient, scaleY animation)                               |
 
 Svelte component code (Button, Badge, Card, etc.): [references/components.md](references/components.md)
 
