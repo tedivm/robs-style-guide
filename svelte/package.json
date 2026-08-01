@@ -19,6 +19,6 @@
     "vite": "^8.0.0"
   },
   "dependencies": {
-    "@tabler/icons-svelte-runes": "^3.44.0"
+    "@tabler/icons-svelte-runes": "^3.46.0"
   }
 }
